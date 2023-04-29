@@ -1,0 +1,41 @@
+# Created at 2022-11-22T09:51:36.641
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+# Created at 2022-11-22T09:51:40.583
+Unexpected IOException with stream: Menu =Supply Chain Mgmt
+
+
+# Created at 2022-11-22T09:51:40.877
+Unexpected IOException with stream: Menu =Request
+
+
+# Created at 2022-11-22T09:51:45.275
+Unexpected IOException with stream: Menu =Purchase / Service
+
+
+# Created at 2022-11-22T09:51:45.556
+Unexpected IOException: 5,1,Scenario: Stright Flow Approver Functions,And Approver Stright Flow Navigate From Menu to SR(Scenario: Stright Flow Approver Functions),null,null,null
+
+
+# Created at 2022-11-22T09:51:45.557
+Unexpected IOException: 6,1,Scenario: Stright Flow Approver Functions,And Approver Stright Flow Navigate From Menu to SR(Scenario: Stright Flow Approver Functions),null,null,null
+
+
+# Created at 2022-11-22T09:52:09.103
+Unexpected IOException with stream: Successfully Approved
+
+
+# Created at 2022-11-22T09:52:13.047
+Unexpected IOException: 5,1,Scenario: Stright Flow Approver Functions,And Checking ForAction Function Full Flow Stright Case(Scenario: Stright Flow Approver Functions),null,null,null
+
+
+# Created at 2022-11-22T09:52:13.048
+Unexpected IOException: 6,1,Scenario: Stright Flow Approver Functions,And Checking ForAction Function Full Flow Stright Case(Scenario: Stright Flow Approver Functions),null,null,null
+
+

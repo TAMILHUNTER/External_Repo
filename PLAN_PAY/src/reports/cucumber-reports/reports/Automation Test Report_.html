@@ -1,0 +1,1840 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/bee7a4abdc590e21eec8618a90c81ff4d16e500a/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Cucumber Framework Praveen</title>
+
+	<style type='text/css'>
+			
+      
+        
+      
+    
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>SCM-SR To Pay- Automation Test Report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Nov 22, 2022 11:39:52 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>v3.0.7</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@EIP40_SR</a></li>
+					<li><a href='#'>@EIP_RFQ</a></li>
+					<li><a href='#'>@EIP_TCD</a></li>
+					<li><a href='#'>@EIP_Mesu</a></li>
+					<li><a href='#'>@Bill</a></li>
+					<li><a href='#'>@Scrutiny</a></li>
+					<li><a href='#'>@Journals</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>7</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>13</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>122</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Service Request Creation and Approve</span>
+						<span class='test-time'>Nov 22, 2022 11:39:52 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 1m 11s+264ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Stright Flow Creation Functions</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Login Stright Flow username and Pasword</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='4' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Navigate From Menu to SR In Stright Flow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='5' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Creation from SR Stright Flow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='6' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Stright Material Card</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='7' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Stright WBS and Cost Package</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='8' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Stright Quantiy and Rate</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='9' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Submit Card material in Stright</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='10' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Signout in Stright</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='11' status='pass'>
+	<span class='duration right label'>0h 1m 3s+19ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Stright Flow Approver Functions</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='12' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When Login Stright Flow Approver Username nd Password</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='13' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Approver Stright Flow Navigate From Menu to SR</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='14' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Checking ForAction Function Full Flow Stright Case</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='15' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Checking All Function in Approver Fro Stright Flow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='16' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign out Approver Stright Flow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='17' status='pass'>
+	<span class='duration right label'>0h 0m 26s+146ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Checking Process and Document View Function</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='18' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Login Document View and Process Username nd Password</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='19' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Navigate From Menu to SR Document View and Process</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='20' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Process Flow Details</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='21' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign Out For Flow Details</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>RFQ Creation</span>
+						<span class='test-time'>Nov 22, 2022 11:42:37 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='23' status='pass'>
+	<span class='duration right label'>0h 2m 32s+156ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Domestic Job Service Attachment RFQ Material Verification</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='24' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Go to Test Environment</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='25' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Request For Quote Login and Select RFQ Create Service</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='26' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then After Login Service Request For Quote Add Service page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='27' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Add RFQ Values from SR Request For Quote Create Page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='28' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Service Request For Quote Choose Vendors Page Verification</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='29' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Verify to Enter Vendor Service RFQ Create page and Add the Auto BQ Vendor Type then Move to Payment Terms</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='30' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Enter Service Payment Terms RFQ Create page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='31' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Enter Other Terms Page on SR RFQ Create</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='32' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify and Select Attachment in Other Terms Page on RFQ Create</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='33'>
+					<div class='test-heading'>
+						<span class='test-name'>TCD Creation and Approve</span>
+						<span class='test-time'>Nov 22, 2022 11:45:10 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='34' status='pass'>
+	<span class='duration right label'>0h 1m 35s+782ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify to TCD</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='35' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Go to Test Environment</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='36' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Other User</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='37' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter EIP QA Username</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='38' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter the Password</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='39' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Login</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='40' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Navigate From Menu to TCD</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='41' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Service</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='42' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Filter</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='43' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Pass to RFQ Number from DB</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='44' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And MouseOver to Click on Create Icon</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='45' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Select Job and Vendor</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='46' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Pass to Alloc QTY</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='47' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Full in TDS Details</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='48' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Submit on Mateial</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='49' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Post On Material</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='50' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And SignOut</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='51' status='pass'>
+	<span class='duration right label'>0h 0m 21s+891ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Level1 Approve</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='52' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Go to Test Environment</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='53' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click On Other user1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='54' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Vailed Username1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='55' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Enter Vailed password1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='56' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click On Login1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='57' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click Filter Icon1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='58' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Enter DB From Recent TCD Document No1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='59' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Mouse Over to Approve1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='60' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign out1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='61' status='pass'>
+	<span class='duration right label'>0h 0m 16s+687ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Level2 Approve</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='62' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Go to Test Environment</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='63' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When Click On Other User</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='64' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Enter Vailed Username</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='65' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Enter Vailed password</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='66' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click On Login</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='67' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click Filter Icon</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='68' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Enter DB From Recent TCD Document No</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='69' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Mouse Over to Approve</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='70' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign out</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='71'>
+					<div class='test-heading'>
+						<span class='test-name'>Measurement Creation</span>
+						<span class='test-time'>Nov 22, 2022 11:47:27 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='72' status='pass'>
+	<span class='duration right label'>0h 0m 58s+644ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Measurement</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='73' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Login Function Measurement</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='74' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Navigate From Menu to Mesurement</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='75' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click on creation Icon</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='76' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Work Order Details From Job</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='77' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Work Order Details From Group</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='78' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Work Order Details From Vendor</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='79' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Work Order Details Search</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='80' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Select Material</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='81' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Measurement From Date Select</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='82' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Measurement From Cost Package</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='83' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Measurement From WBS</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='84' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Measurement From Shape</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='85' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Measurement From Save</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='86' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Measurement Submit</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='87' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click to Home Page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='88' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign Out Function</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='89'>
+					<div class='test-heading'>
+						<span class='test-name'>Bill Creation</span>
+						<span class='test-time'>Nov 22, 2022 11:48:27 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='90' status='pass'>
+	<span class='duration right label'>0h 1m 30s+510ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Bill Create Single Material</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='91' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Login UserName and Password For Bill Creation</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='92' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Navigate From Menu to Bill Create</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='93' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click on Filter Icon To Pass value</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='94' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Create to Bill Create</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='95' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click On Measurment Details</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='96' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Select Material in Radio Box</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='97' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Approve Qty</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='98' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Select On Measurment Material</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='99' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And This Qty Change</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='100' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Save Measurement Approve Qty</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='101' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Close to Page Measurment in This Qty</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='102' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Submit Measurment and Pop Handle</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='103' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign Out</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='104' status='pass'>
+	<span class='duration right label'>0h 1m 7s+483ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Bill Deduction Single Material</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='105' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When Login UserName and Password For Bill Deduction</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='106' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Navigate From Menu to Bill Deduction</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='107' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click on Inprogess to Select Material</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='108' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And MouseOver to Click on Bill Deduction Icon</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='109' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And TDS Update Click to Select to selection</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='110' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And save to TDS Update</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='111' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sub contractor Invoice Value Pass</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='112' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Invoice Date Select</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='113' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Select on Payment Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='114' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Submit to Bill Deduction</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='115' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign Out1</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='116' status='pass'>
+	<span class='duration right label'>0h 0m 28s+773ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Bill Approve Single Material</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='117' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Login UserName and Password For Bill Approve</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='118' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click to Filter Icon</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='119' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click Document No and pass value</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='120' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And MouseOver to Document No</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='121' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Approve to Bill</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='122' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Sign Out2</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='123'>
+					<div class='test-heading'>
+						<span class='test-name'>Finance Scrutiny</span>
+						<span class='test-time'>Nov 22, 2022 11:51:37 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='124' status='pass'>
+	<span class='duration right label'>0h 0m 49s+137ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Scrutiny From Single Material</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='125' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Login Function</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='126' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Navigate Menu From Scrutiny</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='127' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click on Filter Icon</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='128' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Pass Invoice Reg No From DB Connection</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='129' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Edit Scrutinize Material</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='130' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Get Work Order No In Text</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='131' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Submit Scrutinize</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='132' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Signout Function</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='133'>
+					<div class='test-heading'>
+						<span class='test-name'>Finance Journals</span>
+						<span class='test-time'>Nov 22, 2022 11:52:27 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='134' status='pass'>
+	<span class='duration right label'>0h 0m 50s+494ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Journals From Single Material</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='135' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Login Function Journals</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='136' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Navigate Menu From Journals</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='137' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Click on Filter Icon Journals</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='138' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Pass Invoice Regs No From DB Connection</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='139' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Edit Journals Material</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='140' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Check Work Order No in page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='141' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And Submit Journals</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='142' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And signout Function</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@EIP40_SR</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Nov 22, 2022 11:39:52 AM</td>
+										<td class='linked' test-id='1'>Service Request Creation and Approve</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@EIP_RFQ</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Nov 22, 2022 11:42:37 AM</td>
+										<td class='linked' test-id='22'>RFQ Creation</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@EIP_TCD</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Nov 22, 2022 11:45:10 AM</td>
+										<td class='linked' test-id='33'>TCD Creation and Approve</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@EIP_Mesu</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Nov 22, 2022 11:47:27 AM</td>
+										<td class='linked' test-id='71'>Measurement Creation</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Bill</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Nov 22, 2022 11:48:27 AM</td>
+										<td class='linked' test-id='89'>Bill Creation</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Scrutiny</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Nov 22, 2022 11:51:37 AM</td>
+										<td class='linked' test-id='123'>Finance Scrutiny</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Journals</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Nov 22, 2022 11:52:27 AM</td>
+										<td class='linked' test-id='133'>Finance Journals</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>7</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>13</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>122</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Nov 22, 2022 11:39:52 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Nov 22, 2022 11:53:20 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>807,241ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>User Name</td>
+								<td>99906188</td>
+							</tr>
+							<tr>
+								<td>Time Zone</td>
+								<td>Asia/Calcutta</td>
+							</tr>
+							<tr>
+								<td>Machine</td>
+								<td>Windows 1064 Bit</td>
+							</tr>
+							<tr>
+								<td>Java Version</td>
+								<td>1.8.0_151</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@EIP40_SR</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@EIP_RFQ</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@EIP_TCD</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@EIP_Mesu</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@Bill</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@Scrutiny</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@Journals</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 7,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 13,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 122,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+      
+        $(document).ready(function() {
+        
+        });
+      
+    
+ 		</script>
+	</body>
+	
+</html>

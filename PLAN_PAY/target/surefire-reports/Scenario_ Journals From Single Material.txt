@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: Scenario: Journals From Single Material
+-------------------------------------------------------------------------------
+Tests run: 135, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 807.64 s - in Scenario: Journals From Single Material

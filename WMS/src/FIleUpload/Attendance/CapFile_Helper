@@ -1,0 +1,6 @@
+1st        8 Digits                        (LE160043)                JOBCODE
+2nd        2 Digits                        (10/11/12 etc)            Device code/no
+3rd        8 Digits                        (11/13/2019)              Date (MMDDYYYY)
+4th        4 Digits                        (0721)                    Punch Time(HHMM)
+5TH        8 Digits                        (00002285)                Employee Code/Workmen ID
+6th        2 Digits                        (01/02)                   IN/OUT

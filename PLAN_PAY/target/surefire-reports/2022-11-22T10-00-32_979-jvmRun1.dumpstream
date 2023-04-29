@@ -1,0 +1,113 @@
+# Created at 2022-11-22T10:10:01.467
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+# Created at 2022-11-22T10:10:05.001
+Unexpected IOException: 5,1,Scenario: Measurement,And Click on creation Icon(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:05.003
+Unexpected IOException: 6,1,Scenario: Measurement,And Click on creation Icon(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:13.705
+Unexpected IOException: 5,1,Scenario: Measurement,And Work Order Details From Job(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:13.706
+Unexpected IOException: 6,1,Scenario: Measurement,And Work Order Details From Job(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:14.846
+Unexpected IOException: 5,1,Scenario: Measurement,And Work Order Details From Group(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:14.848
+Unexpected IOException: 6,1,Scenario: Measurement,And Work Order Details From Group(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:19.024
+Unexpected IOException: 5,1,Scenario: Measurement,And Work Order Details From Vendor(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:19.025
+Unexpected IOException: 6,1,Scenario: Measurement,And Work Order Details From Vendor(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:20.334
+Unexpected IOException: 5,1,Scenario: Measurement,And Work Order Details Search(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:20.335
+Unexpected IOException: 6,1,Scenario: Measurement,And Work Order Details Search(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:22.908
+Unexpected IOException: 5,1,Scenario: Measurement,And Select Material(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:22.909
+Unexpected IOException: 6,1,Scenario: Measurement,And Select Material(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:23.905
+Unexpected IOException: 5,1,Scenario: Measurement,And Measurement From Date Select(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:23.907
+Unexpected IOException: 6,1,Scenario: Measurement,And Measurement From Date Select(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:26.861
+Unexpected IOException: 5,1,Scenario: Measurement,And Measurement From Cost Package(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:26.861
+Unexpected IOException: 6,1,Scenario: Measurement,And Measurement From Cost Package(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:27.929
+Unexpected IOException: 5,1,Scenario: Measurement,And Measurement From WBS(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:27.933
+Unexpected IOException: 6,1,Scenario: Measurement,And Measurement From WBS(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:29.245
+Unexpected IOException: 5,1,Scenario: Measurement,And Measurement From Shape(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:29.247
+Unexpected IOException: 6,1,Scenario: Measurement,And Measurement From Shape(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:31.416
+Unexpected IOException: 5,1,Scenario: Measurement,And Measurement From Save(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:31.417
+Unexpected IOException: 6,1,Scenario: Measurement,And Measurement From Save(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:36.316
+Unexpected IOException with stream: Connection success
+
+
+# Created at 2022-11-22T10:10:39.003
+Unexpected IOException with stream: LE/LE180046/MES/22/000352
+
+
+# Created at 2022-11-22T10:10:41.014
+Unexpected IOException: 5,1,Scenario: Measurement,And Measurement Submit(Scenario: Measurement),null,null,null
+
+
+# Created at 2022-11-22T10:10:41.016
+Unexpected IOException: 6,1,Scenario: Measurement,And Measurement Submit(Scenario: Measurement),null,null,null
+
+
