@@ -79,6 +79,8 @@ public class Statutory {
 
 	@Then("^Verify User can able to Add Driving License$")
 	public static void Verify_User_Can_able_to_Add_Driving_License() throws Throwable {
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_DL));
 		ObjectsReporsitory.statutoryDetails_DL.clear();
 		Random rnd = new Random();
 		long number1 = rnd.nextInt(1235467891);
@@ -110,6 +112,8 @@ public class Statutory {
 
 	@Then("^Verify User can able to Add PAN card$")
 	public static void Verify_User_can_able_to_Add_PAN_card() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_pan));
 		ObjectsReporsitory.statutoryDetails_pan.clear();
 
 		Random rnd = new Random();
@@ -132,6 +136,7 @@ public class Statutory {
 
 	@Then("^Verify User can able to Add Workpermit No$")
 	public static void Verify_User_can_able_to_Add_Workpermit_No() throws Throwable {
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_WorkPermit));
 		ObjectsReporsitory.statutoryDetails_WorkPermit.click();
 		ObjectsReporsitory.statutoryDetails_WorkPermit.clear();
 		ObjectsReporsitory.statutoryDetails_WorkPermit.click();
@@ -144,12 +149,38 @@ public class Statutory {
 				.println("Work Permit Number :" + ObjectsReporsitory.statutoryDetails_WorkPermit.getAttribute("value"));
 
 	}
+	
+	@Then("^Verify User can able to Add international Workpermit No$")
+	public static void Verify_User_can_able_to_Add_international_Workpermit_No() throws Throwable {
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_WorkPermit_international));
+		ObjectsReporsitory.statutoryDetails_WorkPermit_international.click();
+		ObjectsReporsitory.statutoryDetails_WorkPermit_international.clear();
+		ObjectsReporsitory.statutoryDetails_WorkPermit_international.click();
+
+		Random rnd = new Random();
+		long number1 = rnd.nextInt(1234567892);
+		long number2 = rnd.nextInt(328525641);
+		ObjectsReporsitory.statutoryDetails_WorkPermit_international.sendKeys("" + number1 + number2);
+		System.out
+				.println("Work Permit Number :" + ObjectsReporsitory.statutoryDetails_WorkPermit_international.getAttribute("value"));
+
+	}
 
 	@Then("^Verify User can able to upload attachment for Workpermit$")
 	public static void Verify_User_can_able_to_upload_attachment_for_Workpermit() throws Throwable {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Upload_WP));
 		ObjectsReporsitory.Upload_WP.click();
+		Thread.sleep(5000);
+		Basic.Upload_Document();
+		System.out.println("Workpermit Document Upload Successfully");
+		System.out.println("-------------------------------------");
+	}
+	@Then("^Verify User can able to upload attachment for international Workpermit$")
+	public static void Verify_User_can_able_to_upload_attachment_for_international_Workpermit() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Upload_WP_international));
+		ObjectsReporsitory.Upload_WP_international.click();
 		Thread.sleep(5000);
 		Basic.Upload_Document();
 		System.out.println("Workpermit Document Upload Successfully");
@@ -166,8 +197,20 @@ public class Statutory {
 				+ ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.getText());
 	}
 
+	@Then("^Verify User can able to Add international Workpermit expiry$")
+	public static void Verify_User_can_able_to_Add_international_Workpermit_expiry() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_WorkPermit_expiry_international));
+		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry_international.click();
+		Basic.Set_Expiry();
+		System.out.println("Workpermit Expiry Date  : "
+				+ ObjectsReporsitory.statutoryDetails_WorkPermit_expiry_international.getText());
+	}
+
 	@Then("^Verify User can able to Add Labourcard No$")
 	public static void Verify_User_can_able_to_Add_Labourcard_No() throws Throwable {
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_labour));
 
 		ObjectsReporsitory.statutoryDetails_labour.click();
 		ObjectsReporsitory.statutoryDetails_labour.clear();
@@ -180,12 +223,40 @@ public class Statutory {
 		System.out.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour.getAttribute("value"));
 
 	}
+	
+	@Then("^Verify User can able to Add international Labourcard No$")
+	public static void Verify_User_can_able_to_Add_international_Labourcard_No() throws Throwable {
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_labour_international));
+
+		ObjectsReporsitory.statutoryDetails_labour_international.click();
+		ObjectsReporsitory.statutoryDetails_labour_international.clear();
+		ObjectsReporsitory.statutoryDetails_labour_international.click();
+
+		Random rnd = new Random();
+		long number1 = rnd.nextInt(1234567892);
+		long number2 = rnd.nextInt(328525641);
+		ObjectsReporsitory.statutoryDetails_labour_international.sendKeys("" + number1 + number2);
+		System.out.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour_international.getAttribute("value"));
+
+	}
 
 	@Then("^Verify User can able to upload attachment for Labourcard$")
 	public static void Verify_User_can_able_to_upload_attachment_for_Labourcard() throws Throwable {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Upload_labour));
 		ObjectsReporsitory.Upload_labour.click();
+		Thread.sleep(5000);
+		Basic.Upload_Document();
+		System.out.println("Labour card Document Upload Successfully");
+		System.out.println("-------------------------------------");
+	}
+	
+	@Then("^Verify User can able to upload attachment for international Labourcard$")
+	public static void Verify_User_can_able_to_upload_attachment_for_international_Labourcard() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Upload_labour_international));
+		ObjectsReporsitory.Upload_labour_international.click();
 		Thread.sleep(5000);
 		Basic.Upload_Document();
 		System.out.println("Labour card Document Upload Successfully");
@@ -202,10 +273,66 @@ public class Statutory {
 				+ ObjectsReporsitory.statutoryDetails_labour_expiry.getText());
 
 	}
+	
+	@Then("^Verify User can able to Add International Labourcard expiry$")
+	public static void Verify_User_can_able_to_Add_International_Labourcard_expiry() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_labour_expiry_international));
+		ObjectsReporsitory.statutoryDetails_labour_expiry_international.click();
+		Basic.Set_Expiry();
+		System.out.println("Labour card Expiry Date  : "
+				+ ObjectsReporsitory.statutoryDetails_labour_expiry_international.getText());
+
+	}
+	
+	
+	
+	
+	
+	@Then("^Verify User can able to Add passport No$")
+	public static void Verify_User_can_able_to_Add_passport_No() throws Throwable {
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_Passport));
+
+		ObjectsReporsitory.statutoryDetails_Passport.click();
+		ObjectsReporsitory.statutoryDetails_Passport.clear();
+		ObjectsReporsitory.statutoryDetails_Passport.click();
+
+		Random rnd = new Random();
+		long number1 = rnd.nextInt(1234567892);
+		long number2 = rnd.nextInt(328525641);
+		ObjectsReporsitory.statutoryDetails_Passport.sendKeys("" + number1 + number2);
+		System.out.println("Paasport Number :" + ObjectsReporsitory.statutoryDetails_Passport.getAttribute("value"));
+
+	}
+
+	@Then("^Verify User can able to upload attachment for Passport$")
+	public static void Verify_User_can_able_to_upload_attachment_for_Passport() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Upload_passport));
+		ObjectsReporsitory.Upload_passport.click();
+		Thread.sleep(5000);
+		Basic.Upload_Document();
+		System.out.println("Passport Document Upload Successfully");
+		System.out.println("-------------------------------------");
+	}
+
+	@Then("^Verify User can able to Add passport expiry$")
+	public static void Verify_User_can_able_to_Add_passport_expiry() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_Passport_expiry_international));
+		ObjectsReporsitory.statutoryDetails_Passport_expiry_international.click();
+		Basic.Set_Expiry();
+		System.out.println("passport Expiry Date  : "
+				+ ObjectsReporsitory.statutoryDetails_Passport_expiry_international_value.getText());
+
+	}
+	
 
 	@Then("^Verify User can able to Add VisaProID$")
 	public static void Verify_User_can_able_to_Add_VisaProID() throws Throwable {
 
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_visaproid));
 		ObjectsReporsitory.statutoryDetails_visaproid.click();
 		ObjectsReporsitory.statutoryDetails_visaproid.clear();
 		ObjectsReporsitory.statutoryDetails_visaproid.click();
@@ -232,6 +359,7 @@ public class Statutory {
 	@Then("^Verify User can able to Add Visa number$")
 	public static void Verify_User_can_able_to_Add_Visa_number() throws Throwable {
 
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_visa));
 		ObjectsReporsitory.statutoryDetails_visa.click();
 		ObjectsReporsitory.statutoryDetails_visa.clear();
 		ObjectsReporsitory.statutoryDetails_visa.click();
@@ -257,6 +385,7 @@ public class Statutory {
 
 	@Then("^Verify User can able to Add PF No$")
 	public static void Verify_User_can_able_to_Add_PF_No() throws Throwable {
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_PF));
 		ObjectsReporsitory.statutoryDetails_PF.clear();
 
 		Random rnd = new Random();
@@ -280,6 +409,7 @@ public class Statutory {
 
 	@Then("^Verify User can able to Add UAN No$")
 	public static void Verify_User_can_able_to_Add_UAN_No() throws Throwable {
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_UAN));
 		ObjectsReporsitory.statutoryDetails_UAN.clear();
 
 		Random rnd = new Random();
@@ -302,6 +432,7 @@ public class Statutory {
 
 	@Then("^Verify User can able to Add ESI No$")
 	public static void Verify_User_can_able_to_Add_ESI_No() throws Throwable {
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_ESI));
 		ObjectsReporsitory.statutoryDetails_ESI.clear();
 
 		Random rnd = new Random();
@@ -329,9 +460,11 @@ public class Statutory {
 	@Then("^Verify User can able save Statutory Details$")
 	public static void Verify_User_can_able_save_Statutory_Details() throws Throwable {
 
+		
 		Actions actions102 = new Actions(DriverFactory.driver);
 		actions102.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions102.perform();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_save));
 		ObjectsReporsitory.statutoryDetails_save.click();
 		Screenshot.Screenshotforscenario();
 

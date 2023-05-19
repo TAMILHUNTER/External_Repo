@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import dataProviders.ConfigFileReader;
 import object_repository.ObjectsReporsitory;
@@ -46,7 +47,13 @@ public class Edit_Skill {
 
 	@Then("^Verify user can able to update skill Category$")
 	public static void Verify_user_can_able_to_update_skill_Category() throws Throwable {
+		Actions actions131 = new Actions(DriverFactory.driver);
+		actions131.moveToElement(ObjectsReporsitory.Induction_Hearder_deployment);
+		actions131.perform();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.skillCategory_value));
+		ObjectsReporsitory.skillCategory_value.click();
 		ObjectsReporsitory.skillCategory_value.clear();
+		ObjectsReporsitory.skillCategory_value.click();
 		ObjectsReporsitory.skillCategory_value.sendKeys(ConfigFileReader.getSkill_Category_Update());
 		;
 		List<WebElement> DropdownResult = ObjectsReporsitory.skillCategory_DR;
@@ -68,7 +75,13 @@ public class Edit_Skill {
 
 	@Then("^Verify user can able to update skill Group$")
 	public static void Verify_user_can_able_to_update_skill_Group() throws Throwable {
+		Actions actions131 = new Actions(DriverFactory.driver);
+		actions131.moveToElement(ObjectsReporsitory.Induction_Hearder_deployment);
+		actions131.perform();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.skillGroup_value));
+		ObjectsReporsitory.skillGroup_value.click();
 		ObjectsReporsitory.skillGroup_value.clear();
+		ObjectsReporsitory.skillGroup_value.click();
 		ObjectsReporsitory.skillGroup_value.sendKeys(ConfigFileReader.getSkill_Group_Update());
 		;
 		List<WebElement> DropdownResult = ObjectsReporsitory.skillGroup_DR;
@@ -90,7 +103,13 @@ public class Edit_Skill {
 
 	@Then("^Verify user can able to update skill Description$")
 	public static void Verify_user_can_able_to_update_skill_Description() throws Throwable {
+		Actions actions131 = new Actions(DriverFactory.driver);
+		actions131.moveToElement(ObjectsReporsitory.Induction_Hearder_deployment);
+		actions131.perform();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.skillDesc_value));
+		ObjectsReporsitory.skillDesc_value.click();
 		ObjectsReporsitory.skillDesc_value.clear();
+		ObjectsReporsitory.skillDesc_value.click();
 		ObjectsReporsitory.skillDesc_value.sendKeys(ConfigFileReader.getSkill_Description_Update());
 		;
 		List<WebElement> DropdownResult = ObjectsReporsitory.skillDescription_DR;
@@ -113,6 +132,11 @@ public class Edit_Skill {
 	@Then("^Verify user can able to update skill Type$")
 	public static void Verify_user_can_able_to_update_skill_Type() throws Throwable {
 
+		Actions actions131 = new Actions(DriverFactory.driver);
+		actions131.moveToElement(ObjectsReporsitory.Induction_Hearder_deployment);
+		actions131.perform();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.skillType_value));
+		
 		if (ObjectsReporsitory.skillType_value.getAttribute("value").equals("19 - Skilled")) {
 			ObjectsReporsitory.skillType_value.clear();
 			ObjectsReporsitory.skillType_value.sendKeys("20 - UnSkilled");

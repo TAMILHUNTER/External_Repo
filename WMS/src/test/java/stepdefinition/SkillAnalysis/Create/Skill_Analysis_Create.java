@@ -1218,8 +1218,8 @@ public class Skill_Analysis_Create {
 					if (webElement.getText().equals(Selected_skillType_SA)) {
 						webElement.click();
 						Thread.sleep(3000);
-						System.out
-								.println(Skill_Analysis_Objects.Skill_Analysis_skillType.getAttribute("value") + " : skillType Selected ");
+						System.out.println(Skill_Analysis_Objects.Skill_Analysis_skillType.getAttribute("value")
+								+ " : skillType Selected ");
 						break;
 					}
 				}
@@ -1513,6 +1513,7 @@ public class Skill_Analysis_Create {
 
 		Skill_Analysis_Objects.Skill_Analysis_submit.click();
 		Screenshot.Screenshotforscenario();
+		Basic.PageLoader_Validation();
 		Basic.popup_handle();
 
 	}
@@ -1543,6 +1544,7 @@ public class Skill_Analysis_Create {
 
 		Skill_Analysis_Objects.Skill_Analysis_submit.click();
 		Screenshot.Screenshotforscenario();
+		Basic.PageLoader_Validation();
 		Basic.popup_handle();
 
 	}

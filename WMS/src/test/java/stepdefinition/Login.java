@@ -15,7 +15,7 @@ public class Login {
 	public static ConfigFileReader configFileReader;
 
 	// Common Imports
-	static WebDriverWait wait = new WebDriverWait(DriverFactory.driver, Duration.ofSeconds(10));
+	static WebDriverWait wait = new WebDriverWait(DriverFactory.driver, Duration.ofSeconds(30));
 	public static JavascriptExecutor jse = (JavascriptExecutor) DriverFactory.driver;
 	public static Actions actions = new Actions(DriverFactory.driver);
 	// **************** Start import methods for step definition
@@ -44,6 +44,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_Approver_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -64,7 +68,10 @@ public class Login {
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
 			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
 			Thread.sleep(3000);
+			wait.until(ExpectedConditions.visibilityOfAllElements(ObjectsReporsitory.Home_Loggedin_User));
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -82,8 +89,9 @@ public class Login {
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
 			Basic.PageLoader_Validation();
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_Action));
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
 			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 			
 		}
@@ -101,6 +109,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getConfiguration_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -117,6 +129,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getAttendance_Creator_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -133,6 +149,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getAttendance_Approver_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -150,6 +170,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_Creator_password_nepal());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -167,8 +191,9 @@ public class Login {
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
 			Basic.PageLoader_Validation();
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_Action));
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
 			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -185,6 +210,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_Skill_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -201,6 +230,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_Paramedics_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -217,6 +250,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_Medical_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -233,6 +270,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_EHS_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -249,6 +290,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getTraining_Creater_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -265,6 +310,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getTraining_Master_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -281,6 +330,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_Wage_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -297,6 +350,10 @@ public class Login {
 			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getAttendance_Creator_password());
 			ObjectsReporsitory.Login_loginSubmit.click();
 			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
 		}
 	}
@@ -374,8 +431,11 @@ public class Login {
 
 	public static void Logout() throws InterruptedException {
 
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Profile_Dropdown));
 		ObjectsReporsitory.Profile_Dropdown.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Profile_Signout));
 		ObjectsReporsitory.Profile_Signout.click();
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Login_otherUser));
 	}
 	
@@ -387,5 +447,37 @@ public class Login {
 			stepdefinition.Login.Induction_Creator_login_internationalJob();
 		}
 	}
+	
+	public static void Use_Login_Management() throws InterruptedException {
+		DriverFactory.driver.manage().deleteAllCookies();
+		if (ConfigFileReader.getLogin_type().equals("0")) {
+			stepdefinition.Login.Induction_Basic_login();
+		} else if (ConfigFileReader.getLogin_type().equals("1")) {
+			stepdefinition.Login.Induction_Creator_login();
+		}
+	}
 
+	public static void Management_login() throws InterruptedException {
+
+		if (ConfigFileReader.getLogin_Landing().equals("Yes")) {
+			System.out.println("Automation Landing Page");
+			Login.Landing();
+		} else {
+			DriverFactory.driver.get(ConfigFileReader.getEnvironment());
+			// DriverFactory.driver.findElement(By.linkText("Other User")).click();
+			ObjectsReporsitory.Login_otherUser.click();
+			Thread.sleep(2000);
+			// ObjectsReporsitory.Login_otherUser.click();
+			ObjectsReporsitory.Login_Username.sendKeys(ConfigFileReader.getInduction_Creator_username());
+			ObjectsReporsitory.Login_Password.sendKeys(ConfigFileReader.getInduction_Creator_password());
+			ObjectsReporsitory.Login_loginSubmit.click();
+			Thread.sleep(5000);
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_actionTaken));
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
+			wait.until(ExpectedConditions.visibilityOfAllElements(ObjectsReporsitory.Home_Loggedin_User));
+			System.out.println("Logged in as: " + ObjectsReporsitory.Home_Loggedin_User.getText());
+		}
+	}
 }

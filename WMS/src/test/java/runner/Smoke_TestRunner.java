@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
 		
 // Feature : Induction				
 								
-								 "@Smoke"
+								 "@E2E"
 ,
 		plugin = { "pretty",  
 				"html:src/reports/Junit-Cucumber/cucumber.html",

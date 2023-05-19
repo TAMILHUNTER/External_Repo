@@ -1,6 +1,8 @@
 package stepdefinition.Basic_Details.Edit;
 
 import java.util.List;
+import java.util.Random;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,10 +17,11 @@ import utils.DriverFactory;
 import java.time.Duration;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.Given;
+
 public class Edit_Partner_Details {
 
-	
-	
+	public static String Selected_Worktype;
+
 	// Read Configuration
 	public static ConfigFileReader configFileReader;
 
@@ -42,39 +45,56 @@ public class Edit_Partner_Details {
 		// ObjectsReporsitory.Dashboard_submit.click();
 		ObjectsReporsitory.Induction_basicDetails.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_workmanName));
-		wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Personal_workmanName, "ng-reflect-model"));
+		wait.until(
+				ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Personal_workmanName, "ng-reflect-model"));
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Induction_partner));
 		ObjectsReporsitory.Induction_partner.click();
-		wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Partner_partnername, "ng-reflect-model"));
+		wait.until(
+				ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Partner_partnername, "ng-reflect-model"));
 	}
 
 	@Then("^Verify user can able to update Worktype$")
 	public static void Verify_user_can_able_to_update_Worktype() throws Throwable {
 		ObjectsReporsitory.Partner_workType_Edit.click();
-		System.out.println("Current Work Type : " + ObjectsReporsitory.Partner_workType_Edit.getText());
-		if (ObjectsReporsitory.Partner_workType_Edit.getText() == null) {
-			ObjectsReporsitory.Partner_workType_Regular_Service_Workmen.click();
-			System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
-		} else if (ObjectsReporsitory.Partner_workType_Edit.getText().equals("Regular Service Workmen")) {
-			ObjectsReporsitory.Partner_workType_PRW_Hired_PM.click();
-			System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
-		} else if (ObjectsReporsitory.Partner_workType_Edit.getText().contains("Hired P&M")) {
-			ObjectsReporsitory.Partner_workType_Specialized_Works.click();
-			System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
-		} else if (ObjectsReporsitory.Partner_workType_Edit.getText().contains("Specialized Works")) {
-			ObjectsReporsitory.Partner_workType_Regular_Service_Workmen.click();
-			System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
+
+		List<WebElement> DropdownResult4 = ObjectsReporsitory.Partner_workType_DR;
+
+		if (ConfigFileReader.getselectWorktype_Value().contains("Random")) {
+			System.out.println("Selecting Random Worktype");
+			Random rand6547 = new Random();
+			int Worktype = rand6547.nextInt(ObjectsReporsitory.Partner_workType_DR.size());
+			Selected_Worktype = ObjectsReporsitory.Partner_workType_DR.get(Worktype).getText();
+
+			for (WebElement webElement : DropdownResult4) {
+				if (webElement.getText().equals(Selected_Worktype)) {
+					webElement.click();
+					Thread.sleep(3000);
+					System.out.println("Work Type :" + ObjectsReporsitory.Partner_workType.getText());
+					break;
+				}
+			}
+		} else {
+
+			for (WebElement webElement : DropdownResult4) {
+				if (webElement.getText().equals(ConfigFileReader.getpartner_Worktype())) {
+					webElement.click();
+					System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType.getText());
+					break;
+				}
+			}
+
 		}
+
 		Actions actions1 = new Actions(DriverFactory.driver);
 		actions1.moveToElement(ObjectsReporsitory.Partner_next);
 		actions1.perform();
 		ObjectsReporsitory.Partner_next.click();
-		
+
 		Actions actions2 = new Actions(DriverFactory.driver);
 		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
 		actions2.perform();
 		ObjectsReporsitory.Personal_saveNext.click();
-		
+
 		Actions actions3 = new Actions(DriverFactory.driver);
 		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
 		actions3.perform();
@@ -82,14 +102,14 @@ public class Edit_Partner_Details {
 		Thread.sleep(2000);
 		Basic.popup_Handle2();
 		Thread.sleep(2000);
-		
+
 		Actions actions4 = new Actions(DriverFactory.driver);
 		actions4.moveToElement(ObjectsReporsitory.skill_save);
 		actions4.perform();
 		ObjectsReporsitory.skill_save.click();
 		Thread.sleep(2000);
 		Basic.popup_Handle2();
-		
+
 	}
 
 	@Then("^Verify user can able to update Partner$")
@@ -107,8 +127,7 @@ public class Edit_Partner_Details {
 					break;
 				}
 			}
-		} else if (ObjectsReporsitory.Partner_partnername.getAttribute("value")
-				.contains("Direct Workmen")) {
+		} else if (ObjectsReporsitory.Partner_partnername.getAttribute("value").contains("Direct Workmen")) {
 			ObjectsReporsitory.Induction_partner.click();
 			ObjectsReporsitory.Partner_partnername.clear();
 			ObjectsReporsitory.Partner_partnername.sendKeys(ConfigFileReader.getpartner_name_Update());
@@ -129,19 +148,19 @@ public class Edit_Partner_Details {
 		actions1.moveToElement(ObjectsReporsitory.Partner_next);
 		actions1.perform();
 		ObjectsReporsitory.Partner_next.click();
-		
+
 		Actions actions2 = new Actions(DriverFactory.driver);
 		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
 		actions2.perform();
 		ObjectsReporsitory.Personal_saveNext.click();
-		
+
 		Actions actions3 = new Actions(DriverFactory.driver);
 		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
 		actions3.perform();
 		ObjectsReporsitory.Communication_saveNext.click();
 		Thread.sleep(2000);
 		Basic.popup_Handle2();
-		
+
 		Actions actions4 = new Actions(DriverFactory.driver);
 		actions4.moveToElement(ObjectsReporsitory.skill_save);
 		actions4.perform();

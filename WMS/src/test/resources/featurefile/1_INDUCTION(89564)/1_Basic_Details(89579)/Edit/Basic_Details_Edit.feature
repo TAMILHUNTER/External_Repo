@@ -35,6 +35,9 @@ Feature: INDUCTION (89564)
     Then Verify user can able to update spouse Name
     Then Verify user can able to update no of Children
     Then Verify user can able to update CSTI and NAPS
+    Then Verify user can able to update Religion
+    Then Verify user can able to update Nearest police Station
+    Then Verify user can able to update Nationality
 
   @Induction_Edit_Basic_Details_Communication
   Scenario: Verify User can able to edit workman communication Details

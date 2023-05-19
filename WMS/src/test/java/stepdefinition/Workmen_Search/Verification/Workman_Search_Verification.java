@@ -171,6 +171,7 @@ public class Workman_Search_Verification {
 		ObjectsReporsitory.Dashboard_employeeId.sendKeys(ConfigFileReader.getVerification_WorkmenSaerch_boundary_Min());
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 
 	}
@@ -202,6 +203,7 @@ public class Workman_Search_Verification {
 				.sendKeys(ConfigFileReader.getVerification_WorkmenSaerch_boundary_Min());
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		View_Profile.Search_workmen_by_Name_multiple();
 		Basic.Error_popup_validation();
 	}
@@ -224,6 +226,7 @@ public class Workman_Search_Verification {
 				.sendKeys(ConfigFileReader.getVerification_WorkmenSaerch_boundary_Min());
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation();
 
 	}
@@ -246,6 +249,7 @@ public class Workman_Search_Verification {
 				.sendKeys(ConfigFileReader.getVerification_WorkmenSaerch_boundary_Min());
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 
 	}
@@ -275,6 +279,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 	}
 
@@ -300,6 +305,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 
 	}
@@ -336,6 +342,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		View_Profile.Search_workmen_by_Name_multiple();
 		Basic.Error_popup_validation();
 	}
@@ -362,6 +369,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation();
 
 	}
@@ -389,6 +397,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 
 	}
@@ -425,6 +434,7 @@ public class Workman_Search_Verification {
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 	}
 
@@ -458,6 +468,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 
 	}
@@ -504,6 +515,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		View_Profile.Search_workmen_by_Name_multiple();
 		Basic.Error_popup_validation();
 	}
@@ -539,6 +551,7 @@ public class Workman_Search_Verification {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation();
 
 	}
@@ -575,6 +588,7 @@ public class Workman_Search_Verification {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 
 	}

@@ -319,13 +319,18 @@ public class Gate_Pass_Create_or_view {
 		ObjectsReporsitory.Home_accessBasedMenu.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Menu_workmenManagementSystem));
 		ObjectsReporsitory.Menu_workmenManagementSystem.click();
-		ObjectsReporsitory.Menu_workmenManagementSystem_WMS40.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS40));
+		ObjectsReporsitory.WMS40.click();
 		Thread.sleep(3000);
 		Basic.PageLoader_Validation();
 		Thread.sleep(3000);
 		Basic.popup_Handle_IC_dash();
-		ObjectsReporsitory.WMS_induction.click();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
+		ObjectsReporsitory.WMS_induction2.click();
+		Thread.sleep(3000);
+		Basic.PageLoader_Validation();
+		Thread.sleep(3000);
 		System.out.println("Current Job : " + ObjectsReporsitory.Induction_Jobcode.getText());
 		String Current_job = ObjectsReporsitory.Induction_Jobcode.getText();
 		if (Current_job.equals(ConfigFileReader.getJob_LE180046())) {

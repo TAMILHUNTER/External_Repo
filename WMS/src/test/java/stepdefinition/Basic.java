@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import dataProviders.ConfigFileReader;
 import object_repository.ObjectsReporsitory;
+import stepdefinition.Basic_Details.Create.Partner;
 import stepdefinition.Basic_Details.Create.Statutory;
 import utils.DriverFactory;
 import java.time.Duration;
@@ -34,6 +35,11 @@ public class Basic {
 	public static int popup_validation3;
 	public static String Popup_Message3;
 	public static int popup_validation4;
+	public static String Popup_Message;
+	public static String Popup_Status;
+	public static int popup_validation_new;
+
+	public static int Search_Aadhaar_Number;
 
 	// Read Configuration
 	public static ConfigFileReader configFileReader;
@@ -76,7 +82,61 @@ public class Basic {
 
 		} else if (ObjectsReporsitory.popup_head.getText().equals("Error")) {
 
-			if (ObjectsReporsitory.popup_text.getText().equals("Please select the Partner")) {
+			if (ObjectsReporsitory.popup_text.getText().contains("Please select the Partner")) {
+				System.out.println("Error : Partner Details Not Saved ");
+				// ObjectsReporsitory.partner_WorkmanPopup.click();
+				Actions actions_Keys2 = new Actions(DriverFactory.driver);
+				actions_Keys2.sendKeys(Keys.ESCAPE);
+				actions_Keys2.perform();
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Induction_partner));
+				ObjectsReporsitory.Induction_partner.click();
+				Actions actions = new Actions(DriverFactory.driver);
+				actions.moveToElement(ObjectsReporsitory.Partner_partnername);
+				actions.perform();
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Partner_partnername));
+				ObjectsReporsitory.Partner_partnername.click();
+				ObjectsReporsitory.Partner_partnername.clear();
+				ObjectsReporsitory.Partner_partnername.sendKeys("0 - Direct Workmen");
+				Thread.sleep(3000);
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Partner_partner_first_Partner));
+				ObjectsReporsitory.Partner_partner_first_Partner.click();
+				Actions actions2 = new Actions(DriverFactory.driver);
+				actions2.moveToElement(ObjectsReporsitory.Partner_next);
+				actions2.perform();
+				ObjectsReporsitory.Partner_next.click();
+				System.out.println("Partner details are Saved as Direct Workmen");
+				ObjectsReporsitory.Induction_personal.click();
+				Actions actions3 = new Actions(DriverFactory.driver);
+				actions3.moveToElement(ObjectsReporsitory.Personal_saveNext);
+				actions3.perform();
+				ObjectsReporsitory.Personal_saveNext.click();
+
+				ObjectsReporsitory.Induction_communication.click();
+				Actions actions4 = new Actions(DriverFactory.driver);
+				actions4.moveToElement(ObjectsReporsitory.Communication_saveNext);
+				actions4.perform();
+				ObjectsReporsitory.Communication_saveNext.click();
+
+				if (ObjectsReporsitory.popup_head.getText().equals("Success")) {
+					// System.out.println(ObjectsReporsitory.popup_text.getText().substring(17,
+					// 29));
+					System.out.println(ObjectsReporsitory.popup_text.getText());
+					// ObjectsReporsitory.partner_WorkmanPopup.click();
+					ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+					System.out.println("*****Details are saved*****");
+
+				} else if (ObjectsReporsitory.popup_head.getText().equals("Error")) {
+					System.out.println("*****Failed to Save Details - Error Message : "
+							+ ObjectsReporsitory.popup_text.getText() + "*****");
+					ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+					// ObjectsReporsitory.partner_WorkmanPopup.click();
+					// fail();uncomment this
+
+				}
+
+			}
+
+			else if (ObjectsReporsitory.popup_text.getText().contains("Please select Partner")) {
 				System.out.println("Error : Partner Details Not Saved ");
 				// ObjectsReporsitory.partner_WorkmanPopup.click();
 				Actions actions_Keys2 = new Actions(DriverFactory.driver);
@@ -256,15 +316,13 @@ public class Basic {
 				Actions actionewwesc = new Actions(DriverFactory.driver);
 				actionewwesc.sendKeys(Keys.ESCAPE).build().perform();
 				Basic.popup_Handle_IC_dash();
-			}
-			else if(ObjectsReporsitory.popup_text.getText().contains("Sub contructor capacity: undefined")) {
+			} else if (ObjectsReporsitory.popup_text.getText().contains("Sub contructor capacity: undefined")) {
 				Actions actionewwssesc = new Actions(DriverFactory.driver);
 				actionewwssesc.sendKeys(Keys.ESCAPE).build().perform();
 				Basic.popup_Handle_IC_dash();
 			}
-			
-		} 
-		else {
+
+		} else {
 			System.out.println("IC Dashboard Displayed");
 			System.out.println("------------------------------");
 		}
@@ -344,7 +402,20 @@ public class Basic {
 				Actions actioneww = new Actions(DriverFactory.driver);
 				actioneww.sendKeys(Keys.ESCAPE).build().perform();
 				Basic.Error_popup_validation_Reg();
-			} else if (popup_validation3 > 0 && Popup_Message3.contains("No Records Found")) {
+			}
+			else if (Popup_Message.contains("Given Aadhaar Number is not available")) {
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+				System.out.println("No Workmen Found : Continue for Induction");
+				System.out.println("***************************************");
+				System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+				System.out.println("***************************************");
+				wait.until(ExpectedConditions
+						.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
+				Actions actionewsdaw = new Actions(DriverFactory.driver);
+				actionewsdaw.sendKeys(Keys.ESCAPE).build().perform();
+			}
+			else if (popup_validation3 > 0 && Popup_Message3.contains("No Records Found")) {
 
 				System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
 				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
@@ -574,5 +645,101 @@ public class Basic {
 		Thread.sleep(5000);
 		Basic.popup_handle();
 
+	}
+
+	public static void popup_validation_international_Induction() throws Throwable {
+
+		Basic.PageLoader_Validation();
+
+		popup_validation = ObjectsReporsitory.basic_popup_validation.size();
+
+		if (popup_validation > 1) {
+			System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+			System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+			System.out.println("***************************************");
+			Popup_Message = ObjectsReporsitory.popup_text.getText();
+			if (Popup_Message.contains("Given Passport Number is not available")) {
+				wait.until(ExpectedConditions
+						.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
+				ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes.click();
+				Thread.sleep(5000);
+			} else if (Popup_Message.contains("Given Aadhaar Number is not available")) {
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+				System.out.println("No Workmen Found : Continue for Induction");
+				System.out.println("***************************************");
+				System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+				System.out.println("***************************************");
+				wait.until(ExpectedConditions
+						.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
+				ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes.click();
+				Thread.sleep(5000);
+			}
+
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Partner_partnername));
+			System.out.println("Navigated to Basicdetails");
+			// New Implementation End
+
+		}
+
+		else {
+			System.out.println("Records Available");
+			System.out.println("***************************************");
+			System.out.println("Trying Another Record");
+			Partner.Verify_user_can_be_able_to_Search_international_workmen_and_proceed_for_induction();
+
+		}
+
+	}
+
+	public static void popup_validation_new_Induction() throws Throwable {
+
+		popup_validation_new = ObjectsReporsitory.basic_popup_validation.size();
+		System.out.println("Popup Size : " +popup_validation_new);
+		System.out.println("====================================");
+		if (popup_validation_new > 0) {
+			System.out.println("Popup Message Displayed");
+			System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+			System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+			System.out.println("***************************************");
+			Popup_Message = ObjectsReporsitory.popup_text.getText();
+			Popup_Status = ObjectsReporsitory.popup_head.getText();
+
+			if (Popup_Message.contains("Please Enter the valid Aadhaar")) {
+
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+
+				// ************************************************************************************************************
+
+				System.out.println("Entered Aadhaar is invalid - Trying with another aadhaar number");
+				System.out.println("==============================");
+
+				Partner.Enter_aadhaar_number_for_Workmen_Induction();
+
+				// ************************************************************************************************************
+
+			}
+
+			else if (Popup_Message.contains("Given Aadhaar Number is not available")) {
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+				System.out.println("No Workmen Found : Continue for Induction");
+				System.out.println("***************************************");
+				System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+				System.out.println("***************************************");
+				wait.until(ExpectedConditions
+						.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
+				ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes.click();
+				Thread.sleep(5000);
+				Basic.PageLoader_Validation();
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Partner_partnername));
+				System.out.println("Navigated to Basicdetails");
+			}
+		} else {
+			System.out.println("Workmen Already available for the aadhaar number entered");
+			System.out.println("=========================================================");
+			Partner.Enter_aadhaar_number_for_Workmen_Induction();
+		}
 	}
 }

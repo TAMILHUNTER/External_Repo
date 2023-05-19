@@ -12,6 +12,7 @@ import stepdefinition.Screenshot;
 import stepdefinition.Basic_Details.Create.Statutory;
 import utils.DriverFactory;
 import java.time.Duration;
+
 public class Verification_Popup {
 
 	public static int popup_validation;
@@ -60,6 +61,17 @@ public class Verification_Popup {
 					System.out.println("--------------------------------------------------------");
 
 				}
+				else if (ObjectsReporsitory.popup_text.getText().contains("Please select Partner ID")) {
+
+					Screenshot.Screenshotforscenario();
+					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+					System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+					Actions actioneww = new Actions(DriverFactory.driver);
+					actioneww.sendKeys(Keys.ESCAPE).build().perform();
+					System.out.println("Error Handled : Validation Message is displayed");
+					System.out.println("--------------------------------------------------------");
+
+				}
 
 				else if (ObjectsReporsitory.popup_text.getText().contains("Please Select Work Type")) {
 
@@ -83,7 +95,37 @@ public class Verification_Popup {
 
 				}
 
-				else if (ObjectsReporsitory.popup_text.getText().contains("Please enter Workmen Name")) {
+				else if (ObjectsReporsitory.popup_text.getText().contains("Please select nationality")) {
+
+					Screenshot.Screenshotforscenario();
+					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+					System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+					Actions actioneww = new Actions(DriverFactory.driver);
+					actioneww.sendKeys(Keys.ESCAPE).build().perform();
+					System.out.println("Error Handled : Validation Message is displayed");
+					System.out.println("--------------------------------------------------------");
+
+				} else if (ObjectsReporsitory.popup_text.getText().contains("police")) {
+
+					Screenshot.Screenshotforscenario();
+					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+					System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+					Actions actioneww = new Actions(DriverFactory.driver);
+					actioneww.sendKeys(Keys.ESCAPE).build().perform();
+					System.out.println("Error Handled : Validation Message is displayed");
+					System.out.println("--------------------------------------------------------");
+
+				} else if (ObjectsReporsitory.popup_text.getText().contains("Religion")) {
+
+					Screenshot.Screenshotforscenario();
+					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+					System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+					Actions actioneww = new Actions(DriverFactory.driver);
+					actioneww.sendKeys(Keys.ESCAPE).build().perform();
+					System.out.println("Error Handled : Validation Message is displayed");
+					System.out.println("--------------------------------------------------------");
+
+				} else if (ObjectsReporsitory.popup_text.getText().contains("Please enter Workmen Name")) {
 
 					Screenshot.Screenshotforscenario();
 					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());

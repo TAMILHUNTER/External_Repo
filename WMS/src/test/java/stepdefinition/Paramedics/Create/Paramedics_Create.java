@@ -285,9 +285,9 @@ public class Paramedics_Create {
 
 	@Then("^Verify User can be able to Enter Medical Examination Date$")
 	public static void Verify_User_can_be_able_to_Enter_Medical_Examination_Date() throws Throwable {
-		Actions actions545 = new Actions(DriverFactory.driver);
-		actions545.moveToElement(Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Last_Card_Para);
-		actions545.perform();
+//		Actions actions545 = new Actions(DriverFactory.driver);
+//		actions545.moveToElement(Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Last_Card_Para);
+//		actions545.perform();
 		wait.until(ExpectedConditions.elementToBeClickable(Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Eye));
 		Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Last_Card_Para.click();
 		Thread.sleep(4000);

@@ -3484,6 +3484,34 @@ public class ConfigFileReader {
 			throw new RuntimeException(
 					"Permanent_Address_Country_International not specified in the Configuration.properties file.");
 	}
+	
+	public static String getTemp_Address_Country_International_nepal() {
+		String Temp_Address_Country_International_nepal = properties
+				.getProperty("Temp_Address_Country_International_nepal");
+		if (Temp_Address_Country_International_nepal != null)
+			return Temp_Address_Country_International_nepal;
+		else
+			throw new RuntimeException(
+					"Temp_Address_Country_International_nepal not specified in the Configuration.properties file.");
+	}
+	
+	public static String getPermanent_Address_Country_International_Nepal() {
+		String Permanent_Address_Country_International = properties.getProperty("Permanent_Address_Country_International_Nepal");
+		if (Permanent_Address_Country_International != null)
+			return Permanent_Address_Country_International;
+		else
+			throw new RuntimeException(
+					"Permanent_Address_Country_International_Nepal not specified in the Configuration.properties file.");
+	}
+	
+	public static String getEC_Address_Country_International_Nepal() {
+		String EC_Address_Country_International = properties.getProperty("EC_Address_Country_International_Nepal");
+		if (EC_Address_Country_International != null)
+			return EC_Address_Country_International;
+		else
+			throw new RuntimeException(
+					"EC_Address_Country_International_Nepal not specified in the Configuration.properties file.");
+	}
 
 	public static String getPermanent_Address_Country_International_State() {
 		String Permanent_Address_Country_International_State = properties
@@ -3493,6 +3521,36 @@ public class ConfigFileReader {
 		else
 			throw new RuntimeException(
 					"Permanent_Address_Country_International_State not specified in the Configuration.properties file.");
+	}
+	
+	public static String getPermanent_Address_Country_International_State_Nepal() {
+		String Permanent_Address_Country_International_State = properties
+				.getProperty("Permanent_Address_Country_International_State_Nepal");
+		if (Permanent_Address_Country_International_State != null)
+			return Permanent_Address_Country_International_State;
+		else
+			throw new RuntimeException(
+					"Permanent_Address_Country_International_State_Nepal not specified in the Configuration.properties file.");
+	}
+	
+	public static String getEC_Address_Country_International_State_Nepal() {
+		String EC_Address_Country_International_State = properties
+				.getProperty("EC_Address_Country_International_State_Nepal");
+		if (EC_Address_Country_International_State != null)
+			return EC_Address_Country_International_State;
+		else
+			throw new RuntimeException(
+					"EC_Address_Country_International_State_Nepal not specified in the Configuration.properties file.");
+	}
+	
+	public static String getTemp_Address_Country_International_State_Nepal() {
+		String Temp_Address_Country_International_State = properties
+				.getProperty("Temp_Address_Country_International_State_Nepal");
+		if (Temp_Address_Country_International_State != null)
+			return Temp_Address_Country_International_State;
+		else
+			throw new RuntimeException(
+					"Temp_Address_Country_International_State_Nepal not specified in the Configuration.properties file.");
 	}
 
 	public static String getWorkman_Name() {

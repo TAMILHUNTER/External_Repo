@@ -25,6 +25,7 @@ import io.cucumber.java.en.Given;
 public class Partner {
 
 	public static int Search_Aadhaar_Number;
+	public static int Search_Passport;
 	public static int popup_validation;
 	public static int length_of_spinner;
 	public static String Selected_Partner_ID;
@@ -51,8 +52,12 @@ public class Partner {
 		stepdefinition.Login.Use_Login_Induction_Basic();
 
 	}
-	
-	
+
+	@Then("^Logout$")
+	public static void Logout() throws InterruptedException {
+		stepdefinition.Login.Logout();
+
+	}
 
 	@And("^Navigate to BasicDetails$")
 	public static void Navigate_to_BasicDetails() throws Throwable {
@@ -134,8 +139,10 @@ public class Partner {
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchBy_Aadhar));
 		ObjectsReporsitory.Dashboard_SearchBy_Aadhar.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_employeeAadhaar));
+		ObjectsReporsitory.Dashboard_employeeAadhaar.click();
 		ObjectsReporsitory.Dashboard_employeeAadhaar.clear();
-
+		ObjectsReporsitory.Dashboard_employeeAadhaar.click();
+//		ObjectsReporsitory.Dashboard_employeeAadhaar.sendKeys("64579592675");
 		Random rnd = new Random();
 		long number1 = rnd.nextInt(623);
 		long number2 = rnd.nextInt(328);
@@ -168,22 +175,10 @@ public class Partner {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Thread.sleep(3000);
 		Basic.PageLoader_Validation();
-		System.out.println("Popup Response : " + ObjectsReporsitory.popup.getText());
-		System.out.println(ObjectsReporsitory.popup_text.getText());
-		System.out.println("***************************************");
-		ObjectsReporsitory.WorkmanSearchPopup_ok.click();
-		System.out.println("No Workmen Found : Continue for Induction");
-		System.out.println("***************************************");
-		System.out.println("Popup Response : " + ObjectsReporsitory.popup_head.getText());
-		System.out.println(ObjectsReporsitory.popup_text.getText());
-		System.out.println("***************************************");
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
-		ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes.click();
-		Thread.sleep(5000);
+		Basic.popup_validation_new_Induction();
 		Basic.PageLoader_Validation();
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Partner_partnername));
-		System.out.println("Navigated to Basicdetails");
 		// New Implementation End
 	}
 
@@ -241,7 +236,8 @@ public class Partner {
 			for (WebElement webElement : DropdownResult3) {
 				if (webElement.getText().contains(ConfigFileReader.getpartner_dr_details_ID())) {
 					webElement.click();
-					System.out.println("Partner ID Selected : " + ObjectsReporsitory.Partner_partnername.getAttribute("value"));
+					System.out.println(
+							"Partner ID Selected : " + ObjectsReporsitory.Partner_partnername.getAttribute("value"));
 					break;
 				}
 			}
@@ -249,10 +245,12 @@ public class Partner {
 		}
 
 		Thread.sleep(3000);
+		Basic.PageLoader_Validation();
 	}
 
 	@Then("^Verify user can able to select the Worktype$")
 	public static void Verify_user_can_able_to_select_the_Worktype() throws InterruptedException {
+		Basic.PageLoader_Validation();
 		ObjectsReporsitory.Partner_workType.click();
 		List<WebElement> DropdownResult4 = ObjectsReporsitory.Partner_workType_DR;
 
@@ -329,6 +327,198 @@ public class Partner {
 		Basic.PageLoader_Validation();
 		System.out.println("Partner details are Saved");
 		ObjectsReporsitory.Induction_communication.click();
+
+	}
+
+	@And("^Navigate to Induction$")
+	public static void Navigate_to_Induction() throws Throwable {
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Home_accessBasedMenu));
+		ObjectsReporsitory.Home_accessBasedMenu.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Menu_workmenManagementSystem));
+		ObjectsReporsitory.Menu_workmenManagementSystem.click();
+		// ObjectsReporsitory.Menu_Navigation_Open.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS40));
+		ObjectsReporsitory.WMS40.click();
+		Thread.sleep(3000);
+		Basic.PageLoader_Validation();
+		Thread.sleep(3000);
+		Basic.popup_Handle_IC_dash();
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
+		ObjectsReporsitory.WMS_induction2.click();
+		Thread.sleep(3000);
+	}
+
+	@Then("^Verify and switch nepal Job LE20D146$")
+	public static void Verify_and_switch_nepal_Job_LE20D146() throws Throwable {
+
+		Basic.PageLoader_Validation();
+		System.out.println("Current Job : " + ObjectsReporsitory.Induction_Jobcode.getText());
+		String Current_job = ObjectsReporsitory.Induction_Jobcode.getText();
+		if (Current_job.contains(ConfigFileReader.getJob_LE20D146())) {
+			System.out.println("User Currenlty set on Job " + ConfigFileReader.getJob_LE20D146());
+		} else if (ConfigFileReader.getUser_job().contains("LE20D146")) {
+			SwitchJob_Create.SwitchJob_LE20D146();
+		}
+	}
+
+	@Then("^Swicth to International induction Selection$")
+	public static void Swicth_to_International_induction_selection() throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmenSearch_International));
+		ObjectsReporsitory.WorkmenSearch_International.click();
+		Thread.sleep(5000);
+
+	}
+
+	@Then("^Verify and fill DLR for nepal job LE20D146$")
+	public static void Verify_and_fill_DLR_for_nepal_job_LE20D146() throws Throwable {
+
+		// DLR
+
+		popup_validation = ObjectsReporsitory.basic_popup_validation.size();
+		System.out.println("Popup : " + popup_validation);
+		if (popup_validation == 1) {
+
+			Screenshot.Screenshotforscenario();
+			System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+			System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_ok));
+			ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.DLR_job));
+			System.out.println("Navigated to DLR Page");
+			System.out.println("======================");
+			DLR.Selecting_Nepal_job_for_DLR_Entery();
+			DLR.Selecting_Date_for_DLR_Entery();
+			// DLR.Searching_DLR_Entery_For_Job(); // No Need for Flow Execution
+			DLR.Enter_DLR_Entry_for_Day_shift_Workmen();
+			DLR.Enter_DLR_Entry_for_Night_shift_Workmen();
+			DLR.Verify_DLR_Entry_Total_Calculated_Correctly();
+			DLR.Enter_DLR_Breakup_Workmen_Strenght();
+			DLR.Enter_DLR_Breakup_Workmen_at_site();
+			DLR.Enter_DLR_Breakup_Workmen_Inducted();
+			DLR.Enter_DLR_Breakup_Workmen_Released();
+			DLR.Enter_DLR_Breakup_Workmen_Expected_to_Released();
+			DLR.Enter_DLR_Breakup_Workmen_Under_Quarantine();
+			DLR.Enter_DLR_Breakup_Workmen_Affected_by_Covid();
+			DLR.DLR_Breakup_Calculated_Correctly();
+			DLR.Verify_User_can_be_able_to_Save_DLR_Entry();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.DLR_Back));
+			ObjectsReporsitory.DLR_Back.click();
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmenSearch_International));
+			ObjectsReporsitory.WorkmenSearch_International.click();
+
+		} else {
+			System.out.println("DLR Record For Selected Job Already Present");
+			System.out.println("============================================");
+		}
+
+	}
+
+	@Then("^Verify user can be able to Search international workmen and proceed for induction$")
+	public static void Verify_user_can_be_able_to_Search_international_workmen_and_proceed_for_induction()
+			throws Throwable {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchBy_select));
+		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
+				ObjectsReporsitory.Dashboard_SearchBy_select);
+		// ObjectsReporsitory.Dashboard_SearchBy_select.click();
+		System.out.println("Search workmen by Passport");
+		System.out.println("==============================");
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchWorkmen_Passport));
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Passport.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input));
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.click();
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.clear();
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.click();
+
+		Random rnd = new Random();
+		long number1 = rnd.nextInt(623);
+		long number2 = rnd.nextInt(328);
+		long number3 = rnd.nextInt(65);
+		long number4 = rnd.nextInt(652);
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input
+				.sendKeys("55" + number1 + number2 + number3 + number4);
+
+		Search_Passport = ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.getAttribute("value").length();
+		System.out.println("Length of the Passport Number : " + Search_Passport);
+		if (Search_Passport < 12) {
+			ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.click();
+
+			Actions actions_key1 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.END);
+			actions_key1.perform();
+			ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.sendKeys("5");
+			System.out.println("Passport Number :"
+					+ ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.getAttribute("value"));
+		} else if (Search_Passport > 12) {
+			ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.click();
+			Actions actions_key2 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.END);
+			actions_key2.perform();
+			Actions actions_key3 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.BACK_SPACE);
+			actions_key3.perform();
+			System.out.println("Passport Number :"
+					+ ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.getAttribute("value"));
+		} else {
+			System.out.println("Passport Number :"
+					+ ObjectsReporsitory.Dashboard_SearchWorkmen_Passport_input.getAttribute("value"));
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
+		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
+		Basic.popup_validation_international_Induction();
+
+	}
+
+	public static void Enter_aadhaar_number_for_Workmen_Induction() throws Throwable {
+
+		Basic.PageLoader_Validation();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchBy_DD));
+		ObjectsReporsitory.Dashboard_SearchBy_DD.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchBy_Aadhar));
+		ObjectsReporsitory.Dashboard_SearchBy_Aadhar.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_employeeAadhaar));
+		ObjectsReporsitory.Dashboard_employeeAadhaar.click();
+		ObjectsReporsitory.Dashboard_employeeAadhaar.clear();
+		ObjectsReporsitory.Dashboard_employeeAadhaar.click();
+
+		Random rnd = new Random();
+		long number1 = rnd.nextInt(623);
+		long number2 = rnd.nextInt(328);
+		long number3 = rnd.nextInt(65);
+		long number4 = rnd.nextInt(652);
+		ObjectsReporsitory.Dashboard_employeeAadhaar.sendKeys("64" + number1 + number2 + number3 + number4);
+
+		Search_Aadhaar_Number = ObjectsReporsitory.Dashboard_employeeAadhaar.getAttribute("value").length();
+		System.out.println("Length of the Aadhaar Number : " + Search_Aadhaar_Number);
+		if (Search_Aadhaar_Number < 12) {
+			ObjectsReporsitory.Dashboard_employeeAadhaar.click();
+
+			Actions actions_key1 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.END);
+			actions_key1.perform();
+			ObjectsReporsitory.Dashboard_employeeAadhaar.sendKeys("5");
+			System.out.println("Aadhaar Number :" + ObjectsReporsitory.Dashboard_employeeAadhaar.getAttribute("value"));
+		} else if (Search_Aadhaar_Number > 12) {
+			ObjectsReporsitory.Dashboard_employeeAadhaar.click();
+			Actions actions_key2 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.END);
+			actions_key2.perform();
+			Actions actions_key3 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.BACK_SPACE);
+			actions_key3.perform();
+			System.out.println("Aadhaar Number :" + ObjectsReporsitory.Dashboard_employeeAadhaar.getAttribute("value"));
+		} else {
+			System.out.println("Aadhaar Number :" + ObjectsReporsitory.Dashboard_employeeAadhaar.getAttribute("value"));
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
+		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
+		Basic.popup_validation_new_Induction();
 
 	}
 }

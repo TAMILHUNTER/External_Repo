@@ -9,6 +9,7 @@ import object_repository.ObjectsReporsitory;
 import stepdefinition.Screenshot;
 import utils.DriverFactory;
 import java.time.Duration;
+
 public class Verification_Popup_Paramedics {
 
 	public static int popup_validation;
@@ -46,6 +47,16 @@ public class Verification_Popup_Paramedics {
 			} else if (ObjectsReporsitory.popup_head.getText().equals("Error")) {
 
 				if (ObjectsReporsitory.popup_text.getText().contains("Select Medical Examination due date")) {
+
+					Screenshot.Screenshotforscenario();
+					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+					System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+					Actions actioneww = new Actions(DriverFactory.driver);
+					actioneww.sendKeys(Keys.ESCAPE).build().perform();
+					System.out.println("Error Handled : Validation Message is displayed");
+					System.out.println("--------------------------------------------------------");
+
+				} else if (ObjectsReporsitory.popup_text.getText().contains("Select Future Date")) {
 
 					Screenshot.Screenshotforscenario();
 					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());

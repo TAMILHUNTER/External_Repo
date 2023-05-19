@@ -99,10 +99,12 @@ public class Final_Approval {
 	@Then("^Verify User can be able to Expand and Collapse final approval window$")
 	public static void Verify_User_can_be_able_to_Expand_Collapse_final_approval_window() throws Throwable {
 
+		Basic.PageLoader_Validation();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.FA_Expand));
 		ObjectsReporsitory.FA_Expand.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.FA_collapse));
 		Screenshot.Screenshotforscenario();
+		Basic.PageLoader_Validation();
 		System.out.println("Final Approval window expanded");
 		ObjectsReporsitory.FA_collapse.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.FA_Expand));

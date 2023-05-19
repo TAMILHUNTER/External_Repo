@@ -16,6 +16,7 @@ import utils.DriverFactory;
 import java.time.Duration;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.Given;
+
 public class Edit_Communication_Details {
 
 	// Read Configuration
@@ -99,7 +100,7 @@ public class Edit_Communication_Details {
 		// ***************************************************************************
 
 		Edit_Communication_Details.Verify_user_can_able_to_update_Permanent_Address_city();
-		
+
 		Actions actions3 = new Actions(DriverFactory.driver);
 		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
 		actions3.perform();
@@ -198,7 +199,6 @@ public class Edit_Communication_Details {
 
 		if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("True")) {
 			ObjectsReporsitory.Induction_communication.click();
-			ObjectsReporsitory.sameAsPermanent.click();
 			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_Temp_District,
 					"ng-reflect-model"));
 			String Temp_District = ObjectsReporsitory.Communication_Temp_District.getAttribute("ng-reflect-model");
@@ -215,8 +215,10 @@ public class Edit_Communication_Details {
 			actions137.perform();
 			// wait.until(ExpectedConditions.textToBePresentInElement(ObjectsReporsitory.Communication_emergencyContact_Head,
 			// "Emergency Contact"));
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Communication_Temp_pincode));
 			ObjectsReporsitory.Communication_Temp_pincode.click();
 			ObjectsReporsitory.Communication_Temp_pincode.clear();
+			ObjectsReporsitory.Communication_Temp_pincode.click();
 			ObjectsReporsitory.Communication_Temp_pincode
 					.sendKeys(ConfigFileReader.getTemporary_Address_Pincode_update());
 			ObjectsReporsitory.Communication_Temp_address.click();
@@ -272,27 +274,38 @@ public class Edit_Communication_Details {
 
 	@Then("^Verify user can able to update Temporary Address$")
 	public static void Verify_user_can_able_to_update_Permanent_Address() throws Throwable {
+		if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("True")) {
+			ObjectsReporsitory.Induction_communication.click();
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_Temp_District,
+					"ng-reflect-model"));
+			String Temp_District = ObjectsReporsitory.Communication_Temp_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_Temp_State.getAttribute("ng-reflect-model");
+			System.out.println("Updated Temp_Address_District: " + Temp_District);
+			System.out.println("Updated Temp_Address_State: " + Temp_State);
 
-		ObjectsReporsitory.Induction_communication.click();
-		Actions actions138 = new Actions(DriverFactory.driver);
-		actions138.moveToElement(ObjectsReporsitory.Induction_Hearder_communicationDetails);
-		actions138.perform();
-		Actions actions139 = new Actions(DriverFactory.driver);
-		actions139.moveToElement(ObjectsReporsitory.Communication_emergencyContact_Head);
-		actions139.perform();
-		wait.until(ExpectedConditions.textToBePresentInElement(ObjectsReporsitory.Communication_emergencyContact_Head,
-				"Emergency Contact"));
-		ObjectsReporsitory.Communication_Temp_address.clear();
-		ObjectsReporsitory.Communication_Temp_address.sendKeys(ConfigFileReader.getTemporary_Address_update2());
-		// ***************************************************************************
+		}
 
-		Actions actions3 = new Actions(DriverFactory.driver);
-		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-		actions3.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Thread.sleep(2000);
-		Basic.popup_Handle2();
-		Thread.sleep(2000);
+		else if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("False")) {
+			ObjectsReporsitory.Induction_communication.click();
+			Actions actions138 = new Actions(DriverFactory.driver);
+			actions138.moveToElement(ObjectsReporsitory.Induction_Hearder_communicationDetails);
+			actions138.perform();
+			Actions actions139 = new Actions(DriverFactory.driver);
+			actions139.moveToElement(ObjectsReporsitory.Communication_emergencyContact_Head);
+			actions139.perform();
+			wait.until(ExpectedConditions.textToBePresentInElement(
+					ObjectsReporsitory.Communication_emergencyContact_Head, "Emergency Contact"));
+			ObjectsReporsitory.Communication_Temp_address.clear();
+			ObjectsReporsitory.Communication_Temp_address.sendKeys(ConfigFileReader.getTemporary_Address_update2());
+			// ***************************************************************************
+
+			Actions actions3 = new Actions(DriverFactory.driver);
+			actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+			actions3.perform();
+			ObjectsReporsitory.Communication_saveNext.click();
+			Thread.sleep(2000);
+			Basic.popup_Handle2();
+			Thread.sleep(2000);
 
 //		Actions actions4 = new Actions(DriverFactory.driver);
 //		actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -301,40 +314,52 @@ public class Edit_Communication_Details {
 //		Thread.sleep(2000);
 //		Screenshot.Screenshotforscenario();
 //		Basic.popup_Handle2();
-		// ***************************************************************************
-		DataBaseConnection.getverifyTemporaryupdateAddress();
+			// ***************************************************************************
+			DataBaseConnection.getverifyTemporaryupdateAddress();
+		}
 	}
 
 	@Then("^Verify user can able to update Temporary Address city$")
 	public static void Verify_user_can_able_to_update_Temporary_Address_city() throws Throwable {
+		if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("True")) {
+			ObjectsReporsitory.Induction_communication.click();
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_Temp_District,
+					"ng-reflect-model"));
+			String Temp_District = ObjectsReporsitory.Communication_Temp_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_Temp_State.getAttribute("ng-reflect-model");
+			System.out.println("Updated Temp_Address_District: " + Temp_District);
+			System.out.println("Updated Temp_Address_State: " + Temp_State);
 
-		ObjectsReporsitory.Induction_communication.click();
-		Actions actions140 = new Actions(DriverFactory.driver);
-		actions140.moveToElement(ObjectsReporsitory.Communication_emergencyContact_Head);
-		actions140.perform();
-		ObjectsReporsitory.Communication_Temp_villageTown.clear();
-		ObjectsReporsitory.Communication_Temp_villageTown.click();
-		ObjectsReporsitory.Communication_Temp_villageTown
-				.sendKeys(ConfigFileReader.getTemporary_Address_Village_update_B());
-		Thread.sleep(2000);
-		List<WebElement> DropdownResult = ObjectsReporsitory.Communication_temp_villageTown_DR;
-		for (WebElement webElement : DropdownResult) {
-			if (webElement.getAttribute("title").equals(ConfigFileReader.getTemporary_Address_Village_update2())) {
-				webElement.click();
-				System.out.println("Updated Temporary Address Village:"
-						+ ObjectsReporsitory.Communication_Temp_address.getAttribute("value"));
-				break;
-			}
 		}
-		// ***************************************************************************
 
-		Actions actions3 = new Actions(DriverFactory.driver);
-		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-		actions3.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Thread.sleep(2000);
-		Basic.popup_Handle2();
-		Thread.sleep(2000);
+		else if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("False")) {
+			ObjectsReporsitory.Induction_communication.click();
+			Actions actions140 = new Actions(DriverFactory.driver);
+			actions140.moveToElement(ObjectsReporsitory.Communication_emergencyContact_Head);
+			actions140.perform();
+			ObjectsReporsitory.Communication_Temp_villageTown.clear();
+			ObjectsReporsitory.Communication_Temp_villageTown.click();
+			ObjectsReporsitory.Communication_Temp_villageTown
+					.sendKeys(ConfigFileReader.getTemporary_Address_Village_update_B());
+			Thread.sleep(2000);
+			List<WebElement> DropdownResult = ObjectsReporsitory.Communication_temp_villageTown_DR;
+			for (WebElement webElement : DropdownResult) {
+				if (webElement.getAttribute("title").equals(ConfigFileReader.getTemporary_Address_Village_update2())) {
+					webElement.click();
+					System.out.println("Updated Temporary Address Village:"
+							+ ObjectsReporsitory.Communication_Temp_address.getAttribute("value"));
+					break;
+				}
+			}
+			// ***************************************************************************
+
+			Actions actions3 = new Actions(DriverFactory.driver);
+			actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+			actions3.perform();
+			ObjectsReporsitory.Communication_saveNext.click();
+			Thread.sleep(2000);
+			Basic.popup_Handle2();
+			Thread.sleep(2000);
 
 //		Actions actions4 = new Actions(DriverFactory.driver);
 //		actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -343,8 +368,9 @@ public class Edit_Communication_Details {
 //		Thread.sleep(2000);
 //		Screenshot.Screenshotforscenario();
 //		Basic.popup_Handle2();
-		// ***************************************************************************
-		DataBaseConnection.getverifyupdateTemporaryAddresscity();
+			// ***************************************************************************
+			DataBaseConnection.getverifyupdateTemporaryAddresscity();
+		}
 	}
 
 	@Then("^Verify user can able to update Emergency Contact Name$")
@@ -457,49 +483,64 @@ public class Edit_Communication_Details {
 	@Then("^Verify user can able to update Emergency Contact Pincode$")
 	public static void Verify_user_can_able_to_update_Emergency_Contact_Pincode() throws Throwable {
 
-		ObjectsReporsitory.Induction_communication.click();
-		Actions actions144 = new Actions(DriverFactory.driver);
-		actions144.moveToElement(ObjectsReporsitory.skill_header);
-		actions144.perform();
-		ObjectsReporsitory.Communication_EC_pincode.click();
-		ObjectsReporsitory.Communication_EC_pincode.clear();
-		ObjectsReporsitory.Communication_EC_pincode.sendKeys(ConfigFileReader.getEmergency_Contact_Pincode_update());
-		ObjectsReporsitory.Communication_EC_address.click();
-		Thread.sleep(2000);
-		System.out.println("Updated Emergency Contact Pincode: "
-				+ ObjectsReporsitory.Communication_EC_pincode.getAttribute("value"));
-		String Temp_District = ObjectsReporsitory.Communication_EC_District.getAttribute("ng-reflect-model");
-		String Temp_State = ObjectsReporsitory.Communication_EC_state.getAttribute("ng-reflect-model");
-		System.out.println("Updated Emergency Contact District: " + Temp_District);
-		System.out.println("Updated Emergency Contact State: " + Temp_State);
-		ObjectsReporsitory.Communication_EC_address.click();
-		ObjectsReporsitory.Communication_EC_address.clear();
-		ObjectsReporsitory.Communication_EC_address.sendKeys(ConfigFileReader.getEmergency_Contact_Address_update());
-		System.out.println("Updated Emergency Contact Address: "
-				+ ObjectsReporsitory.Communication_EC_address.getAttribute("value"));
-		ObjectsReporsitory.Communication_EC_villageTown.clear();
-		ObjectsReporsitory.Communication_EC_villageTown.click();
-		ObjectsReporsitory.Communication_EC_villageTown
-				.sendKeys(ConfigFileReader.getEmergency_Contact_Village_update());
-		Thread.sleep(2000);
-		List<WebElement> DropdownResult = ObjectsReporsitory.Communication_EC_villageTown_DR;
-		for (WebElement webElement : DropdownResult) {
-			if (webElement.getAttribute("title").equals(ConfigFileReader.getEmergency_Contact_Village_update_A())) {
-				webElement.click();
-				System.out.println("Updated Emergency Contact Village:"
-						+ ObjectsReporsitory.Communication_EC_villageTown.getAttribute("value"));
-				break;
-			}
+		if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("True")) {
+			ObjectsReporsitory.Induction_communication.click();
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_EC_District,
+					"ng-reflect-model"));
+			String Temp_District = ObjectsReporsitory.Communication_EC_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_EC_state.getAttribute("ng-reflect-model");
+			System.out.println("Updated EC_Address_District: " + Temp_District);
+			System.out.println("Updated EC_Address_State: " + Temp_State);
+
 		}
 
-		// ***************************************************************************
-		Actions actions3 = new Actions(DriverFactory.driver);
-		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-		actions3.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Thread.sleep(2000);
-		Basic.popup_Handle2();
-		Thread.sleep(2000);
+		else if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("False")) {
+
+			ObjectsReporsitory.Induction_communication.click();
+			Actions actions144 = new Actions(DriverFactory.driver);
+			actions144.moveToElement(ObjectsReporsitory.skill_header);
+			actions144.perform();
+			ObjectsReporsitory.Communication_EC_pincode.click();
+			ObjectsReporsitory.Communication_EC_pincode.clear();
+			ObjectsReporsitory.Communication_EC_pincode
+					.sendKeys(ConfigFileReader.getEmergency_Contact_Pincode_update());
+			ObjectsReporsitory.Communication_EC_address.click();
+			Thread.sleep(2000);
+			System.out.println("Updated Emergency Contact Pincode: "
+					+ ObjectsReporsitory.Communication_EC_pincode.getAttribute("value"));
+			String Temp_District = ObjectsReporsitory.Communication_EC_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_EC_state.getAttribute("ng-reflect-model");
+			System.out.println("Updated Emergency Contact District: " + Temp_District);
+			System.out.println("Updated Emergency Contact State: " + Temp_State);
+			ObjectsReporsitory.Communication_EC_address.click();
+			ObjectsReporsitory.Communication_EC_address.clear();
+			ObjectsReporsitory.Communication_EC_address
+					.sendKeys(ConfigFileReader.getEmergency_Contact_Address_update());
+			System.out.println("Updated Emergency Contact Address: "
+					+ ObjectsReporsitory.Communication_EC_address.getAttribute("value"));
+			ObjectsReporsitory.Communication_EC_villageTown.clear();
+			ObjectsReporsitory.Communication_EC_villageTown.click();
+			ObjectsReporsitory.Communication_EC_villageTown
+					.sendKeys(ConfigFileReader.getEmergency_Contact_Village_update());
+			Thread.sleep(2000);
+			List<WebElement> DropdownResult = ObjectsReporsitory.Communication_EC_villageTown_DR;
+			for (WebElement webElement : DropdownResult) {
+				if (webElement.getAttribute("title").equals(ConfigFileReader.getEmergency_Contact_Village_update_A())) {
+					webElement.click();
+					System.out.println("Updated Emergency Contact Village:"
+							+ ObjectsReporsitory.Communication_EC_villageTown.getAttribute("value"));
+					break;
+				}
+			}
+
+			// ***************************************************************************
+			Actions actions3 = new Actions(DriverFactory.driver);
+			actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+			actions3.perform();
+			ObjectsReporsitory.Communication_saveNext.click();
+			Thread.sleep(2000);
+			Basic.popup_Handle2();
+			Thread.sleep(2000);
 
 //		Actions actions4 = new Actions(DriverFactory.driver);
 //		actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -508,30 +549,45 @@ public class Edit_Communication_Details {
 //		Thread.sleep(2000);
 //		Screenshot.Screenshotforscenario();
 //		Basic.popup_Handle2();
-		// ***************************************************************************
-		DataBaseConnection.getverifyupdateEmergencyContactPincode();
+			// ***************************************************************************
+			DataBaseConnection.getverifyupdateEmergencyContactPincode();
+		}
 	}
 
 	@Then("^Verify user can able to update Emergency Contact Address$")
 	public static void Verify_user_can_able_to_update_Emergency_Contact_Address() throws Throwable {
 
-		//ObjectsReporsitory.Induction_communication.click();
-		Actions actions145 = new Actions(DriverFactory.driver);
-		actions145.moveToElement(ObjectsReporsitory.skill_header);actions145.perform();
-		Thread.sleep(3000);
-		ObjectsReporsitory.Communication_EC_address.click();
-		ObjectsReporsitory.Communication_EC_address.clear();
-		ObjectsReporsitory.Communication_EC_address.sendKeys(ConfigFileReader.getEmergency_Contact_Address_update2());
-		System.out.println("Updated Emergency Contact Address: "
-				+ ObjectsReporsitory.Communication_EC_address.getAttribute("value"));
-		// ***************************************************************************
-		Actions actions3 = new Actions(DriverFactory.driver);
-		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-		actions3.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Thread.sleep(2000);
-		Basic.popup_Handle2();
-		Thread.sleep(2000);
+		if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("True")) {
+			ObjectsReporsitory.Induction_communication.click();
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_EC_District,
+					"ng-reflect-model"));
+			String Temp_District = ObjectsReporsitory.Communication_EC_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_EC_state.getAttribute("ng-reflect-model");
+			System.out.println("Updated EC_Address_District: " + Temp_District);
+			System.out.println("Updated EC_Address_State: " + Temp_State);
+
+		}
+
+		else if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("False")) {
+			// ObjectsReporsitory.Induction_communication.click();
+			Actions actions145 = new Actions(DriverFactory.driver);
+			actions145.moveToElement(ObjectsReporsitory.skill_header);
+			actions145.perform();
+			Thread.sleep(3000);
+			ObjectsReporsitory.Communication_EC_address.click();
+			ObjectsReporsitory.Communication_EC_address.clear();
+			ObjectsReporsitory.Communication_EC_address
+					.sendKeys(ConfigFileReader.getEmergency_Contact_Address_update2());
+			System.out.println("Updated Emergency Contact Address: "
+					+ ObjectsReporsitory.Communication_EC_address.getAttribute("value"));
+			// ***************************************************************************
+			Actions actions3 = new Actions(DriverFactory.driver);
+			actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+			actions3.perform();
+			ObjectsReporsitory.Communication_saveNext.click();
+			Thread.sleep(2000);
+			Basic.popup_Handle2();
+			Thread.sleep(2000);
 
 //		Actions actions4 = new Actions(DriverFactory.driver);
 //		actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -540,39 +596,51 @@ public class Edit_Communication_Details {
 //		Thread.sleep(2000);
 //		Screenshot.Screenshotforscenario();
 //		Basic.popup_Handle2();
-		// ***************************************************************************
-		DataBaseConnection.getverifyupdateEmergencyAddressUpdate();
+			// ***************************************************************************
+			DataBaseConnection.getverifyupdateEmergencyAddressUpdate();
+		}
 	}
 
 	@Then("^Verify user can able to update Emergency Contact Address city$")
 	public static void Verify_user_can_able_to_update_Emergency_Contact_Address_city() throws Throwable {
+		if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("True")) {
+			ObjectsReporsitory.Induction_communication.click();
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_EC_District,
+					"ng-reflect-model"));
+			String Temp_District = ObjectsReporsitory.Communication_EC_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_EC_state.getAttribute("ng-reflect-model");
+			System.out.println("Updated EC_Address_District: " + Temp_District);
+			System.out.println("Updated EC_Address_State: " + Temp_State);
 
-		//ObjectsReporsitory.Induction_communication.click();
-		Actions actions146 = new Actions(DriverFactory.driver);
-		actions146.moveToElement(ObjectsReporsitory.skill_header);
-		actions146.perform();
-		ObjectsReporsitory.Communication_EC_villageTown.clear();
-		ObjectsReporsitory.Communication_EC_villageTown.click();
-		ObjectsReporsitory.Communication_EC_villageTown
-				.sendKeys(ConfigFileReader.getEmergency_Contact_Village_update2());
-		Thread.sleep(2000);
-		List<WebElement> DropdownResult = ObjectsReporsitory.Communication_EC_villageTown_DR;
-		for (WebElement webElement : DropdownResult) {
-			if (webElement.getAttribute("title").equals(ConfigFileReader.getEmergency_Contact_Village_update_B())) {
-				webElement.click();
-				System.out.println("Emergency Contact Address Village:"
-						+ ObjectsReporsitory.Communication_EC_villageTown.getAttribute("value"));
-				break;
-			}
 		}
-		// ***************************************************************************
-		Actions actions3 = new Actions(DriverFactory.driver);
-		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-		actions3.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Thread.sleep(2000);
-		Basic.popup_Handle2();
-		Thread.sleep(2000);
+
+		else if (ConfigFileReader.getSame_as_Permanent_Address_update().equals("False")) {
+			// ObjectsReporsitory.Induction_communication.click();
+			Actions actions146 = new Actions(DriverFactory.driver);
+			actions146.moveToElement(ObjectsReporsitory.skill_header);
+			actions146.perform();
+			ObjectsReporsitory.Communication_EC_villageTown.clear();
+			ObjectsReporsitory.Communication_EC_villageTown.click();
+			ObjectsReporsitory.Communication_EC_villageTown
+					.sendKeys(ConfigFileReader.getEmergency_Contact_Village_update2());
+			Thread.sleep(2000);
+			List<WebElement> DropdownResult = ObjectsReporsitory.Communication_EC_villageTown_DR;
+			for (WebElement webElement : DropdownResult) {
+				if (webElement.getAttribute("title").equals(ConfigFileReader.getEmergency_Contact_Village_update_B())) {
+					webElement.click();
+					System.out.println("Emergency Contact Address Village:"
+							+ ObjectsReporsitory.Communication_EC_villageTown.getAttribute("value"));
+					break;
+				}
+			}
+			// ***************************************************************************
+			Actions actions3 = new Actions(DriverFactory.driver);
+			actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+			actions3.perform();
+			ObjectsReporsitory.Communication_saveNext.click();
+			Thread.sleep(2000);
+			Basic.popup_Handle2();
+			Thread.sleep(2000);
 
 //		Actions actions4 = new Actions(DriverFactory.driver);
 //		actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -581,8 +649,9 @@ public class Edit_Communication_Details {
 //		Thread.sleep(2000);
 //		Screenshot.Screenshotforscenario();
 //		Basic.popup_Handle2();
-		// ***************************************************************************
-		DataBaseConnection.getverifyupdateEmergencyAddressVillageUpdate();
+			// ***************************************************************************
+			DataBaseConnection.getverifyupdateEmergencyAddressVillageUpdate();
+		}
 
 	}
 

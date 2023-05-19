@@ -139,6 +139,7 @@ public class EHS_Create {
 			if (MedicalTest_Card_Count > 0) {
 				System.out.println("Navigated to MedicalTest");
 				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.MedicalTest_First_card));
+				ObjectsReporsitory.MedicalTest_First_card.click();
 				MedicalTest_Create.Verify_Next_Medical_Examination_due_date_displayed();
 				MedicalTest_Create.Verify_the_Paramedics_details_displayed_Medical_Test();
 				MedicalTest_Create.Verify_the_user_can_be_able_to_create_medical_certificate();

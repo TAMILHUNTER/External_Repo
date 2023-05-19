@@ -154,6 +154,7 @@ public class Wage_Create {
 		// Wage_Count =
 		// Integer.parseInt(ObjectsReporsitory.Dashboard_Wage_Count.getText());
 		ObjectsReporsitory.Induction_wage.click();
+		Basic.PageLoader_Validation();
 		Wage_Card_Count = Skill_Analysis_Objects.Wage_All_cards.size();
 		System.out.println("Workmen Count in Wage : " + Wage_Card_Count);
 

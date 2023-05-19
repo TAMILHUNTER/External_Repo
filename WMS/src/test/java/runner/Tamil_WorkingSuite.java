@@ -16,7 +16,7 @@ import io.cucumber.junit.CucumberOptions;
 		glue = {"stepdefinition" }, 
 		monochrome = true, 
 		publish = true, 
-				tags = "@CreateWorkmen",
+				tags = "@E2E_Induction_Edit_Basic_Details_Education",
 						
 						
 		plugin = { 

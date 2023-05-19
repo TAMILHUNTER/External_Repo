@@ -20,6 +20,7 @@ import utils.DriverFactory;
 import java.time.Duration;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.Given;
+
 public class Edit_Statutory {
 
 	// Read Configuration
@@ -60,6 +61,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getAadhaarUpdate();
@@ -77,6 +79,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getDrivingLicenseUpdate();
@@ -94,6 +97,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getPANUpdate();
@@ -112,6 +116,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getPFUpdate();
@@ -130,6 +135,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getUANUpdate();
@@ -148,6 +154,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getESIUpdate();
@@ -171,6 +178,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getWorkpermitUpdate();
@@ -181,9 +189,9 @@ public class Edit_Statutory {
 	public static void Verify_User_can_able_to_Add_Workpermit_expiry() throws Throwable {
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_WorkPermit_expiry));
-		
+
 		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.click();
-		
+
 		Actions actions1002 = new Actions(DriverFactory.driver);
 		Actions actions1003 = new Actions(DriverFactory.driver);
 
@@ -191,9 +199,10 @@ public class Edit_Statutory {
 		Thread.sleep(2000);
 		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.sendKeys(ConfigFileReader.getWorkpermit_Expiry_Date_Month_edit());
 		actions1003.sendKeys(Keys.TAB).build().perform();
-		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.sendKeys(ConfigFileReader.getWorkpermit_Expiry_Year_edit());
+		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry
+				.sendKeys(ConfigFileReader.getWorkpermit_Expiry_Year_edit());
 		Thread.sleep(2000);
-		
+
 		System.out.println("Workpermit Expiry Date : "
 				+ ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.getAttribute("value"));
 		Thread.sleep(5000);
@@ -201,6 +210,7 @@ public class Edit_Statutory {
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getWorkpermitExpiryUpdate();
@@ -218,13 +228,13 @@ public class Edit_Statutory {
 		long number1 = rnd.nextInt(1234567892);
 		long number2 = rnd.nextInt(328525641);
 		ObjectsReporsitory.statutoryDetails_labour.sendKeys("" + number1 + number2);
-		System.out
-				.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour.getAttribute("value"));
+		System.out.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour.getAttribute("value"));
 
 		Actions actions153 = new Actions(DriverFactory.driver);
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getLabourCardUpdate();
@@ -234,28 +244,28 @@ public class Edit_Statutory {
 	@Then("^Verify User can able to Edit Labourcard expiry$")
 	public static void Verify_User_can_able_to_Add_Labourcard_expiry() throws Throwable {
 
-		
-
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_labour_expiry));
 		ObjectsReporsitory.statutoryDetails_labour_expiry.click();
-		
+
 		Actions actions1002 = new Actions(DriverFactory.driver);
 		Actions actions1003 = new Actions(DriverFactory.driver);
 
 		actions1002.sendKeys(Keys.HOME).build().perform();
 		Thread.sleep(2000);
-		ObjectsReporsitory.statutoryDetails_labour_expiry.sendKeys(ConfigFileReader.getLabourcard_Expiry_Date_Month_edit());
+		ObjectsReporsitory.statutoryDetails_labour_expiry
+				.sendKeys(ConfigFileReader.getLabourcard_Expiry_Date_Month_edit());
 		actions1003.sendKeys(Keys.TAB).build().perform();
 		ObjectsReporsitory.statutoryDetails_labour_expiry.sendKeys(ConfigFileReader.getLabourcard_Expiry_Year_edit());
 		Thread.sleep(2000);
-		
-		System.out.println("Labourcard Expiry Date  : "
-				+ ObjectsReporsitory.statutoryDetails_labour_expiry.getAttribute("value"));
+
+		System.out.println(
+				"Labourcard Expiry Date  : " + ObjectsReporsitory.statutoryDetails_labour_expiry.getAttribute("value"));
 
 		Actions actions153 = new Actions(DriverFactory.driver);
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getLabourCardExpiryUpdate();
@@ -263,7 +273,6 @@ public class Edit_Statutory {
 	}
 
 	// ****************
-
 
 	@Then("^Verify User can able Edit PF Nominee NameUpdate$")
 	public static void Verify_User_can_able_to_Edit_PF_Nominee_Name_update() throws Throwable {
@@ -279,7 +288,8 @@ public class Edit_Statutory {
 			ObjectsReporsitory.statutory_PF_Nominee_Name.click();
 			ObjectsReporsitory.statutory_PF_Nominee_Name.clear();
 			ObjectsReporsitory.statutory_PF_Nominee_Name.click();
-			ObjectsReporsitory.statutory_PF_Nominee_Name.sendKeys(ConfigFileReader.getPF_Nominee_Name2() + RandomString.make(10));
+			ObjectsReporsitory.statutory_PF_Nominee_Name
+					.sendKeys(ConfigFileReader.getPF_Nominee_Name2() + RandomString.make(10));
 		} else {
 
 			// Name
@@ -289,15 +299,17 @@ public class Edit_Statutory {
 			ObjectsReporsitory.statutory_PF_Nominee_Name.click();
 			ObjectsReporsitory.statutory_PF_Nominee_Name
 					.sendKeys(ConfigFileReader.getPF_Nominee_Name2() + RandomString.make(10));
-			
+
 		}
-		System.out.println("PF Nominee Name_updated :" + ObjectsReporsitory.statutory_PF_Nominee_Name.getAttribute("value"));
+		System.out.println(
+				"PF Nominee Name_updated :" + ObjectsReporsitory.statutory_PF_Nominee_Name.getAttribute("value"));
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutory_PF_Nominee_save));
 		ObjectsReporsitory.statutory_PF_Nominee_save.click();
 		Actions actions153 = new Actions(DriverFactory.driver);
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getPFNomineeNameUpdate();
@@ -350,7 +362,7 @@ public class Edit_Statutory {
 
 			// Relationship
 			ObjectsReporsitory.statutory_PF_Nominee_Edit1.click();
-			
+
 			String Relatioship = ObjectsReporsitory.statutory_PF_Nominee_Relationship.getAttribute("value");
 			if (Relatioship.equals("")) {
 				ObjectsReporsitory.statutory_PF_Nominee_Relationship.sendKeys("Mother");
@@ -385,13 +397,15 @@ public class Edit_Statutory {
 
 		}
 
-		System.out.println("PF Nominee Name_updated :" + ObjectsReporsitory.statutory_PF_Nominee_Relationship.getAttribute("value"));
+		System.out.println("PF Nominee Name_updated :"
+				+ ObjectsReporsitory.statutory_PF_Nominee_Relationship.getAttribute("value"));
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutory_PF_Nominee_save));
 		ObjectsReporsitory.statutory_PF_Nominee_save.click();
 		Actions actions153 = new Actions(DriverFactory.driver);
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getPFNomineeRelationshipUpdate();
@@ -414,26 +428,26 @@ public class Edit_Statutory {
 			ObjectsReporsitory.statutory_PF_Nominee_Percentage.sendKeys("100");
 		} else {
 
-			
 			ObjectsReporsitory.statutory_PF_Nominee_Edit1.click();
 			ObjectsReporsitory.statutory_PF_Nominee_Percentage.click();
 			ObjectsReporsitory.statutory_PF_Nominee_Percentage.clear();
 			ObjectsReporsitory.statutory_PF_Nominee_Percentage.click();
 			ObjectsReporsitory.statutory_PF_Nominee_Percentage.sendKeys("100");
-			
+
 		}
-		System.out.println("PF Nominee Allocation Percentage_Updated :"+ ObjectsReporsitory.statutory_PF_Nominee_Percentage.getAttribute("value"));
+		System.out.println("PF Nominee Allocation Percentage_Updated :"
+				+ ObjectsReporsitory.statutory_PF_Nominee_Percentage.getAttribute("value"));
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutory_PF_Nominee_save));
 		ObjectsReporsitory.statutory_PF_Nominee_save.click();
 		Actions actions153 = new Actions(DriverFactory.driver);
 		actions153.moveToElement(ObjectsReporsitory.Bank_Header);
 		actions153.perform();
 		ObjectsReporsitory.statutoryDetails_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		DataBaseConnection.getPFNomineepercentageUpdate();
-	
-		
+
 	}
 
 }

@@ -70,6 +70,7 @@ public class MedicalTest_Verification {
 
 		ObjectsReporsitory.MedicalTest_updateskintemp.click();
 		ObjectsReporsitory.MedicalTest_updateskintemp.clear();
+		ObjectsReporsitory.MedicalTest_updateskintemp.click();
 
 		Actions actionssave = new Actions(DriverFactory.driver);
 		actionssave.moveToElement(ObjectsReporsitory.MedicalTest_Submit);

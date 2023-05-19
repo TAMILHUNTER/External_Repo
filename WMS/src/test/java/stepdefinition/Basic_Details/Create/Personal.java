@@ -69,6 +69,7 @@ public class Personal {
 		actions.moveToElement(ObjectsReporsitory.Personal_saveNext);
 		actions.perform();
 		System.out.println("Navigated to Basicdetails - Personal");
+		
 
 	}
 
@@ -122,7 +123,7 @@ public class Personal {
 
 		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
 				ObjectsReporsitory.Personal_Language_addLanguage);
-		// ObjectsReporsitory.Personal_Language_addLanguage.click();
+
 		ObjectsReporsitory.Personal_Language_addLanguage_dr.click();
 
 		List<WebElement> DropdownResult = ObjectsReporsitory.Personal_Language_Languageselect_DR;
@@ -188,6 +189,7 @@ public class Personal {
 
 			for (WebElement webElement : DropdownResult2) {
 				if (webElement.getText().equals(Selected_Language2)) {
+					Thread.sleep(2000);
 					webElement.click();
 					Thread.sleep(3000);
 					System.out.println("Selected Language 2");
@@ -228,41 +230,6 @@ public class Personal {
 		ObjectsReporsitory.Personal_Language_Save.click();
 		System.out.println("Language 2 added successfully");
 
-//		//Adding Language 3:
-//			ObjectsReporsitory.Personal_Language_addLanguage.click();
-//			ObjectsReporsitory.Personal_Language_addLanguage_dr.click();
-//			List<WebElement> DropdownResult3 = ObjectsReporsitory.Personal_Language_Languageselect_DR;
-//			for (WebElement webElement : DropdownResult3) {
-//				if (webElement.getText().equals(ConfigFileReader.getLanguage3())) {
-//					webElement.click();
-//					System.out.println("Language Selected:"+ConfigFileReader.getLanguage3());
-//					break;
-//				}
-//			}
-//			if(ConfigFileReader.getL3Read().equals("True")){
-//				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Read));
-//				ObjectsReporsitory.Personal_Language_Read.click();
-//			}
-//			else if (ConfigFileReader.getL3Read().equals("True")){
-//				System.out.println("Language Read Unchecked");
-//			}
-//			if(ConfigFileReader.getL3Write().equals("True")){
-//				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Write));
-//				ObjectsReporsitory.Personal_Language_Write.click();
-//			}
-//			else if (ConfigFileReader.getL3Write().equals("True")){
-//				System.out.println("Language Write Unchecked");
-//			}
-//			if(ConfigFileReader.getL3speak().equals("True")){
-//				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Speak));
-//				ObjectsReporsitory.Personal_Language_Speak.click();
-//			}
-//			else if (ConfigFileReader.getL3speak().equals("True")){
-//				System.out.println("Language Speak Unchecked");
-//			}
-//			ObjectsReporsitory.Personal_Language_Save.click();
-//			
-//			System.out.println("Language " +ConfigFileReader.getLanguage3()+" added successfully");
 		ObjectsReporsitory.Personal_Language_closewindow.click();
 
 	}
@@ -295,7 +262,7 @@ public class Personal {
 
 		List<WebElement> Gender_all_options = ObjectsReporsitory.Personal_Gender_allOptions;
 
-		if (ConfigFileReader.getselect_Language_Value().contains("Random")) {
+		if (ConfigFileReader.getselect_Gender_Value().contains("Random")) {
 			System.out.println("Selecting Random Gender");
 			Random rand65442 = new Random();
 			int Gender = rand65442.nextInt(ObjectsReporsitory.Personal_Gender_allOptions.size());
@@ -463,6 +430,7 @@ public class Personal {
 		Basic.popup_validation();
 
 	}
+
 	@Then("^verify user can able to select Nationality$")
 	public static void verify_user_can_able_to_select_Nationality() throws Throwable {
 

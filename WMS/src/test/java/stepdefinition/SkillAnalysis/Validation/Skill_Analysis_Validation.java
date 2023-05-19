@@ -241,8 +241,8 @@ public class Skill_Analysis_Validation {
 		if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() == 0) {
 			System.out.println("Application Not allowing to Enter Any Numeric Value in Total Questions Field");
 		} 
-		else if (ObjectsReporsitory.Education_Discipiline.getAttribute("value").length() >3) {
-			System.out.println("Error : User Can be able to Enter mor then 3"+ Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length()+ " Length Numeric Value in Total Questions Field");
+		else if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() >3) {
+			System.out.println("Error : User Can be able to Enter more then 3"+ Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length()+ " Length Numeric Value in Total Questions Field");
 		}
 		else {
 			System.out.println("Error : User Can be able to Enter "+ Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length()+ " Length Numeric Value in Total Questions Field");
@@ -266,7 +266,7 @@ public class Skill_Analysis_Validation {
 		if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() == 0) {
 			System.out.println("Application Not allowing to Enter Any alphabets Value in Total Questions Field");
 		} 
-		else if (ObjectsReporsitory.Education_Discipiline.getAttribute("value").length() >3) {
+		else if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() >3) {
 			System.out.println("Error : User Can be able to Enter mor then 3"+ Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length()+ " Length alphabets Value in Total Questions Field");
 		}
 		else {
@@ -294,7 +294,7 @@ public class Skill_Analysis_Validation {
 		if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() == 0) {
 			System.out.println("Application Not allowing to Enter Any Special characters Value in Total Questions Field");
 		} 
-		else if (ObjectsReporsitory.Education_Discipiline.getAttribute("value").length() >3) {
+		else if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() >3) {
 			System.out.println("Error : User Can be able to Enter mor then 3"+ Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length()+ " Length Special characters Value in Total Questions Field");
 		}
 		else {
@@ -320,7 +320,7 @@ public class Skill_Analysis_Validation {
 		if (Skill_Analysis_Objects.Skill_Analysis_CorrectAnswers1.getAttribute("value").length() == 0) {
 			System.out.println("Application Not allowing to Enter Any Numeric Value in Total Answers Field");
 		} 
-		else if (ObjectsReporsitory.Education_Discipiline.getAttribute("value").length() >3) {
+		else if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() >3) {
 			System.out.println("Error : User Can be able to Enter mor then 3"+ Skill_Analysis_Objects.Skill_Analysis_CorrectAnswers1.getAttribute("value").length()+ " Length Numeric Value in Total Answers Field");
 		}
 		else {
@@ -345,7 +345,7 @@ public class Skill_Analysis_Validation {
 		if (Skill_Analysis_Objects.Skill_Analysis_CorrectAnswers1.getAttribute("value").length() == 0) {
 			System.out.println("Application Not allowing to Enter Any alphabets Value in Total Answers Field");
 		} 
-		else if (ObjectsReporsitory.Education_Discipiline.getAttribute("value").length() >3) {
+		else if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() >3) {
 			System.out.println("Error : User Can be able to Enter mor then 3"+ Skill_Analysis_Objects.Skill_Analysis_CorrectAnswers1.getAttribute("value").length()+ " Length alphabets Value in Total Answers Field");
 		}
 		else {
@@ -372,7 +372,7 @@ public class Skill_Analysis_Validation {
 		if (Skill_Analysis_Objects.Skill_Analysis_CorrectAnswers1.getAttribute("value").length() == 0) {
 			System.out.println("Application Not allowing to Enter Any Special characters Value in Total Answers Field");
 		} 
-		else if (ObjectsReporsitory.Education_Discipiline.getAttribute("value").length() >3) {
+		else if (Skill_Analysis_Objects.Skill_Analysis_TotalQuestiones1.getAttribute("value").length() >3) {
 			System.out.println("Error : User Can be able to Enter mor then 3"+ Skill_Analysis_Objects.Skill_Analysis_CorrectAnswers1.getAttribute("value").length()+ " Length Special characters Value in Total Answers Field");
 		}
 		else {

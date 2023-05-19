@@ -20,6 +20,7 @@ import utils.DriverFactory;
 import java.time.Duration;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.Given;
+
 public class Profile_Basic {
 
 	static int Skill_Analyisis_Count;
@@ -280,8 +281,8 @@ public class Profile_Basic {
 				Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_languagesKnown);
 		// Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_languagesKnown.click();
 
-		String Language1, Language2;// Language3;
-		String Language1_Read, Language1_Write, Language1_Speak, Language2_Read, Language2_Write, Language2_Speak;
+		String Language1;
+		String Language1_Read, Language1_Write, Language1_Speak;
 		// Language3_Read, Language3_Write, Language3_Speak;
 		if (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language1.getText()
 				.equals("No records available.")) {
@@ -289,178 +290,94 @@ public class Profile_Basic {
 		}
 
 		else {
+			System.out.println("Displaying First language record details");
 			Language1 = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language1.getText();
 			Language1_Read = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language1_Read.getText();
 			Language1_Write = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language1_Write.getText();
 			Language1_Speak = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language1_Speak.getText();
-			if (Language1.equals(ConfigFileReader.getLanguage1())) {
-				System.out.println(Language1 + " - Displayed Language 1");
-				if (Language1_Read.equals(ConfigFileReader.getL1Read_Verify())) {
-					System.out.println("Workman Can be able to Read " + Language1 + " : " + Language1_Read);
-				} else {
-					System.out.println("****Verification Failed : Workman Can be able to Read " + Language1 + " : "
-							+ Language1_Read + "*******");
-					// fail();
-				}
-				if (Language1_Write.equals(ConfigFileReader.getL1Write_Verify())) {
-					System.out.println("Workman Can be able to Write " + Language1 + " : " + Language1_Write);
-				} else {
-					System.out.println("****Verification Failed : Workman Can be able to Write " + Language1 + " : "
-							+ Language1_Write + "*******");
-					// fail();
-				}
-				if (Language1_Speak.equals(ConfigFileReader.getL1speak_Verify())) {
-					System.out.println("Workman Can be able to Speak " + Language1 + " : " + Language1_Speak);
-				} else {
-					System.out.println("****Verification Failed : Workman Can be able to Speak " + Language1 + " : "
-							+ Language1_Speak + "*******");
-					// fail();
-				}
-			} else if (Language1.equals(ConfigFileReader.getLanguage1_update())) {
-				System.out.println(Language1 + " - Displayed Language 1");
-				if (Language1_Read.equals(ConfigFileReader.getL1Read_update_verify())) {
-					System.out.println("Workman Can be able to Read " + Language1 + " : " + Language1_Read);
-				} else {
-					System.out.println("****Verification Failed : Workman Can be able to Read " + Language1 + " : "
-							+ Language1_Read + "*******");
-					// fail();
-				}
-				if (Language1_Write.equals(ConfigFileReader.getL1Write_update_verify())) {
-					System.out.println("Workman Can be able to Write " + Language1 + " : " + Language1_Write);
-				} else {
-					System.out.println("****Verification Failed : Workman Can be able to Write " + Language1 + " : "
-							+ Language1_Write + "*******");
-					// fail();
-				}
-				if (Language1_Speak.equals(ConfigFileReader.getL1speak_update_verify())) {
-					System.out.println("Workman Can be able to Speak " + Language1 + " : " + Language1_Speak);
-				} else {
-					System.out.println("****Verification Failed : Workman Can be able to Speak " + Language1 + " : "
-							+ Language1_Speak + "*******");
-					// fail();
-				}
+			System.out.println(Language1 + " - Displayed Language 1");
+			if (Language1_Read.equals(ConfigFileReader.getL1Read_Verify())) {
+				System.out.println("Workman Can be able to Read " + Language1 + " : " + Language1_Read);
 			} else {
-				System.out.println("****Verification Failed : " + Language1 + " - Displayed as Language 1");
+				System.out.println("****Verification Failed : Workman Can be able to Read " + Language1 + " : "
+						+ Language1_Read + "*******");
+				// fail();
+			}
+			if (Language1_Write.equals(ConfigFileReader.getL1Write_Verify())) {
+				System.out.println("Workman Can be able to Write " + Language1 + " : " + Language1_Write);
+			} else {
+				System.out.println("****Verification Failed : Workman Can be able to Write " + Language1 + " : "
+						+ Language1_Write + "*******");
+				// fail();
+			}
+			if (Language1_Speak.equals(ConfigFileReader.getL1speak_Verify())) {
+				System.out.println("Workman Can be able to Speak " + Language1 + " : " + Language1_Speak);
+			} else {
+				System.out.println("****Verification Failed : Workman Can be able to Speak " + Language1 + " : "
+						+ Language1_Speak + "*******");
+				// fail();
 			}
 
-//L2
-			if (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language2 == null) {
-				System.out.println("Language 2 Not available");
-			} else {
-				Language2 = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language2.getText();
-				Language2_Read = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language2_Read.getText();
-				Language2_Write = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language2_Write.getText();
-				Language2_Speak = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language2_Speak.getText();
-				if (Language2.equals(ConfigFileReader.getLanguage2())) {
-					System.out.println(Language2 + " - Displayed Language 2");
-					if (Language2_Read.equals(ConfigFileReader.getL2Read_Verify())) {
-						System.out.println("Workman Can be able to Read " + Language2 + " : " + Language2_Read);
-					} else {
-						System.out.println("****Verification Failed : Workman Can be able to Read " + Language2 + " : "
-								+ Language2_Read + "*******");
-						// fail();
-					}
-					if (Language2_Write.equals(ConfigFileReader.getL2Write_Verify())) {
-						System.out.println("Workman Can be able to Write " + Language2 + " : " + Language2_Write);
-					} else {
-						System.out.println("****Verification Failed : Workman Can be able to Write " + Language2 + " : "
-								+ Language2_Write + "*******");
-						// fail();
-					}
-					if (Language2_Speak.equals(ConfigFileReader.getL2speak_Verify())) {
-						System.out.println("Workman Can be able to Speak " + Language2 + " : " + Language2_Speak);
-					} else {
-						System.out.println("****Verification Failed : Workman Can be able to Speak " + Language2 + " : "
-								+ Language2_Speak + "*******");
-						// fail();
-					}
-				} else if (Language2.equals(ConfigFileReader.getLanguage2_update())) {
-					System.out.println(Language2 + " - Displayed Language 2");
-					if (Language2_Read.equals(ConfigFileReader.getL2Read_update_verify())) {
-						System.out.println("Workman Can be able to Read " + Language2 + " : " + Language2_Read);
-					} else {
-						System.out.println("****Verification Failed : Workman Can be able to Read " + Language2 + " : "
-								+ Language2_Read + "*******");
-						// fail();
-					}
-					if (Language2_Write.equals(ConfigFileReader.getL2Write_update_verify())) {
-						System.out.println("Workman Can be able to Write " + Language2 + " : " + Language2_Write);
-					} else {
-						System.out.println("****Verification Failed : Workman Can be able to Write " + Language2 + " : "
-								+ Language2_Write + "*******");
-						// fail();
-					}
-					if (Language2_Speak.equals(ConfigFileReader.getL2speak_update_verify())) {
-						System.out.println("Workman Can be able to Speak " + Language2 + " : " + Language2_Speak);
-					} else {
-						System.out.println("****Verification Failed : Workman Can be able to Speak " + Language2 + " : "
-								+ Language2_Speak + "*******");
-						// fail();
-					}
-				} else {
-					System.out.println("****Verification Failed : " + Language2 + " - Displayed as Language 2");
-				}
-				System.out.println("----------------------------");
-			}
-
-			/*
-			 * //L3 if
-			 * (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3 ==
-			 * null) { System.out.println("Language 3 Not available");
-			 * System.out.println(Skill_Analysis_Objects.
-			 * Skill_Analysis_Workman_Profile_Basic_Language3); } else { Language3 =
-			 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3.getText
-			 * (); Language3_Read =
-			 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3_Read.
-			 * getText(); Language3_Write =
-			 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3_Write.
-			 * getText(); Language3_Speak =
-			 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3_Speak.
-			 * getText(); if (Language3.equals(ConfigFileReader.getLanguage3())) {
-			 * System.out.println(Language3 + " - Displayed Language 3"); if
-			 * (Language3_Read.equals(ConfigFileReader.getL3Read_Verify())) {
-			 * System.out.println("Workman Can be able to Read " + Language3 + " : " +
-			 * Language3_Read); } else {
-			 * System.out.println("****Verification Failed : Workman Can be able to Read " +
-			 * Language3 + " : " + Language3_Read + "*******"); // fail(); } if
-			 * (Language3_Write.equals(ConfigFileReader.getL3Write_Verify())) {
-			 * System.out.println("Workman Can be able to Write " + Language3 + " : " +
-			 * Language3_Write); } else {
-			 * System.out.println("****Verification Failed : Workman Can be able to Write "
-			 * + Language3 + " : " + Language3_Write + "*******"); // fail(); } if
-			 * (Language3_Speak.equals(ConfigFileReader.getL3speak_Verify())) {
-			 * System.out.println("Workman Can be able to Speak " + Language3 + " : " +
-			 * Language3_Speak); } else {
-			 * System.out.println("****Verification Failed : Workman Can be able to Speak "
-			 * + Language3 + " : " + Language3_Speak + "*******"); // fail(); } } else if
-			 * (Language3.equals(ConfigFileReader.getLanguage3_update())) {
-			 * System.out.println(Language3 + " - Displayed Language 3"); if
-			 * (Language3_Read.equals(ConfigFileReader.getL3Read_update_verify())) {
-			 * System.out.println("Workman Can be able to Read " + Language3 + " : " +
-			 * Language3_Read); } else {
-			 * System.out.println("****Verification Failed : Workman Can be able to Read " +
-			 * Language3 + " : " + Language3_Read + "*******"); // fail(); } if
-			 * (Language3_Write.equals(ConfigFileReader.getL3Write_update_verify())) {
-			 * System.out.println("Workman Can be able to Write " + Language3 + " : " +
-			 * Language3_Write); } else {
-			 * System.out.println("****Verification Failed : Workman Can be able to Write "
-			 * + Language3 + " : " + Language3_Write + "*******"); // fail(); } if
-			 * (Language3_Speak.equals(ConfigFileReader.getL3speak_update_verify())) {
-			 * System.out.println("Workman Can be able to Speak " + Language3 + " : " +
-			 * Language3_Speak); } else {
-			 * System.out.println("****Verification Failed : Workman Can be able to Speak "
-			 * + Language3 + " : " + Language3_Speak + "*******"); // fail(); } } else {
-			 * System.out.println("****Verification Failed : " + Language3 +
-			 * " - Displayed as Language 3"); } } //L4 if
-			 * (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language4 ==
-			 * null) { System.out.println("Language 4 Not available"); } else {
-			 * System.out.println("Language 4 is available"); }
-			 */
 		}
+
+		/*
+		 * //L3 if
+		 * (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3 ==
+		 * null) { System.out.println("Language 3 Not available");
+		 * System.out.println(Skill_Analysis_Objects.
+		 * Skill_Analysis_Workman_Profile_Basic_Language3); } else { Language3 =
+		 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3.getText
+		 * (); Language3_Read =
+		 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3_Read.
+		 * getText(); Language3_Write =
+		 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3_Write.
+		 * getText(); Language3_Speak =
+		 * Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language3_Speak.
+		 * getText(); if (Language3.equals(ConfigFileReader.getLanguage3())) {
+		 * System.out.println(Language3 + " - Displayed Language 3"); if
+		 * (Language3_Read.equals(ConfigFileReader.getL3Read_Verify())) {
+		 * System.out.println("Workman Can be able to Read " + Language3 + " : " +
+		 * Language3_Read); } else {
+		 * System.out.println("****Verification Failed : Workman Can be able to Read " +
+		 * Language3 + " : " + Language3_Read + "*******"); // fail(); } if
+		 * (Language3_Write.equals(ConfigFileReader.getL3Write_Verify())) {
+		 * System.out.println("Workman Can be able to Write " + Language3 + " : " +
+		 * Language3_Write); } else {
+		 * System.out.println("****Verification Failed : Workman Can be able to Write "
+		 * + Language3 + " : " + Language3_Write + "*******"); // fail(); } if
+		 * (Language3_Speak.equals(ConfigFileReader.getL3speak_Verify())) {
+		 * System.out.println("Workman Can be able to Speak " + Language3 + " : " +
+		 * Language3_Speak); } else {
+		 * System.out.println("****Verification Failed : Workman Can be able to Speak "
+		 * + Language3 + " : " + Language3_Speak + "*******"); // fail(); } } else if
+		 * (Language3.equals(ConfigFileReader.getLanguage3_update())) {
+		 * System.out.println(Language3 + " - Displayed Language 3"); if
+		 * (Language3_Read.equals(ConfigFileReader.getL3Read_update_verify())) {
+		 * System.out.println("Workman Can be able to Read " + Language3 + " : " +
+		 * Language3_Read); } else {
+		 * System.out.println("****Verification Failed : Workman Can be able to Read " +
+		 * Language3 + " : " + Language3_Read + "*******"); // fail(); } if
+		 * (Language3_Write.equals(ConfigFileReader.getL3Write_update_verify())) {
+		 * System.out.println("Workman Can be able to Write " + Language3 + " : " +
+		 * Language3_Write); } else {
+		 * System.out.println("****Verification Failed : Workman Can be able to Write "
+		 * + Language3 + " : " + Language3_Write + "*******"); // fail(); } if
+		 * (Language3_Speak.equals(ConfigFileReader.getL3speak_update_verify())) {
+		 * System.out.println("Workman Can be able to Speak " + Language3 + " : " +
+		 * Language3_Speak); } else {
+		 * System.out.println("****Verification Failed : Workman Can be able to Speak "
+		 * + Language3 + " : " + Language3_Speak + "*******"); // fail(); } } else {
+		 * System.out.println("****Verification Failed : " + Language3 +
+		 * " - Displayed as Language 3"); } } //L4 if
+		 * (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_Language4 ==
+		 * null) { System.out.println("Language 4 Not available"); } else {
+		 * System.out.println("Language 4 is available"); }
+		 */
 		Screenshot.Screenshotforscenario();
 		Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_languagesKnown_close.click();
-		// DataBaseConnection.getverifyupdateworkmanLanguage();
 	}
+
+	// DataBaseConnection.getverifyupdateworkmanLanguage();
 
 	@Then("^verify workman Marital Status in Personal details are displayed correctly in profile$")
 	public static void verify_workman_Marital_Status_in_Personal_details_are_displayed_correctly_in_profile()
@@ -566,7 +483,7 @@ public class Profile_Basic {
 			} else {
 				System.out.println("CSTI & NAPS Check box is Not Selected");
 			}
-			
+
 		}
 	}
 
@@ -579,79 +496,95 @@ public class Profile_Basic {
 		Checkbox_Count = Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Checkbox_Count.size();
 
 		if (Checkbox_Count == 3) {
-			
+
 			if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_3.isSelected() == true)
-					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_3.isSelected() == false)) {
+					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_3
+							.isSelected() == false)) {
 				if (CstiOrNaps.equals(ConfigFileReader.getCSTI())
 						|| (CstiOrNaps.equals(ConfigFileReader.getCSTI_update()))) {
 					System.out.println("CSTI is verified - with input Values");
 					System.out.println("----------------------------");
 				} else {
-					System.out.println("*******input Values Verification failed : CSTI is not correctly Displayed*******");
+					System.out.println(
+							"*******input Values Verification failed : CSTI is not correctly Displayed*******");
 					// fail(); uncomment this
 				}
-			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_3.isSelected() == false)
-					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_3.isSelected() == true)) {
+			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_3
+					.isSelected() == false)
+					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_3
+							.isSelected() == true)) {
 				System.out.println("NAPS in WMS: " + CstiOrNaps);
 				if (CstiOrNaps.equals(ConfigFileReader.getNAPS())
 						|| (CstiOrNaps.equals(ConfigFileReader.getEnable_NAPS_update()))) {
 					System.out.println("NAPS is verified - with input Values");
 					System.out.println("----------------------------");
 				} else {
-					System.out.println("*******input Values Verification failed : NAPS is not correctly Displayed*******");
+					System.out.println(
+							"*******input Values Verification failed : NAPS is not correctly Displayed*******");
 					// fail(); uncomment this
 				}
-			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_3.isSelected() == true)
-					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_3.isSelected() == true)) {
+			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_3
+					.isSelected() == true)
+					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_3
+							.isSelected() == true)) {
 				System.out.println("NAPS in WMS: " + CstiOrNaps);
 				if (CstiOrNaps.equals(ConfigFileReader.getNAPS())
 						|| (CstiOrNaps.equals(ConfigFileReader.getEnable_NAPS_update()))) {
 					System.out.println("NAPS is verified - with input Values");
 					System.out.println("----------------------------");
 				} else {
-					System.out.println("*******input Values Verification failed : NAPS is not correctly Displayed*******");
+					System.out.println(
+							"*******input Values Verification failed : NAPS is not correctly Displayed*******");
 					// fail(); uncomment this
 				}
 			}
 		}
-		
+
 		else if (Checkbox_Count == 2) {
-			
+
 			if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_2.isSelected() == true)
-					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_2.isSelected() == false)) {
+					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_2
+							.isSelected() == false)) {
 				if (CstiOrNaps.equals(ConfigFileReader.getCSTI())
 						|| (CstiOrNaps.equals(ConfigFileReader.getCSTI_update()))) {
 					System.out.println("CSTI is verified - with input Values");
 					System.out.println("----------------------------");
 				} else {
-					System.out.println("*******input Values Verification failed : CSTI is not correctly Displayed*******");
+					System.out.println(
+							"*******input Values Verification failed : CSTI is not correctly Displayed*******");
 					// fail(); uncomment this
 				}
-			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_2.isSelected() == false)
-					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_2.isSelected() == true)) {
+			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_2
+					.isSelected() == false)
+					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_2
+							.isSelected() == true)) {
 				System.out.println("NAPS in WMS: " + CstiOrNaps);
 				if (CstiOrNaps.equals(ConfigFileReader.getNAPS())
 						|| (CstiOrNaps.equals(ConfigFileReader.getEnable_NAPS_update()))) {
 					System.out.println("NAPS is verified - with input Values");
 					System.out.println("----------------------------");
 				} else {
-					System.out.println("*******input Values Verification failed : NAPS is not correctly Displayed*******");
+					System.out.println(
+							"*******input Values Verification failed : NAPS is not correctly Displayed*******");
 					// fail(); uncomment this
 				}
-			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_2.isSelected() == true)
-					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_2.isSelected() == true)) {
+			} else if ((Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_NAPS_Checkbox_2
+					.isSelected() == true)
+					&& (Skill_Analysis_Objects.Skill_Analysis_Workman_Profile_Basic_CSTI_Checkbox_2
+							.isSelected() == true)) {
 				System.out.println("NAPS in WMS: " + CstiOrNaps);
 				if (CstiOrNaps.equals(ConfigFileReader.getNAPS())
 						|| (CstiOrNaps.equals(ConfigFileReader.getEnable_NAPS_update()))) {
 					System.out.println("NAPS is verified - with input Values");
 					System.out.println("----------------------------");
 				} else {
-					System.out.println("*******input Values Verification failed : NAPS is not correctly Displayed*******");
+					System.out.println(
+							"*******input Values Verification failed : NAPS is not correctly Displayed*******");
 					// fail(); uncomment this
 				}
 			}
 		}
-		
+
 		Screenshot.Screenshotforscenario();
 	}
 
@@ -1622,7 +1555,7 @@ public class Profile_Basic {
 		} else {
 			System.out.println(
 					"Board/University : " + Skill_Analysis_Objects.Profile_Education_BoardORuniversity.getText());
-			System.out.println("----------------------------");
+			System.out.println("-------------------------------------------------------------------------------");
 		}
 
 	}
@@ -1708,7 +1641,7 @@ public class Profile_Basic {
 			// wait.until(ExpectedConditions.visibilityOfAllElements(Skill_Analysis_Objects.Profile_Experience_Project_location));
 			System.out.println(
 					"Project Location : " + Skill_Analysis_Objects.Profile_Experience_Project_location.getText());
-			System.out.println("----------------------------");
+			System.out.println("-------------------------------------------------------------------------------");
 		}
 
 		catch (NoSuchElementException e) {
@@ -1741,7 +1674,7 @@ public class Profile_Basic {
 			// wait.until(ExpectedConditions.visibilityOfAllElements(Skill_Analysis_Objects.Profile_Experience_ProjectCodeOrName));
 			System.out.println(
 					"Project Code/Name : " + Skill_Analysis_Objects.Profile_Experience_ProjectCodeOrName.getText());
-			System.out.println("----------------------------");
+			System.out.println("---------------------------------------------------------------------------------");
 		}
 
 		catch (NoSuchElementException e) {
@@ -1867,7 +1800,7 @@ public class Profile_Basic {
 		} else {
 			// wait.until(ExpectedConditions.visibilityOfAllElements(Skill_Analysis_Objects.Profile_Statutory_Aadhar));
 			System.out.println("Aadhar No : " + Skill_Analysis_Objects.Profile_Statutory_Aadhar.getText());
-			System.out.println("----------------------------");
+			System.out.println("----------------------------" + "");
 		}
 	}
 
@@ -2277,13 +2210,20 @@ public class Profile_Basic {
 	@Then("^Verify User can be able to view Workmen profile Completion Percentage$")
 	public static void Verify_User_can_be_able_to_view_Workmen_profile_Completion_Percentage() throws Throwable {
 
-		Completion_Percentage = ObjectsReporsitory.ProfileStages_ProgressPercentage.getText();
-		if (Completion_Percentage.equals("")) {
-			System.out.println("Completion Percentage : 0%");
-			System.out.println("----------------------------------------------");
+		if (ObjectsReporsitory.ProfileStages_ProgressPercentage_list.size() > 0) {
+
+			Completion_Percentage = ObjectsReporsitory.ProfileStages_ProgressPercentage.getText();
+			if (Completion_Percentage.equals("")) {
+				System.out.println("Completion Percentage : 0%");
+				System.out.println("----------------------------------------------");
+			} else {
+				System.out.println("Completion Percentage : " + Completion_Percentage);
+				System.out.println("----------------------------------------------");
+			}
 		} else {
-			System.out.println("Completion Percentage : " + Completion_Percentage);
+			System.out.println("Profile Partially Completed");
 			System.out.println("----------------------------------------------");
 		}
+
 	}
 }

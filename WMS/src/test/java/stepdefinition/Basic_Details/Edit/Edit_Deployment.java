@@ -63,6 +63,7 @@ public class Edit_Deployment {
 		actions50.moveToElement(ObjectsReporsitory.deployment_save);
 		actions50.perform();
 		ObjectsReporsitory.deployment_save.click();
+		Basic.PageLoader_Validation();
 		Screenshot.Screenshotforscenario();
 		Basic.popup_handle();
 		

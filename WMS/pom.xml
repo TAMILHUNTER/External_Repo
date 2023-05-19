@@ -189,7 +189,7 @@
 				</dependencies>
 				<configuration>
 					<includes>
-						<exclude>**/*Tamil_WorkingSuite.java</exclude>
+						<exclude>**/*E2E_TestRunner.java</exclude>
 					</includes>
 					<parallel>all</parallel>
 					<useSystemClassLoader>false</useSystemClassLoader>
@@ -236,8 +236,8 @@
 					</compilerArgs>
 					<!--for unmappable characters in classes -->
 					<encoding>UTF-8</encoding>
-					<showDeprecation>true</showDeprecation>
-					<showWarnings>true</showWarnings>
+					<showDeprecation>false</showDeprecation>
+					<showWarnings>false</showWarnings>
 					<!--for lombok annotations to resolve -->
 					<!--contradictory to maven, intelliJ fails with this -->
 					<!--<annotationProcessorPaths>

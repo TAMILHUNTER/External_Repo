@@ -60,9 +60,12 @@ public class ObjectsReporsitory {
 
 	// **HomePage Elements**
 
+	@FindBy(how = How.XPATH, using = "//span[text()='Action Taken']")
+	public static WebElement Home_actionTaken;
+
 	@FindBy(how = How.XPATH, using = "(//eipheader//div[1]//div[1]//header//div[2]//div[1]//div//div[1]//div[1]//span)")
 	public static WebElement Home_Loggedin_User;
-	
+
 	@FindBy(how = How.XPATH, using = "(//wfb-workbench-dashboard/div//mat-panel-title/div/div[2]/button/span)")
 	public static WebElement Home_Action;
 
@@ -144,7 +147,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//app-spinner//span)[1]")
 	public static List<WebElement> Spinner;
 
-	@FindBy(how = How.XPATH, using = "(//mat-card-subtitle)[2]")
+	@FindBy(how = How.XPATH, using = "(//mat-card-subtitle[contains(@class,'mat-card-subtitle child')])[1]")
 	public static WebElement Induction_Jobcode;
 
 	@FindBy(how = How.XPATH, using = "(//mat-card-subtitle)[4]")
@@ -278,7 +281,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//app-partner//mat-select//span)[1]")
 	public static WebElement Partner_workType;
 
-	@FindBy(how = How.XPATH, using = "(//div//div[1]//span//span)[2]")
+	@FindBy(how = How.XPATH, using = "(//span[@ng-reflect-ng-switch]//span)[1]")
 	public static WebElement Partner_workType_Edit;
 
 	@FindBy(how = How.XPATH, using = "(//mat-option//span)")
@@ -347,7 +350,7 @@ public class ObjectsReporsitory {
 	public static WebElement Personal_DOB_Datepick;
 
 	// Hardcodeed date
-	@FindBy(how = How.XPATH, using = "//input[@ng-reflect-scope='[object Object]']")
+	@FindBy(how = How.XPATH, using = "(//app-personal-details//span[@class='k-dateinput-wrap']//input)")
 	public static WebElement Kendo_DateField;
 
 	@FindBy(how = How.XPATH, using = "(//span[@class='k-icon k-i-calendar'])[1]")
@@ -375,7 +378,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div/mat-dialog-container/app-image-capture-popup/div[1]/div/i")
 	public static WebElement Personal_close;
 
-	@FindBy(how = How.XPATH, using = "//*[@class=\"mat-button-toggle-button\"][@aria-pressed=\"true\"]")
+	@FindBy(how = How.XPATH, using = "(//app-personal-details//*[@class='mat-button-toggle-button mat-focus-indicator'][@aria-pressed='true'])")
 	public static WebElement Personal_Gender_Choosen;
 
 	@FindBy(how = How.XPATH, using = "//span[text()='Male ']")
@@ -411,7 +414,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//input[@ng-reflect-id='languale']")
 	public static WebElement Personal_Language;
 
-	@FindBy(how = How.XPATH, using = "(//span[@class='mat-option-text'])")
+	@FindBy(how = How.XPATH, using = "(//span[@class='mat-option-text']//span)")
 	public static List<WebElement> Personal_Language_Languageselect_DR;
 
 	@FindBy(how = How.XPATH, using = "//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']")
@@ -432,7 +435,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//button[@title='Edit']")
 	public static WebElement Personal_Language_Edit;
 
-	@FindBy(how = How.XPATH, using = "(//i[@class='fas fa-trash-o'])[2]")
+	@FindBy(how = How.XPATH, using = "(//i[@class='fas fa-trash-o'])[last()]")
 	public static WebElement Personal_Language_Delete;
 
 	@FindBy(how = How.XPATH, using = "(//i[@class='fas fa-trash-o'])[3]")
@@ -540,8 +543,20 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//*[@id='countryCode'])[2]")
 	public static WebElement communication_Country_Permanent_Address;
 
+	@FindBy(how = How.XPATH, using = "(//*[@id='countryCode'])[3]")
+	public static WebElement communication_Country_Temp_Address;
+
+	@FindBy(how = How.XPATH, using = "(//*[@id='countryCode'])[4]")
+	public static WebElement communication_Country_EC_Address;
+
 	@FindBy(how = How.XPATH, using = "(//*[@id='stateCode'])[1]")
 	public static WebElement communication_Country_Permanent_Address_State;
+
+	@FindBy(how = How.XPATH, using = "(//*[@id='stateCode'])[2]")
+	public static WebElement communication_Country_Temp_Address_State;
+
+	@FindBy(how = How.XPATH, using = "(//*[@id='stateCode'])[3]")
+	public static WebElement communication_Country_EC_Address_State;
 
 	@FindBy(how = How.XPATH, using = "(//app-communication-details//input)[3]")
 	public static WebElement Communication_pincode;
@@ -602,6 +617,15 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "(//app-communication-details//input)[13]")
 	public static WebElement Communication_Temp_villageTown;
+
+	@FindBy(how = How.XPATH, using = "(/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div[2]/app-basic-details/div/div[2]/app-communication-details/div[2]/div/div[3]/div/div/div[1]/eipautocomplete/mat-form-field/div/div[1]/div/input)")
+	public static WebElement Communication_Temp_country;
+
+	@FindBy(how = How.XPATH, using = "(/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div[2]/app-basic-details/div/div[2]/app-communication-details/div[2]/div/div[3]/div/div/div[6]/eipautocomplete/mat-form-field/div/div[1]/div/input)")
+	public static WebElement Communication_Temp_state;
+
+	@FindBy(how = How.XPATH, using = "(/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div[2]/app-basic-details/div/div[2]/app-communication-details/div[2]/div/div[3]/div/div/div[3]/mat-form-field/div/div[1]/div/input)")
+	public static WebElement Communication_Temp_address_international;
 
 	@FindBy(how = How.XPATH, using = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div[2]/app-basic-details/div/div[2]/app-communication-details/div[2]/div/div[3]/div/div/div[5]/mat-form-field/div/div[1]/div/input")
 	public static WebElement Communication_Temp_District;
@@ -747,10 +771,10 @@ public class ObjectsReporsitory {
 
 	// **Education & Training**
 
-	@FindBy(how = How.XPATH, using = "(//app-education-experience//input)[1]")
+	@FindBy(how = How.XPATH, using = "(//app-education-experience//input[@type='checkbox'])[1]")
 	public static WebElement Education_Applicable_Checkbox;
 
-	@FindBy(how = How.XPATH, using = "(//app-education-experience//input)[3]")
+	@FindBy(how = How.XPATH, using = "(//app-education-experience//input[@type='checkbox'])[2]")
 	public static WebElement Experience_Applicable_Checkbox;
 
 	@FindBy(how = How.XPATH, using = "//p[text()=' Education & Experience']")
@@ -845,7 +869,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//input[@placeholder='Project Code / Name']")
 	public static WebElement Experience_projectCode;
 
-	@FindBy(how = How.XPATH, using = "(//input[@data-placeholder='Skill Category'])[2]")
+	@FindBy(how = How.XPATH, using = "(//input[@ng-reflect-placeholder='Skill Category'])")
 	public static WebElement Experience_Skillcatogory;
 
 	@FindBy(how = How.XPATH, using = "(//input[@id='skillCategory'])[2]")
@@ -854,7 +878,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//span[@class='mat-option-text']")
 	public static List<WebElement> Experience_Skillcatogory_DR;
 
-	@FindBy(how = How.XPATH, using = "(//input[@ng-reflect-placeholder='Skill Group'])[2]")
+	@FindBy(how = How.XPATH, using = "(//input[@ng-reflect-placeholder='Skill Group'])")
 	public static WebElement Experience_SkillGroup;
 
 	@FindBy(how = How.XPATH, using = "(//input[@placeholder='Skill Group'])[2]")
@@ -863,7 +887,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//span[@class='mat-option-text']//span")
 	public static List<WebElement> Experience_SkillGroup_DR;
 
-	@FindBy(how = How.XPATH, using = "(//input[@ng-reflect-placeholder='Skill Description'])[2]")
+	@FindBy(how = How.XPATH, using = "(//input[@ng-reflect-placeholder='Skill Description'])")
 	public static WebElement Experience_Skilldesc;
 
 	@FindBy(how = How.XPATH, using = "(//input[@placeholder='Skill Description'])[2]")
@@ -871,7 +895,7 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "//span[@class='mat-option-text']//span")
 	public static List<WebElement> Experience_SkillDesc_DR;
-	
+
 	@FindBy(how = How.XPATH, using = "//span[@class='mat-option-text']//span")
 	public static WebElement Experience_SkillDesc_DR_first_selection;
 
@@ -881,7 +905,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div/app-basic-details/div/div[2]/div[2]/app-education-experience/div[4]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr[2]/td[7]/div/i[1]")
 	public static WebElement Experience_edit;
 
-	@FindBy(how = How.XPATH, using = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div/app-basic-details/div/div[2]/div[2]/app-education-experience/div[4]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td[7]/div/i[1]")
+	@FindBy(how = How.XPATH, using = "((//app-education-experience//tbody[@role='presentation'])[2]//i[contains(@class,'fas fa-edit')])[position()=1]")
 	public static WebElement Experience_edit2;
 
 	@FindBy(how = How.XPATH, using = "//i[contains(@class,'fas fa-edit')]/following-sibling::i[1]")
@@ -916,70 +940,76 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//p[text()='Statutory Details']")
 	public static WebElement statutoryDetails_Head;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[1]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[3]")
 	public static WebElement statutoryDetails_Aadhaar;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[2]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[4]")
 	public static WebElement statutoryDetails_DL;
 
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[1]")
 	public static WebElement statutoryDetails_DL_expiry;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[4]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[6]")
 	public static WebElement statutoryDetails_pan;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[5]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[7]")
 	public static WebElement statutoryDetails_WorkPermit;
-	
+
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[3]")
 	public static WebElement statutoryDetails_WorkPermit_international;
 
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[2]")
 	public static WebElement statutoryDetails_WorkPermit_expiry;
-	
+
+	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[1]")
+	public static WebElement statutoryDetails_International_WorkPermit_expiry;
+
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[1]")
 	public static WebElement statutoryDetails_WorkPermit_expiry_international;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[7]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[9]")
 	public static WebElement statutoryDetails_labour;
+
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[7]")
+	public static WebElement statutoryDetails_Passport;
 
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[5]")
 	public static WebElement statutoryDetails_labour_international;
-	
+
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[3]")
 	public static WebElement statutoryDetails_labour_expiry;
-	
+
+	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[2]")
+	public static WebElement statutoryDetails_International_labour_expiry;
+
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[2]")
 	public static WebElement statutoryDetails_labour_expiry_international;
-	
-	
+
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[7]")
 	public static WebElement Passport_international;
-	
+
 	@FindBy(how = How.XPATH, using = "(//eipdocumentupload/i)[3]")
 	public static WebElement Upload_Passport_international;
-	
+
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[3]")
 	public static WebElement statutoryDetails_Passport_expiry_international;
-	
-	
-	
-	
-	
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[9]")
-	public static WebElement statutoryDetails_visaproid;
-
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[10]")
-	public static WebElement statutoryDetails_visa;
+	@FindBy(how = How.XPATH, using = "((//app-statutory-details//kendo-dateinput//span)[3])")
+	public static WebElement statutoryDetails_Passport_expiry_international_value;
 
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[11]")
-	public static WebElement statutoryDetails_PF;
+	public static WebElement statutoryDetails_visaproid;
 
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[12]")
-	public static WebElement statutoryDetails_UAN;
+	public static WebElement statutoryDetails_visa;
 
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[13]")
+	public static WebElement statutoryDetails_PF;
+
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[14]")
+	public static WebElement statutoryDetails_UAN;
+
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[15]")
 	public static WebElement statutoryDetails_ESI;
 
 	@FindBy(how = How.XPATH, using = "(//eipdocumentupload/i)[1]")
@@ -993,13 +1023,16 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "(//eipdocumentupload/i)[4]")
 	public static WebElement Upload_WP;
-	
+
 	@FindBy(how = How.XPATH, using = "(//eipdocumentupload/i)[1]")
 	public static WebElement Upload_WP_international;
 
 	@FindBy(how = How.XPATH, using = "(//eipdocumentupload/i)[5]")
 	public static WebElement Upload_labour;
-	
+
+	@FindBy(how = How.XPATH, using = "(//eipdocumentupload/i)[3]")
+	public static WebElement Upload_passport;
+
 	@FindBy(how = How.XPATH, using = "(//eipdocumentupload/i)[2]")
 	public static WebElement Upload_labour_international;
 
@@ -1045,16 +1078,16 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//p[text()='PF Nominee Details']")
 	public static WebElement statutoryDetails_PFNominee_Header;
 
-	@FindBy(how = How.XPATH, using = "(//app-statutory-details//div[2]//div//div[3]//button)")
+	@FindBy(how = How.ID, using = "saveSatutory")
 	public static WebElement statutoryDetails_save;
 
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//button)[5]")
 	public static WebElement PFNomieeDetails_save;
 
-	@FindBy(how = How.XPATH, using = "//input[@value='Add PF Nominees']")
+	@FindBy(how = How.XPATH, using = "//button[text()='Add PF Nominees']")
 	public static WebElement statutory_Add_PF_Nominee;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[14]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//td[@role='gridcell']//input)[1]")
 	public static WebElement statutory_PF_Nominee_Name;
 
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//tbody//td)[1]")
@@ -1066,13 +1099,13 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//tbody//td)[3]")
 	public static WebElement statutory_PF_Nominee_percentage_result;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[15]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//td[@role='gridcell']//input)[2]")
 	public static WebElement statutory_PF_Nominee_Relationship;
 
 	@FindBy(how = How.XPATH, using = "(//span[@class='mat-option-text'])//span")
 	public static List<WebElement> statutory_PF_Nominee_Relationship_DR;
 
-	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[16]")
+	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//td[@role='gridcell']//input)[3]")
 	public static WebElement statutory_PF_Nominee_Percentage;
 
 	@FindBy(how = How.XPATH, using = "//i[@title='Save']")
@@ -1104,10 +1137,10 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//p[text()='Bank Details']")
 	public static WebElement Bank_Header;
 
-	@FindBy(how = How.XPATH, using = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div/app-basic-details/div/div[2]/div[2]/app-bank-details/div[2]/div/div[1]/div[1]/mat-form-field/div/div[1]/div/input")
+	@FindBy(how = How.XPATH, using = "(//app-bank-details//input)[1]")
 	public static WebElement Bank_AccountName;
 
-	@FindBy(how = How.XPATH, using = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/div/div/app-basic-details/div/div[2]/div[2]/app-bank-details/div[2]/div/div[1]/div[2]/mat-form-field/div/div[1]/div/input")
+	@FindBy(how = How.XPATH, using = "(//app-bank-details//input)[2]")
 	public static WebElement Bank_AccountNumber;
 
 	@FindBy(how = How.XPATH, using = "//span[text()='Domestic']")
@@ -1177,6 +1210,9 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "//span[text()=' Aadhaar ']")
 	public static WebElement Dashboard_SearchBy_Aadhar;
+	
+	@FindBy(how = How.XPATH, using = "(//mat-select)[1]")
+	public static WebElement Dashboard_SearchBy_DD;
 
 	@FindBy(how = How.NAME, using = "employeeId")
 	public static WebElement Dashboard_employeeId;
@@ -1279,7 +1315,7 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "((//mat-card-content)[2]//div)[23]")
 	public static WebElement Dashboard_Workmen_Partner;
-	
+
 	@FindBy(how = How.XPATH, using = "((//mat-card-content)[2]//div)[26]")
 	public static WebElement Dashboard_Workmen_Partner_Name;
 
@@ -1603,7 +1639,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//span[@ng-reflect-ng-class='row ml-1 cardRowSelected'][last()])")
 	public static WebElement EHS_ProfileCard_lastcard_selected;
 
-	@FindBy(how = How.XPATH, using = "//mat-dialog-container//h1")
+	@FindBy(how = How.XPATH, using = "//eipmessagebox//h1")
 	public static List<WebElement> basic_popup_validation;
 
 	@FindBy(how = How.XPATH, using = "//mat-dialog-container//h1")
@@ -1924,7 +1960,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//app-dlr-component//table//td)[57]")
 	public static WebElement DLR_Breakup_Remarks_Total;
 
-	@FindBy(how = How.XPATH, using = "//mat-card-title[text()=' DLR ']")
+	@FindBy(how = How.XPATH, using = "(//*[@class='image-holder'])[6]")
 	public static WebElement Management_DLR;
 
 	@FindBy(how = How.XPATH, using = "(//table//tbody//tr//th//input)[4]")
@@ -1974,10 +2010,13 @@ public class ObjectsReporsitory {
 	public static WebElement FA_Submit;
 
 //Gate Pass
-	@FindBy(how = How.XPATH, using = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav/div/app-side-nav-bar/div/div/div[2]/mat-nav-list/div[3]/a/div/i")
+	@FindBy(how = How.XPATH, using = "(//mat-nav-list//div//a//span//i)[3]")
 	public static WebElement Menu_GatePass;
+	
+	@FindBy(how = How.XPATH, using="//span[text()='Gate Pass ']")
+	public static WebElement Menu_GatePass_New;
 
-	@FindBy(how = How.XPATH, using = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav/div/app-side-nav-bar/div/div/div[2]/mat-nav-list/div[5]/a/div/i")
+	@FindBy(how = How.XPATH, using = "(//mat-nav-list//div//a//span//i)[5]")
 	public static WebElement Menu_Attendance;
 
 	@FindBy(how = How.XPATH, using = "//input[@value='Fetch']")
@@ -2074,7 +2113,7 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "//input[@data-placeholder='Workmen Number']")
 	public static WebElement Dashboard_SearchWorkmen_Number;
-	
+
 	@FindBy(how = How.XPATH, using = "//input[@data-placeholder='Name']")
 	public static WebElement Dashboard_SearchWorkmen_Name;
 
@@ -2125,6 +2164,9 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "(//mat-card//mat-card-content//p//span)")
 	public static List<WebElement> ProfileStages_allElement;
+
+	@FindBy(how = How.XPATH, using = "//span[@role='progressbar']")
+	public static List<WebElement> ProfileStages_ProgressPercentage_list;
 
 	@FindBy(how = How.XPATH, using = "//span[@role='progressbar']")
 	public static WebElement ProfileStages_ProgressPercentage;
@@ -2185,10 +2227,10 @@ public class ObjectsReporsitory {
 
 //Training_Dashboard
 
-	@FindBy(how = How.XPATH, using = "(//mat-nav-list//div)[25]")
+	@FindBy(how = How.XPATH, using = "(//mat-nav-list//div//a//span//i)[7]")
 	public static WebElement WMS_Management;
 
-	@FindBy(how = How.XPATH, using = "//mat-card-title[text()=' Training ']")
+	@FindBy(how = How.XPATH, using = "(//*[@class='image-holder'])[2]")
 	public static WebElement WMS_Training;
 
 	@FindBy(how = How.XPATH, using = "(//app-landing//img)[1]")

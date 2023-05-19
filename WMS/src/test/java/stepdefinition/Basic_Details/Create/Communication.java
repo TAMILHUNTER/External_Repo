@@ -56,7 +56,7 @@ public class Communication {
 		Personal.verify_user_can_able_to_enter_spouse_name();
 		Personal.verify_user_can_able_to_enter_religion();
 		Personal.verify_user_can_able_to_enter_Nearest_police_station();
-		//Personal.verify_user_can_able_to_select_Police_Verification_Certificate();
+		// Personal.verify_user_can_able_to_select_Police_Verification_Certificate();
 		Personal.verify_user_can_able_to_select_Nationality();
 		Personal.verify_user_can_able_to_provide_CSTI_and_NAPS();
 		Personal.verify_user_can_able_to_save_Personal_details();
@@ -98,6 +98,14 @@ public class Communication {
 			Thread.sleep(2000);
 			System.out.println("Entering Pincode");
 			ObjectsReporsitory.Communication_pincode.sendKeys(ConfigFileReader.getPermanent_Address_pincode());
+
+			System.out.println("Pincode: " + ConfigFileReader.getPermanent_Address_pincode());
+			Thread.sleep(3000);
+			ObjectsReporsitory.communication_Mobilenumber.click();
+			Thread.sleep(3000);
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_District,
+					"ng-reflect-model"));
+
 		} else if (ConfigFileReader.getPermanent_Address_Country_Type().equals("International")) {
 
 			ObjectsReporsitory.communication_Country_Permanent_Address
@@ -140,7 +148,8 @@ public class Communication {
 		{
 			System.out.println("Pincode: " + ConfigFileReader.getPermanent_Address_pincode());
 			Thread.sleep(3000);
-			ObjectsReporsitory.communication_Mobilenumber.click();
+			Basic.PageLoader_Validation();
+			Thread.sleep(3000);
 			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_District,
 					"ng-reflect-model"));
 			String District = ObjectsReporsitory.Communication_District.getAttribute("ng-reflect-model");
@@ -155,7 +164,29 @@ public class Communication {
 
 	@Then("^Verify user can able to enter address and select villege$")
 	public static void Verify_user_can_able_to_enter_address_and_select_villege() throws Throwable {
-		ObjectsReporsitory.Communication_Address.sendKeys(ConfigFileReader.getPermanent_Address() +" "+ RandomString.make(10) );
+		ObjectsReporsitory.Communication_Address
+				.sendKeys(ConfigFileReader.getPermanent_Address() + " " + RandomString.make(10));
+		Thread.sleep(2000);
+		System.out.println("Permanent Address: " + ObjectsReporsitory.Communication_Address.getAttribute("value"));
+		Actions actions = new Actions(DriverFactory.driver);
+		actions.moveToElement(ObjectsReporsitory.Communication_emergencyContact_Head);
+		actions.perform();
+		ObjectsReporsitory.Communication_villageTown.click();
+		List<WebElement> DropdownResult = ObjectsReporsitory.Communication_villageTown_DR;
+		for (WebElement webElement : DropdownResult) {
+			if (webElement.getText().contains(ConfigFileReader.getPermanent_Address_Village())) {
+				webElement.click();
+				System.out.println("Permanent Address Village:" + ConfigFileReader.getPermanent_Address_Village());
+				break;
+			}
+		}
+		Thread.sleep(3000);
+	}
+
+	@Then("^Verify user can able to enter International address$")
+	public static void Verify_user_can_able_to_enter_International_address() throws Throwable {
+		ObjectsReporsitory.Communication_Address
+				.sendKeys(ConfigFileReader.getPermanent_Address() + " " + RandomString.make(10));
 		Thread.sleep(2000);
 		System.out.println("Permanent Address: " + ObjectsReporsitory.Communication_Address.getAttribute("value"));
 		Actions actions = new Actions(DriverFactory.driver);
@@ -203,9 +234,11 @@ public class Communication {
 			String Temp_State = ObjectsReporsitory.Communication_Temp_State.getAttribute("ng-reflect-model");
 			System.out.println("Temp_Address_District: " + Temp_District);
 			System.out.println("Temp_Address_State: " + Temp_State);
-			ObjectsReporsitory.Communication_Temp_address.sendKeys(ConfigFileReader.getTemporary_Address()+" "+ RandomString.make(10));
+			ObjectsReporsitory.Communication_Temp_address
+					.sendKeys(ConfigFileReader.getTemporary_Address() + " " + RandomString.make(10));
 			Thread.sleep(2000);
-			System.out.println("Temporary Address: " + ObjectsReporsitory.Communication_Temp_address.getAttribute("value"));
+			System.out.println(
+					"Temporary Address: " + ObjectsReporsitory.Communication_Temp_address.getAttribute("value"));
 			// Error in this line
 			ObjectsReporsitory.Communication_Temp_villageTown.click();
 			List<WebElement> DropdownResult = ObjectsReporsitory.Communication_temp_villageTown_DR;
@@ -285,14 +318,15 @@ public class Communication {
 		ObjectsReporsitory.Communication_EC_name.clear();
 		ObjectsReporsitory.Communication_EC_name.click();
 		ObjectsReporsitory.Communication_EC_name
-				.sendKeys(ConfigFileReader.getEmergency_Contact_Name() +" "+ RandomString.make(10));
+				.sendKeys(ConfigFileReader.getEmergency_Contact_Name() + " " + RandomString.make(10));
 		Thread.sleep(2000);
 		ObjectsReporsitory.Communication_EC_MobileNumber.click();
 		ObjectsReporsitory.Communication_EC_MobileNumber.clear();
 		ObjectsReporsitory.Communication_EC_MobileNumber.click();
 		long theRandomNum2 = (long) (Math.random() * Math.pow(10, 10));
 		ObjectsReporsitory.Communication_EC_MobileNumber.sendKeys("" + theRandomNum2);
-		System.out.println("Emergency Contact Name : " + ObjectsReporsitory.Communication_EC_name.getAttribute("value"));
+		System.out
+				.println("Emergency Contact Name : " + ObjectsReporsitory.Communication_EC_name.getAttribute("value"));
 		System.out.println(
 				"Emergency Contact Number : " + ObjectsReporsitory.Communication_EC_MobileNumber.getAttribute("value"));
 	}
@@ -303,18 +337,20 @@ public class Communication {
 		Thread.sleep(2000);
 
 		List<WebElement> DropdownResult = ObjectsReporsitory.Communication_EC_relationshipWithEmployee_DR;
-		
+
 		if (ConfigFileReader.getselect_EC_Relation_Value().contains("Random")) {
 			System.out.println("Selecting relationship with employee");
 			Random rand654 = new Random();
 			int EC_Relation = rand654.nextInt(ObjectsReporsitory.Communication_EC_relationshipWithEmployee_DR.size());
-			Selected_EC_Relation = ObjectsReporsitory.Communication_EC_relationshipWithEmployee_DR.get(EC_Relation).getText();
+			Selected_EC_Relation = ObjectsReporsitory.Communication_EC_relationshipWithEmployee_DR.get(EC_Relation)
+					.getText();
 
 			for (WebElement webElement : DropdownResult) {
 				if (webElement.getText().equals(Selected_EC_Relation)) {
 					webElement.click();
 					Thread.sleep(3000);
-					System.out.println("Selected relationship with employee :" + ObjectsReporsitory.Communication_EC_relationshipWithEmployee.getAttribute("value"));
+					System.out.println("Selected relationship with employee :"
+							+ ObjectsReporsitory.Communication_EC_relationshipWithEmployee.getAttribute("value"));
 					break;
 				}
 			}
@@ -339,6 +375,64 @@ public class Communication {
 		ObjectsReporsitory.Communication_EC_pincode.sendKeys(ConfigFileReader.getEmergency_Contact_Pincode());
 	}
 
+	@Then("^Verify user can able to enter Emergency Contact address Nepal$")
+	public static void Verify_user_can_able_to_enter_Emergency_Contact_address_Nepal() throws Throwable {
+
+		if (ConfigFileReader.getSame_as_Permanent_Address().equals("True")) {
+			ObjectsReporsitory.sameAsPermanent.click();
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_Address,
+					"ng-reflect-model"));
+
+			String Temp_Country = ObjectsReporsitory.Communication_Temp_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_Temp_State.getText();
+			String Temp_Address = ObjectsReporsitory.Communication_Temp_State.getAttribute("ng-reflect-model");
+			System.out.println("Temporary address Country: " + Temp_Country);
+			System.out.println("Temporary address State: " + Temp_State);
+			System.out.println("Temporary address Address: " + Temp_Address);
+
+		}
+
+		else if (ConfigFileReader.getSame_as_Permanent_Address().equals("false")) {
+			Actions actions = new Actions(DriverFactory.driver);
+			actions.moveToElement(ObjectsReporsitory.skill_header);
+			actions.perform();
+
+			ObjectsReporsitory.communication_Country_EC_Address
+					.sendKeys(ConfigFileReader.getEC_Address_Country_International_Nepal());
+			Thread.sleep(2000);
+			List<WebElement> DropdownResult = ObjectsReporsitory.Communication_Country_Allelements;
+			for (WebElement webElement : DropdownResult) {
+				if (webElement.getText().equals(ConfigFileReader.getEC_Address_Country_International_Nepal())) {
+					webElement.click();
+					System.out.println("Country :" + ConfigFileReader.getEC_Address_Country_International_Nepal());
+					break;
+				}
+			}
+
+			ObjectsReporsitory.communication_Country_EC_Address_State.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.communication_Country_EC_Address_State.clear();
+			Thread.sleep(2000);
+			ObjectsReporsitory.communication_Country_EC_Address_State.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.communication_Country_EC_Address_State
+					.sendKeys(ConfigFileReader.getEC_Address_Country_International_State_Nepal());
+			Thread.sleep(2000);
+			Thread.sleep(2000);
+			List<WebElement> DropdownResult3 = ObjectsReporsitory.Communication_Country_Allelements;
+			for (WebElement webElement2 : DropdownResult3) {
+				if (webElement2.getText()
+						.contains(ConfigFileReader.getEC_Address_Country_International_State_Nepal())) {
+					webElement2.click();
+					System.out.println("State :" + ConfigFileReader.getEC_Address_Country_International_State_Nepal());
+					break;
+				}
+			}
+
+		}
+	}
+
 	@Then("^Verify address autofetched based on pincode entered for Emergency Contact$")
 	public static void Verify_address_autofetched_based_on_pincode_entered_for_Emergency_Contact() throws Throwable {
 		ObjectsReporsitory.Communication_EC_District.click();
@@ -360,9 +454,11 @@ public class Communication {
 		ObjectsReporsitory.Communication_EC_address.click();
 		ObjectsReporsitory.Communication_EC_address.clear();
 		ObjectsReporsitory.Communication_EC_address.click();
-		ObjectsReporsitory.Communication_EC_address.sendKeys(ConfigFileReader.getEmergency_Contact_Address() +" "+ RandomString.make(10) );
+		ObjectsReporsitory.Communication_EC_address
+				.sendKeys(ConfigFileReader.getEmergency_Contact_Address() + " " + RandomString.make(10));
 		Thread.sleep(2000);
-		System.out.println("Emergency Contact Address: " + ObjectsReporsitory.Communication_EC_address.getAttribute("value"));
+		System.out.println(
+				"Emergency Contact Address: " + ObjectsReporsitory.Communication_EC_address.getAttribute("value"));
 		ObjectsReporsitory.Communication_EC_villageTown.click();
 		List<WebElement> DropdownResult = ObjectsReporsitory.Communication_EC_villageTown_DR;
 		for (WebElement webElement : DropdownResult) {
@@ -383,5 +479,108 @@ public class Communication {
 		Basic.popup_handle();
 		Basic.PageLoader_Validation();
 
+	}
+
+	@Then("^Verify user can able to Select International Country Nepal$")
+	public static void Verify_user_can_able_to_Select_International_Country_Nepal() throws Throwable {
+
+		ObjectsReporsitory.communication_Country_Permanent_Address
+				.sendKeys(ConfigFileReader.getPermanent_Address_Country_International());
+		Thread.sleep(2000);
+		List<WebElement> DropdownResult = ObjectsReporsitory.Communication_Country_Allelements;
+		for (WebElement webElement : DropdownResult) {
+			if (webElement.getText().equals(ConfigFileReader.getPermanent_Address_Country_International_Nepal())) {
+				webElement.click();
+				System.out.println("Country :" + ConfigFileReader.getPermanent_Address_Country_International_Nepal());
+				break;
+			}
+		}
+
+		ObjectsReporsitory.communication_Country_Permanent_Address_State.click();
+		Thread.sleep(2000);
+		ObjectsReporsitory.communication_Country_Permanent_Address_State.clear();
+		Thread.sleep(2000);
+		ObjectsReporsitory.communication_Country_Permanent_Address_State.click();
+		Thread.sleep(2000);
+		ObjectsReporsitory.communication_Country_Permanent_Address_State
+				.sendKeys(ConfigFileReader.getPermanent_Address_Country_International_State_Nepal());
+		Thread.sleep(2000);
+		Thread.sleep(2000);
+		List<WebElement> DropdownResult3 = ObjectsReporsitory.Communication_Country_Allelements;
+		for (WebElement webElement2 : DropdownResult3) {
+			if (webElement2.getText()
+					.contains(ConfigFileReader.getPermanent_Address_Country_International_State_Nepal())) {
+				webElement2.click();
+				System.out
+						.println("State :" + ConfigFileReader.getPermanent_Address_Country_International_State_Nepal());
+				break;
+			}
+		}
+	}
+
+	@Then("^Verify user can able to enter Temporary address international Nepal$")
+	public static void Verify_user_can_able_to_enter_Temporary_address_international_Nepal() throws Throwable {
+		if (ConfigFileReader.getSame_as_Permanent_Address().equals("True")) {
+			ObjectsReporsitory.sameAsPermanent.click();
+			Basic.PageLoader_Validation();
+			wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Communication_Address,
+					"ng-reflect-model"));
+
+			String Temp_Country = ObjectsReporsitory.Communication_Temp_District.getAttribute("ng-reflect-model");
+			String Temp_State = ObjectsReporsitory.Communication_Temp_State.getText();
+			String Temp_Address = ObjectsReporsitory.Communication_Temp_State.getAttribute("ng-reflect-model");
+			System.out.println("Temporary address Country: " + Temp_Country);
+			System.out.println("Temporary address State: " + Temp_State);
+			System.out.println("Temporary address Address: " + Temp_Address);
+
+		}
+
+		else if (ConfigFileReader.getSame_as_Permanent_Address().equals("false")) {
+			Actions actions = new Actions(DriverFactory.driver);
+			actions.moveToElement(ObjectsReporsitory.Communication_emergencyContact_Head);
+			actions.perform();
+			wait.until(ExpectedConditions.textToBePresentInElement(
+					ObjectsReporsitory.Communication_emergencyContact_Head, "Emergency Contact"));
+
+			ObjectsReporsitory.communication_Country_Temp_Address
+					.sendKeys(ConfigFileReader.getPermanent_Address_Country_International_Nepal());
+			Thread.sleep(2000);
+			List<WebElement> DropdownResult = ObjectsReporsitory.Communication_Country_Allelements;
+			for (WebElement webElement : DropdownResult) {
+				if (webElement.getText().equals(ConfigFileReader.getPermanent_Address_Country_International_Nepal())) {
+					webElement.click();
+					System.out
+							.println("Country :" + ConfigFileReader.getPermanent_Address_Country_International_Nepal());
+					break;
+				}
+			}
+
+			ObjectsReporsitory.communication_Country_Temp_Address_State.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.communication_Country_Temp_Address_State.clear();
+			Thread.sleep(2000);
+			ObjectsReporsitory.communication_Country_Temp_Address_State.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.communication_Country_Temp_Address_State
+					.sendKeys(ConfigFileReader.getTemp_Address_Country_International_State_Nepal());
+			Thread.sleep(2000);
+			Thread.sleep(2000);
+			List<WebElement> DropdownResult3 = ObjectsReporsitory.Communication_Country_Allelements;
+			for (WebElement webElement2 : DropdownResult3) {
+				if (webElement2.getText()
+						.contains(ConfigFileReader.getTemp_Address_Country_International_State_Nepal())) {
+					webElement2.click();
+					System.out
+							.println("State :" + ConfigFileReader.getTemp_Address_Country_International_State_Nepal());
+					break;
+				}
+			}
+
+		} else if (ConfigFileReader.getSame_as_Permanent_Address().equals("camp")) {
+
+			// Rework
+			System.out.println("Rework");
+
+		}
 	}
 }

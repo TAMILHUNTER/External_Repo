@@ -134,10 +134,11 @@ public class DLR {
 		Basic.PageLoader_Validation();
 		Thread.sleep(3000);
 		Basic.popup_Handle_IC_dash();
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 		ObjectsReporsitory.WMS_induction2.click();
 		Thread.sleep(3000);
-		// ObjectsReporsitory.Menu_Navigation_Close.click();
+		Basic.PageLoader_Validation();
 		System.out.println("Current Job : " + ObjectsReporsitory.Induction_Jobcode.getText());
 		String Current_job = ObjectsReporsitory.Induction_Jobcode.getText();
 		if (Current_job.equals(ConfigFileReader.getJob_LE180046())) {

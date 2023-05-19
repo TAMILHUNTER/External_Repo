@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import dataProviders.ConfigFileReader;
 import net.bytebuddy.utility.RandomString;
 import object_repository.ObjectsReporsitory;
+import stepdefinition.Basic;
 import stepdefinition.Screenshot;
 import stepdefinition.Basic_Details.Create.Communication;
 import stepdefinition.Basic_Details.Create.Partner;
@@ -21,6 +22,7 @@ import test.DataBaseConnection;
 import utils.DriverFactory;
 import java.time.Duration;
 import io.cucumber.java.en.Then;
+
 public class Basic_Details_Validations_Create {
 
 	public static int Search_Aadhaar_Number;
@@ -47,47 +49,14 @@ public class Basic_Details_Validations_Create {
 
 		// Partner
 		Partner.Verify_user_can_able_to_select_the_Worktype();
-		Partner.Verify_user_can_able_to_Save();
 
-		Actions actions2qawsd = new Actions(DriverFactory.driver);
-		actions2qawsd.moveToElement(ObjectsReporsitory.Personal_workmanName);
-		actions2qawsd.perform();
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Partner_next));
-		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();", ObjectsReporsitory.Partner_next);
-		// ObjectsReporsitory.Partner_next.click();
-		actions.moveToElement(ObjectsReporsitory.Personal_saveNext);
-		actions.perform();
-		System.out.println("Navigated to Basicdetails - Personal");
-
-		// Personal
-		Personal.Verify_user_can_able_to_enter_name_and_fathername();
-		Personal.Verify_user_can_able_to_select_DOB();
-		Personal.Verify_user_age_auto_calculated();
-		Personal.Verify_user_able_to_capture_image();
-		Personal.Verify_user_able_to_add_Language();
-		Personal.verify_user_can_able_to_select_gender();
-		Personal.Verify_user_can_able_to_select_blood_group();
-		Personal.verify_user_can_able_to_select_marital_status();
-		Personal.verify_user_can_able_to_enter_spouse_name();
-		Personal.verify_user_can_able_to_provide_CSTI_and_NAPS();
-		Personal.verify_user_can_able_to_save_Personal_details();
-
-		// Communication
-		Communication.Verify_user_can_able_to_enter_mobile_number();
-		//Communication.Verify_user_can_able_to_enter_pincode();
-		Communication.Verify_address_autofetched_based_on_pincode_entered();
-		Communication.Verify_user_can_able_to_enter_address_and_select_villege();
-		Communication.Verify_user_can_able_to_enter_Temporary_address();
-		Communication.Verify_user_can_able_to_enter_Emergency_Contact_Name_and_number();
-		Communication.Verify_user_can_able_to_select_relationship_with_employee();
-		Communication.Verify_user_can_able_to_enter_Emergency_Contact_address_pincode();
-		Communication.Verify_address_autofetched_based_on_pincode_entered_for_Emergency_Contact();
-		Communication.Verify_user_can_able_to_enter_address_and_select_villege_for_Emergency_Contact();
-		Actions actionassdwqwdeqa = new Actions(DriverFactory.driver);
-		actionassdwqwdeqa.moveToElement(ObjectsReporsitory.Communication_saveNext);
-		actionassdwqwdeqa.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		// Communication.Verify_user_can_able_to_save_communication_details();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.partnerbar));
+		ObjectsReporsitory.partnerbar.click();
+		Actions actions2323 = new Actions(DriverFactory.driver);
+		actions2323.moveToElement(ObjectsReporsitory.Personal_workmanName);
+		actions2323.perform();
+		ObjectsReporsitory.Partner_next.click();
+		Basic.PageLoader_Validation();
 		Verification_Popup.Validation_popup_handle();
 
 	}
@@ -97,13 +66,22 @@ public class Basic_Details_Validations_Create {
 
 		// Partner
 		Partner.Verify_user_can_able_to_select_the_Existing_Partner_by_ID();
-		Partner.Verify_user_can_able_to_Save();
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.partnerbar));
+		ObjectsReporsitory.partnerbar.click();
+		Actions actions2323 = new Actions(DriverFactory.driver);
+		actions2323.moveToElement(ObjectsReporsitory.Personal_workmanName);
+		actions2323.perform();
+		ObjectsReporsitory.Partner_next.click();
+		Basic.PageLoader_Validation();
+		System.out.println("Partner details are Saved");
 
 		Actions actionsasd = new Actions(DriverFactory.driver);
 		actionsasd.moveToElement(ObjectsReporsitory.Personal_workmanName);
 		actionsasd.perform();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Partner_next));
-		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();", ObjectsReporsitory.Partner_next);
+		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
+				ObjectsReporsitory.Partner_next);
 		// ObjectsReporsitory.Partner_next.click();
 		Actions actionsasdqw = new Actions(DriverFactory.driver);
 		actionsasdqw.moveToElement(ObjectsReporsitory.Personal_saveNext);
@@ -121,11 +99,15 @@ public class Basic_Details_Validations_Create {
 		Personal.verify_user_can_able_to_select_marital_status();
 		Personal.verify_user_can_able_to_enter_spouse_name();
 		Personal.verify_user_can_able_to_provide_CSTI_and_NAPS();
+		Personal.verify_user_can_able_to_enter_religion();
+		Personal.verify_user_can_able_to_enter_Nearest_police_station();
+		Personal.verify_user_can_able_to_select_Nationality();
 		Personal.verify_user_can_able_to_save_Personal_details();
 
 		// Communication
 		Communication.Verify_user_can_able_to_enter_mobile_number();
-		//Communication.Verify_user_can_able_to_enter_pincode();
+		Communication.Verify_user_can_able_to_Select_Country();
+		// Communication.Verify_user_can_able_to_enter_pincode();
 		Communication.Verify_address_autofetched_based_on_pincode_entered();
 		Communication.Verify_user_can_able_to_enter_address_and_select_villege();
 		Communication.Verify_user_can_able_to_enter_Temporary_address();
@@ -169,10 +151,14 @@ public class Basic_Details_Validations_Create {
 		Personal.verify_user_can_able_to_select_marital_status();
 		Personal.verify_user_can_able_to_enter_spouse_name();
 		Personal.verify_user_can_able_to_provide_CSTI_and_NAPS();
+		Personal.verify_user_can_able_to_enter_religion();
+		Personal.verify_user_can_able_to_select_Nationality();
+		Personal.verify_user_can_able_to_enter_Nearest_police_station();
 		Personal.verify_user_can_able_to_save_Personal_details();
 
 		Communication.Verify_user_can_able_to_enter_mobile_number();
-		//Communication.Verify_user_can_able_to_enter_pincode();
+		Communication.Verify_user_can_able_to_Select_Country();
+		// Communication.Verify_user_can_able_to_enter_pincode();
 		Communication.Verify_address_autofetched_based_on_pincode_entered();
 		Communication.Verify_user_can_able_to_enter_address_and_select_villege();
 		Communication.Verify_user_can_able_to_enter_Temporary_address();
@@ -192,12 +178,37 @@ public class Basic_Details_Validations_Create {
 
 	}
 
+	@Then("^Verify user can able to Validate Nationality$")
+	public static void Verify_user_can_able_to_Validate_Nationality() throws Throwable {
+
+		Actions actionobj = new Actions(DriverFactory.driver);
+		actionobj.moveToElement(ObjectsReporsitory.Personal_nationality);
+		actionobj.perform();
+		ObjectsReporsitory.Personal_nationality.click();
+		ObjectsReporsitory.Personal_nationality.clear();
+
+		Actions actionassd = new Actions(DriverFactory.driver);
+		actionassd.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actionassd.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
+		Verification_Popup.Validation_popup_handle();
+
+	}
+
 	@Then("^Verify user can able to Validate workmenname$")
 	public static void Verify_user_can_able_to_Validate_workmenname() throws Throwable {
 
 		Actions actionobj = new Actions(DriverFactory.driver);
-		actionobj.moveToElement(ObjectsReporsitory.Personal_workmanName);
+		actionobj.moveToElement(ObjectsReporsitory.Personal_nationality);
 		actionobj.perform();
+		ObjectsReporsitory.Personal_nationality.click();
+		ObjectsReporsitory.Personal_nationality.clear();
+
+		Personal.verify_user_can_able_to_select_Nationality();
+
+		Actions actionobjasd = new Actions(DriverFactory.driver);
+		actionobjasd.moveToElement(ObjectsReporsitory.Personal_workmanName);
+		actionobjasd.perform();
 		ObjectsReporsitory.Personal_workmanName.click();
 		ObjectsReporsitory.Personal_workmanName.clear();
 
@@ -1961,7 +1972,7 @@ public class Basic_Details_Validations_Create {
 		Actions actionsobj = new Actions(DriverFactory.driver);
 		actionsobj.moveToElement(ObjectsReporsitory.statutoryDetails_Aadhaar);
 		actionsobj.perform();
-		
+
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_Aadhaar));
 		ObjectsReporsitory.statutoryDetails_Aadhaar.click();
 		ObjectsReporsitory.statutoryDetails_Aadhaar.clear();
@@ -1971,6 +1982,50 @@ public class Basic_Details_Validations_Create {
 		Actions actionsedusave = new Actions(DriverFactory.driver);
 		actionsedusave.moveToElement(ObjectsReporsitory.statutoryDetails_save);
 		actionsedusave.perform();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_save));
+		ObjectsReporsitory.statutoryDetails_save.click();
+
+		Verification_Popup.Validation_popup_handle();
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_Aadhaar));
+		ObjectsReporsitory.statutoryDetails_Aadhaar.click();
+		ObjectsReporsitory.statutoryDetails_Aadhaar.clear();
+		ObjectsReporsitory.statutoryDetails_Aadhaar.click();
+
+		Random rnd = new Random();
+		long number1 = rnd.nextInt(623);
+		long number2 = rnd.nextInt(328);
+		long number3 = rnd.nextInt(65);
+		long number4 = rnd.nextInt(652);
+		ObjectsReporsitory.statutoryDetails_Aadhaar.sendKeys("64" + number1 + number2 + number3 + number4);
+
+		Search_Aadhaar_Number = ObjectsReporsitory.statutoryDetails_Aadhaar.getAttribute("value").length();
+		System.out.println("Length of the Aadhaar Number : " + Search_Aadhaar_Number);
+		if (Search_Aadhaar_Number < 12) {
+			ObjectsReporsitory.statutoryDetails_Aadhaar.click();
+
+			Actions actions_key1 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.END);
+			actions_key1.perform();
+			ObjectsReporsitory.statutoryDetails_Aadhaar.sendKeys("5");
+			System.out.println("Aadhaar Number :" + ObjectsReporsitory.statutoryDetails_Aadhaar.getAttribute("value"));
+		} else if (Search_Aadhaar_Number > 12) {
+			ObjectsReporsitory.statutoryDetails_Aadhaar.click();
+			Actions actions_key2 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.END);
+			actions_key2.perform();
+			Actions actions_key3 = new Actions(DriverFactory.driver);
+			actions.sendKeys(Keys.BACK_SPACE);
+			actions_key3.perform();
+			System.out.println("Aadhaar Number :" + ObjectsReporsitory.statutoryDetails_Aadhaar.getAttribute("value"));
+		} else {
+			System.out.println("Aadhaar Number :" + ObjectsReporsitory.statutoryDetails_Aadhaar.getAttribute("value"));
+		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_save));
+		Actions actionsedusaveasd = new Actions(DriverFactory.driver);
+		actionsedusaveasd.moveToElement(ObjectsReporsitory.statutoryDetails_save);
+		actionsedusaveasd.perform();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_save));
 		ObjectsReporsitory.statutoryDetails_save.click();
 
@@ -2076,8 +2131,7 @@ public class Basic_Details_Validations_Create {
 		long number1 = rnd.nextInt(1234567892);
 		long number2 = rnd.nextInt(328525641);
 		ObjectsReporsitory.statutoryDetails_labour.sendKeys("" + number1 + number2);
-		System.out
-				.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour.getAttribute("value"));
+		System.out.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour.getAttribute("value"));
 
 		// ***************************************************************************************************************************************************************************************************
 
@@ -2238,8 +2292,16 @@ public class Basic_Details_Validations_Create {
 	public static void Verify_user_can_able_to_Validate_workmenname_field_with_Numeric() throws Throwable {
 
 		Actions actionobj = new Actions(DriverFactory.driver);
-		actionobj.moveToElement(ObjectsReporsitory.Personal_workmanName);
+		actionobj.moveToElement(ObjectsReporsitory.Personal_nationality);
 		actionobj.perform();
+		ObjectsReporsitory.Personal_nationality.click();
+		ObjectsReporsitory.Personal_nationality.clear();
+
+		Personal.verify_user_can_able_to_select_Nationality();
+
+		Actions actionobjasd = new Actions(DriverFactory.driver);
+		actionobjasd.moveToElement(ObjectsReporsitory.Personal_workmanName);
+		actionobjasd.perform();
 		ObjectsReporsitory.Personal_workmanName.click();
 		ObjectsReporsitory.Personal_workmanName.clear();
 		ObjectsReporsitory.Personal_workmanName.click();
@@ -3101,20 +3163,21 @@ public class Basic_Details_Validations_Create {
 
 		// ***************************************************************************************************************************************************************************************************
 
-		
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_WorkPermit_expiry));
 		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.click();
-		
+
 		Actions actions1002 = new Actions(DriverFactory.driver);
 		Actions actions1003 = new Actions(DriverFactory.driver);
 
 		actions1002.sendKeys(Keys.HOME).build().perform();
 		Thread.sleep(2000);
-		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.sendKeys(ConfigFileReader.getWorkpermit_Expiry_Date_Month());
+		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry
+				.sendKeys(ConfigFileReader.getWorkpermit_Expiry_Date_Month());
 		actions1003.sendKeys(Keys.TAB).build().perform();
-		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.sendKeys(ConfigFileReader.getWorkpermit_Expiry_PastYear());
+		ObjectsReporsitory.statutoryDetails_WorkPermit_expiry
+				.sendKeys(ConfigFileReader.getWorkpermit_Expiry_PastYear());
 		Thread.sleep(2000);
-		
+
 		System.out.println("Workpermit Expiry Date : "
 				+ ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.getAttribute("value"));
 
@@ -3225,15 +3288,13 @@ public class Basic_Details_Validations_Create {
 		long number12e = rndas.nextInt(1234567892);
 		long number2wd = rndas.nextInt(328525641);
 		ObjectsReporsitory.statutoryDetails_labour.sendKeys("" + number12e + number2wd);
-		System.out
-				.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour.getAttribute("value"));
+		System.out.println("Labour Card Number :" + ObjectsReporsitory.statutoryDetails_labour.getAttribute("value"));
 
 		// ***************************************************************************************************************************************************************************************************
 
-
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_labour_expiry));
 		ObjectsReporsitory.statutoryDetails_labour_expiry.click();
-		
+
 		Actions actions1002 = new Actions(DriverFactory.driver);
 		Actions actions1003 = new Actions(DriverFactory.driver);
 
@@ -3243,7 +3304,7 @@ public class Basic_Details_Validations_Create {
 		actions1003.sendKeys(Keys.TAB).build().perform();
 		ObjectsReporsitory.statutoryDetails_labour_expiry.sendKeys(ConfigFileReader.getLabourcard_Expiry_PastYear());
 		Thread.sleep(2000);
-		
+
 		System.out.println("Labour Card Expiry Date : "
 				+ ObjectsReporsitory.statutoryDetails_WorkPermit_expiry.getAttribute("value"));
 
@@ -3314,7 +3375,8 @@ public class Basic_Details_Validations_Create {
 		ObjectsReporsitory.statutory_PF_Nominee_Name.click();
 		ObjectsReporsitory.statutory_PF_Nominee_Name.clear();
 		ObjectsReporsitory.statutory_PF_Nominee_Name.click();
-		ObjectsReporsitory.statutory_PF_Nominee_Name.sendKeys(ConfigFileReader.getEducation_Verification_Max_alphabets());
+		ObjectsReporsitory.statutory_PF_Nominee_Name
+				.sendKeys(ConfigFileReader.getEducation_Verification_Max_alphabets());
 
 		Thread.sleep(2000);
 		System.out.println("Length of the PF Nominee Name Field Value : "

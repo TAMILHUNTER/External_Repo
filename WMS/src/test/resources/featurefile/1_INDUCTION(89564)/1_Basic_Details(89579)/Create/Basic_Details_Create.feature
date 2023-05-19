@@ -162,3 +162,27 @@ Feature: Feature : Induction (89564) UserStory : Workman Basic Details (89579)
 
     Given Fill Partner Personal communication Skill Deployment Education Experience Statutory bank details
     Then Verify save and submit workman details
+    
+  @Induction_Create_Nepal_Workmen_LE20D146
+  Scenario: Create and Submit workman details
+    Description :  As a EIP User i should be able to Submit Workmen Details for Induction
+
+   Given Login
+   And Navigate to Induction
+   Then Verify and switch nepal Job LE20D146
+   Then Swicth to International induction Selection
+   Then Verify and fill DLR for nepal job LE20D146
+   Then Verify user can be able to Search international workmen and proceed for induction
+   Then Verify user can be able to Fill Partner Details
+   Then Verify user can be able to Fill Personal Details
+   Then Verify user can be able to Fill Communication Details
+   Then Verify user can be able to Fill Skill Details
+   Then Verify user can be able to Fill Deployment Details
+   Then Verify user can be able to Fill Education Details
+   Then Verify user can be able to Fill Experience Details
+	 Then Verify user can be able to Fill Satutory Details
+	 Then Verify user can be able to Fill Bank Details
+	 Then Verify user can be able to Submit workmen Details   
+    
+   
+    

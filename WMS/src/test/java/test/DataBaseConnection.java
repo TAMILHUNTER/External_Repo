@@ -30,6 +30,7 @@ public class DataBaseConnection {
 	public static String WorkmanAadhar;
 	public static String WMP_Jobcode;
 	public static String WorkmanAadhar_Switch;
+	public static String Workmannname_verification_set;
 	public static String WorkmanName;
 	public static String FatherName;
 	public static String WMP_DOB;
@@ -133,6 +134,45 @@ public class DataBaseConnection {
 		con = DriverManager.getConnection(DB_Url, DB_User, DB_Pwd);
 	}
 
+	public static void dataBaseConnectionAWM() throws SQLException {
+		DB_Url = "jdbc:sqlserver://172.31.61.105:1433;databaseName=EIP40AWM;";
+		DB_User = "AWM4LOGIN";
+		DB_Pwd = "AWM!LogiN#qa";
+		con = DriverManager.getConnection(DB_Url, DB_User, DB_Pwd);
+		stmt = con.createStatement();
+		System.out.println("Data Base Connection success");
+	}
+
+	public static void dataBaseConnectionFAS() throws SQLException {
+		DB_Url = "jdbc:sqlserver://172.31.61.105:1433;databaseName=EIP40FIN;";
+		DB_User = "FIN4LOGIN";
+		DB_Pwd = "FIN4LOGIN@@qa";
+		con = DriverManager.getConnection(DB_Url, DB_User, DB_Pwd);
+		stmt = con.createStatement();
+		System.out.println("Data Base Connection success");
+		System.out.println("******************************");
+	}
+
+	public static void dataBaseConnectionSCM() throws SQLException {
+		DB_Url = "jdbc:sqlserver://172.31.61.105:1433;databaseName=EIP40SCM;";
+		DB_User = "SCM4login";
+		DB_Pwd = "SCM4LOGIN@@qa";
+		con = DriverManager.getConnection(DB_Url, DB_User, DB_Pwd);
+		stmt = con.createStatement();
+		System.out.println("Data Base Connection success");
+		System.out.println("******************************");
+	}
+
+	public static void dataBaseConnectionGLM() throws SQLException {
+		DB_Url = "jdbc:sqlserver://172.31.61.105:1433;databaseName=EIP40GLM;";
+		DB_User = "GLM4LOGIN";
+		DB_Pwd = "GLM4LOGIN@@qa";
+		con = DriverManager.getConnection(DB_Url, DB_User, DB_Pwd);
+		stmt = con.createStatement();
+		System.out.println("Data Base Connection success");
+		System.out.println("******************************");
+	}
+
 	public static void databaseConnectionClose() throws SQLException {
 		con.close();
 	}
@@ -218,10 +258,8 @@ public class DataBaseConnection {
 
 	}
 
-	
-	//****************************************************************************************
+	// ****************************************************************************************
 
-	
 	public static void Getworkmannumberquery_international() throws SQLException {
 
 		ResultSet results = stmt.executeQuery(
@@ -243,10 +281,9 @@ public class DataBaseConnection {
 		databaseConnectionClose();
 
 	}
-	
-	//****************************************************************************************
-	
-	
+
+	// ****************************************************************************************
+
 	public static void GetworkmanAadharquery() throws SQLException {
 
 		ResultSet results = stmt.executeQuery(
@@ -2071,33 +2108,32 @@ public class DataBaseConnection {
 	}
 
 	// ****************************************************************************************
-	
+
 	// ****************************************************************************************
 
-		public static void GetWorkmanFathername_Multiple_query() throws SQLException {
+	public static void GetWorkmanFathername_Multiple_query() throws SQLException {
 
-			ResultSet results = stmt.executeQuery(
-					// "SELECT top 1 WMP_Workmen_Number FROM IND.WPR_M_PERSONAL where WMP_Dscode='1'
-					// and WMP_Workmen_Name like 'Balaji%' order by WMP_Inserted_On desc");
-					"SELECT top 1 WMP_Father_Name FROM IND.WPR_M_PERSONAL INNER JOIN IND.WPR_M_Statutory ON IND.WPR_M_Statutory.WMST_Workmen_ID = IND.WPR_M_PERSONAL.WMP_Workmen_ID where IND.WPR_M_PERSONAL.WMP_Jobcode='LE180046' order by WMP_Inserted_On desc");
-			while (results.next()) {
-				WorkmaFathername = results.getString(1).substring(0, 20);
-				System.out.println("Workman Fathername : " + WorkmaFathername);
-			}
-			GetWorkmanID();
-
+		ResultSet results = stmt.executeQuery(
+				// "SELECT top 1 WMP_Workmen_Number FROM IND.WPR_M_PERSONAL where WMP_Dscode='1'
+				// and WMP_Workmen_Name like 'Balaji%' order by WMP_Inserted_On desc");
+				"SELECT top 1 WMP_Father_Name FROM IND.WPR_M_PERSONAL INNER JOIN IND.WPR_M_Statutory ON IND.WPR_M_Statutory.WMST_Workmen_ID = IND.WPR_M_PERSONAL.WMP_Workmen_ID where IND.WPR_M_PERSONAL.WMP_Jobcode='LE180046' order by WMP_Inserted_On desc");
+		while (results.next()) {
+			WorkmaFathername = results.getString(1).substring(0, 20);
+			System.out.println("Workman Fathername : " + WorkmaFathername);
 		}
+		GetWorkmanID();
 
-		public static void GetWorkmanFathername_Multiple() throws SQLException {
-			dataBaseConnectionWMS();
-			GetWorkmanFathername_Multiple_query();
-			SendDBValue.SendWorkmanFathername(WorkmaFathername);
-			databaseConnectionClose();
+	}
 
-		}
+	public static void GetWorkmanFathername_Multiple() throws SQLException {
+		dataBaseConnectionWMS();
+		GetWorkmanFathername_Multiple_query();
+		SendDBValue.SendWorkmanFathername(WorkmaFathername);
+		databaseConnectionClose();
 
-		// ****************************************************************************************
-		
+	}
+
+	// ****************************************************************************************
 
 	public static void GetWorkmanFathernamequery_Domestic() throws SQLException {
 
@@ -2330,7 +2366,7 @@ public class DataBaseConnection {
 	public static void GetWorkmanName_Verificationquery() throws SQLException {
 
 		ResultSet results = stmt.executeQuery(
-				"select  top 1  WMP_Workmen_Name from IND.WPR_M_PERSONAL where WMP_Workmen_Number=100000000000");
+				"select  top 1  WMP_Workmen_Name from IND.WPR_M_PERSONAL order by WMP_Inserted_On desc");
 		while (results.next()) {
 			Workmannname_verification = results.getString(1);
 			// System.out.println(WorkmanID);
@@ -2348,8 +2384,16 @@ public class DataBaseConnection {
 
 	public static void GetWorkmanFatherName_Verificationquery() throws SQLException {
 
+		ResultSet results2 = stmt.executeQuery(
+				"select  top 1  WMP_Workmen_Name from IND.WPR_M_PERSONAL order by WMP_Inserted_On desc");
+		while (results2.next()) {
+			Workmannname_verification_set = results2.getString(1);
+			// System.out.println(WorkmanID);
+
+		}
+		
 		ResultSet results = stmt.executeQuery(
-				"select  top 1  WMP_Father_Name from IND.WPR_M_PERSONAL where WMP_Workmen_Number=100000000000");
+				"select  top 1  WMP_Father_Name from IND.WPR_M_PERSONAL where WMP_Workmen_Name='"+Workmannname_verification_set +"'");
 		while (results.next()) {
 			WorkmanFatherName_verification = results.getString(1);
 			// System.out.println(WorkmanID);

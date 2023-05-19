@@ -26,7 +26,15 @@ public class DriverFactory {
 	public static Skill_Analysis_Objects Skill_Analysis_Objects;
 
 	public static WebDriver getWebdriver() {
+//		try {
+//			SSL_Utils.trustAllCertificates();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		try {
+			
+
 			// ReadConfigFile file = new ReadConfigFile();
 
 			// String browserName = file.getBrowser();
@@ -37,6 +45,7 @@ public class DriverFactory {
 
 			switch (browserName) {
 
+			
 			case "chrome":
 				WebDriverManager.chromedriver().setup();
 				// System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY,
@@ -59,8 +68,9 @@ public class DriverFactory {
 				driver = new ChromeDriver(options);
 				Dimension d = new Dimension(1920, 1080);
 				driver.manage().window().setSize(d);
-
+				
 				break;
+				
 			case "firefox":
 				System.out.println("Automation execution will run in " + browserName + "Browser");
 				WebDriverManager.firefoxdriver().setup();
@@ -68,7 +78,6 @@ public class DriverFactory {
 				// BrowserConstants.FireFox_Driver_Path);
 				driver = new FirefoxDriver();
 				break;
-
 			}
 		} catch (Exception e) {
 			System.out.println("Unable to lauch browser due to: " + e.toString());

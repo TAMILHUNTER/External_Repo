@@ -1,9 +1,8 @@
 package stepdefinition.Basic_Details.Edit;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -25,6 +24,7 @@ import utils.DriverFactory;
 import java.time.Duration;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.Given;
+
 public class Edit_Personal_Details {
 
 	public static int popup_validation;
@@ -40,6 +40,9 @@ public class Edit_Personal_Details {
 	public static String WorkmenJobCode;
 	public static String WorkmenSkill;
 	public static String WorkmenWorkType;
+	public static String Selected_religionStatus;
+	public static String Selected_nationalityStatus;
+	public static String Selected_Worktype;
 
 	// Read Configuration
 	public static ConfigFileReader configFileReader;
@@ -64,12 +67,19 @@ public class Edit_Personal_Details {
 		ObjectsReporsitory.Home_accessBasedMenu.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Menu_workmenManagementSystem));
 		ObjectsReporsitory.Menu_workmenManagementSystem.click();
-		ObjectsReporsitory.Menu_workmenManagementSystem_WMS40.click();
+		// ObjectsReporsitory.Menu_Navigation_Open.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS40));
+		ObjectsReporsitory.WMS40.click();
 		Thread.sleep(3000);
 		Basic.PageLoader_Validation();
 		Thread.sleep(3000);
 		Basic.popup_Handle_IC_dash();
-		ObjectsReporsitory.WMS_induction.click();
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
+		ObjectsReporsitory.WMS_induction2.click();
+		Thread.sleep(3000);
+		Basic.PageLoader_Validation();
+		// ObjectsReporsitory.Menu_Navigation_Close.click();
 		System.out.println("Current Job : " + ObjectsReporsitory.Induction_Jobcode.getText());
 		String Current_job = ObjectsReporsitory.Induction_Jobcode.getText();
 		if (Current_job.equals(ConfigFileReader.getJob_LE180046())) {
@@ -172,9 +182,8 @@ public class Edit_Personal_Details {
 		DataBaseConnection.GetWorkmanname();
 
 	}
-	
-	
-	//****************************************************************************************
+
+	// ****************************************************************************************
 	@Then("^Search Domestic Workman by Name$")
 	public static void Search_Workman_by_Name_Domestic() throws Throwable {
 
@@ -198,38 +207,37 @@ public class Edit_Personal_Details {
 
 	}
 
-	//****************************************************************************************
-	
-	//****************************************************************************************
-		@Then("^Search Domestic Multiple Workman by Name$")
-		public static void Search_Workman_by_Multiple_Name_Domestic() throws Throwable {
+	// ****************************************************************************************
 
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchBy_select));
-			((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
-					ObjectsReporsitory.Dashboard_SearchBy_select);
+	// ****************************************************************************************
+	@Then("^Search Domestic Multiple Workman by Name$")
+	public static void Search_Workman_by_Multiple_Name_Domestic() throws Throwable {
 
-			List<WebElement> listElement_Search_By_options_Results = ObjectsReporsitory.Dashboard_SearchBy_All_option;
-			for (WebElement webElement66 : listElement_Search_By_options_Results) {
-				if (webElement66.getText().contains(ConfigFileReader.getSearch_By_Name())) {
-					webElement66.click();
-					System.out.println(
-							"Search Workmen By : " + dataProviders.ConfigFileReader.getSearch_By_Name() + " is Selected");
-					break;
-				} else {
-					System.out.println("Search Workmen By Workmen Name Option is Not displayed");
-				}
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_SearchBy_select));
+		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
+				ObjectsReporsitory.Dashboard_SearchBy_select);
+
+		List<WebElement> listElement_Search_By_options_Results = ObjectsReporsitory.Dashboard_SearchBy_All_option;
+		for (WebElement webElement66 : listElement_Search_By_options_Results) {
+			if (webElement66.getText().contains(ConfigFileReader.getSearch_By_Name())) {
+				webElement66.click();
+				System.out.println(
+						"Search Workmen By : " + dataProviders.ConfigFileReader.getSearch_By_Name() + " is Selected");
+				break;
+			} else {
+				System.out.println("Search Workmen By Workmen Name Option is Not displayed");
 			}
-
-			ObjectsReporsitory.Dashboard_SearchWorkmen_Name.click();
-			ObjectsReporsitory.Dashboard_SearchWorkmen_Name.clear();
-			ObjectsReporsitory.Dashboard_SearchWorkmen_Name.click();
-			ObjectsReporsitory.Dashboard_SearchWorkmen_Name.sendKeys(ConfigFileReader.getSearch_By_Name_value() );
-
 		}
 
-		//****************************************************************************************
-	
-	
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Name.click();
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Name.clear();
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Name.click();
+		ObjectsReporsitory.Dashboard_SearchWorkmen_Name.sendKeys(ConfigFileReader.getSearch_By_Name_value());
+
+	}
+
+	// ****************************************************************************************
+
 	@Then("^Search Workman by FatherNameName$")
 	public static void Search_Workman_by_FatherName() throws Throwable {
 
@@ -253,13 +261,11 @@ public class Edit_Personal_Details {
 		ObjectsReporsitory.Dashboard_SearchWorkmen_Name.sendKeys(ConfigFileReader.getSearch_By_FatherName_value());
 
 	}
-	
-	
-	//****************************************************************************************
-	
-	//****************************************************************************************
-	
-	
+
+	// ****************************************************************************************
+
+	// ****************************************************************************************
+
 	@Then("^Search Multiple records Workman by FatherNameName$")
 	public static void Search_Workman_by_FatherName_multiple() throws Throwable {
 
@@ -280,11 +286,9 @@ public class Edit_Personal_Details {
 		DataBaseConnection.GetWorkmanFathername_Multiple();
 
 	}
-	
-	
-	//****************************************************************************************
 
-	
+	// ****************************************************************************************
+
 	@Then("^Search Domestic Workman by FatherNameName$")
 	public static void Search_Workman_by_FatherName_Domestic() throws Throwable {
 
@@ -305,8 +309,8 @@ public class Edit_Personal_Details {
 		DataBaseConnection.GetWorkmanFathername_Domestic();
 
 	}
-	
-	//****************************************************************************************
+
+	// ****************************************************************************************
 
 	@Then("^Search Workman by Passport Number$")
 	public static void Search_Workman_by_Passport_no() throws Throwable {
@@ -415,38 +419,48 @@ public class Edit_Personal_Details {
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Induction_basicDetails));
 		ObjectsReporsitory.Induction_basicDetails.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_workmanName));
-		wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Personal_workmanName, "ng-reflect-model"));
+		wait.until(
+				ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Personal_workmanName, "ng-reflect-model"));
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Induction_partner));
 		ObjectsReporsitory.Induction_partner.click();
-		wait.until(ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Partner_partnername, "ng-reflect-model"));
-		
-		
-		if (ObjectsReporsitory.Partner_workType.getAttribute("value") == null) {
+		wait.until(
+				ExpectedConditions.attributeToBeNotEmpty(ObjectsReporsitory.Partner_partnername, "ng-reflect-model"));
 
-			ObjectsReporsitory.Partner_workType_Edit.click();
-			System.out.println("Current Work Type : " + ObjectsReporsitory.Partner_workType_Edit.getText());
-			if (ObjectsReporsitory.Partner_workType_Edit.getText() == null) {
-				ObjectsReporsitory.Partner_workType_Regular_Service_Workmen.click();
-				System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
-			} else if (ObjectsReporsitory.Partner_workType_Edit.getText().equals("Regular Service Workmen")) {
-				ObjectsReporsitory.Partner_workType_PRW_Hired_PM.click();
-				System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
-			} else if (ObjectsReporsitory.Partner_workType_Edit.getText().contains("Hired P&M")) {
-				ObjectsReporsitory.Partner_workType_Specialized_Works.click();
-				System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
-			} else if (ObjectsReporsitory.Partner_workType_Edit.getText().contains("Specialized Works")) {
-				ObjectsReporsitory.Partner_workType_Regular_Service_Workmen.click();
-				System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType_Edit.getText());
+		ObjectsReporsitory.Partner_workType_Edit.click();
+
+		List<WebElement> DropdownResult4 = ObjectsReporsitory.Partner_workType_DR;
+
+		if (ConfigFileReader.getselectWorktype_Value().contains("Random")) {
+			System.out.println("Selecting Random Worktype");
+			Random rand6547 = new Random();
+			int Worktype = rand6547.nextInt(ObjectsReporsitory.Partner_workType_DR.size());
+			Selected_Worktype = ObjectsReporsitory.Partner_workType_DR.get(Worktype).getText();
+
+			for (WebElement webElement : DropdownResult4) {
+				if (webElement.getText().equals(Selected_Worktype)) {
+					webElement.click();
+					Thread.sleep(3000);
+					System.out.println("Work Type :" + ObjectsReporsitory.Partner_workType.getText());
+					break;
+				}
 			}
-			Actions actions1 = new Actions(DriverFactory.driver);
-			actions1.moveToElement(ObjectsReporsitory.Partner_next);
-			actions1.perform();
-			ObjectsReporsitory.Partner_next.click();
-
 		} else {
-			System.out.println("Partner Value Selected : " + ObjectsReporsitory.Partner_workType.getAttribute("value"));
+
+			for (WebElement webElement : DropdownResult4) {
+				if (webElement.getText().equals(ConfigFileReader.getpartner_Worktype())) {
+					webElement.click();
+					System.out.println("WorkType Selected :" + ObjectsReporsitory.Partner_workType.getText());
+					break;
+				}
+			}
+
 		}
-		ObjectsReporsitory.Induction_personal.click();
+
+		Actions actions1 = new Actions(DriverFactory.driver);
+		actions1.moveToElement(ObjectsReporsitory.Partner_next);
+		actions1.perform();
+		ObjectsReporsitory.Partner_next.click();
+
 		Actions actions2 = new Actions(DriverFactory.driver);
 		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
 		actions2.perform();
@@ -508,6 +522,7 @@ public class Edit_Personal_Details {
 		actions3.perform();
 		ObjectsReporsitory.Communication_saveNext.click();
 		Thread.sleep(2000);
+		Basic.PageLoader_Validation();
 		Basic.popup_Handle2();
 		Thread.sleep(2000);
 
@@ -537,11 +552,12 @@ public class Edit_Personal_Details {
 		actions112.perform();
 		ObjectsReporsitory.Communication_saveNext.click();
 		Screenshot.Screenshotforscenario();
+		Basic.PageLoader_Validation();
 		Basic.popup_handle();
 		DataBaseConnection.getverifyupdateworkmanDOB();
 		System.out.println("Verify age auto calculated");
 		Personal.Verify_user_age_auto_calculated();
-		
+
 		Actions actions113 = new Actions(DriverFactory.driver);
 		actions113.moveToElement(ObjectsReporsitory.Personal_saveNext);
 		actions113.perform();
@@ -565,7 +581,7 @@ public class Edit_Personal_Details {
 		ObjectsReporsitory.Personal_takeASnapshot.click();
 		ObjectsReporsitory.Personal_close.click();
 		System.out.println("Workman Image Captured");
-		
+
 		Actions actions2 = new Actions(DriverFactory.driver);
 		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
 		actions2.perform();
@@ -593,42 +609,7 @@ public class Edit_Personal_Details {
 		System.out.println("Update : Add Language");
 		ObjectsReporsitory.Induction_personal.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_languagesKnown));
-		ObjectsReporsitory.Personal_languagesKnown.click();
-
-		// Update : Add Language
-		ObjectsReporsitory.Personal_Language_addLanguage.click();
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		List<WebElement> DropdownResult = ObjectsReporsitory.Personal_Language_Languageselect_DR;
-		for (WebElement webElement : DropdownResult) {
-			if (webElement.getText().equals(ConfigFileReader.getLanguage1_update())) {
-				webElement.click();
-				System.out.println("Language Selected:" + ConfigFileReader.getLanguage1_update());
-				break;
-			}
-		}
-		if (ConfigFileReader.getL1Read_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Read));
-			ObjectsReporsitory.Personal_Language_Read.click();
-		} else if (ConfigFileReader.getL1Read_update().equals("True")) {
-			System.out.println("Language Read Unchecked");
-		}
-		if (ConfigFileReader.getL1Write_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Write));
-			ObjectsReporsitory.Personal_Language_Write.click();
-		} else if (ConfigFileReader.getL1Write_update().equals("True")) {
-			System.out.println("Language Write Unchecked");
-		}
-		if (ConfigFileReader.getL1speak_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Speak));
-			ObjectsReporsitory.Personal_Language_Speak.click();
-		} else if (ConfigFileReader.getL1speak_update().equals("True")) {
-			System.out.println("Language Speak Unchecked");
-		}
-		ObjectsReporsitory.Personal_Language_Save.click();
-		System.out.println("Language " + ConfigFileReader.getLanguage1_update() + " added successfully");
-		ObjectsReporsitory.Personal_Language_closewindow.click();
+		Personal.Verify_user_able_to_add_Language();
 
 		Actions actions2 = new Actions(DriverFactory.driver);
 		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
@@ -643,208 +624,16 @@ public class Edit_Personal_Details {
 		Screenshot.Screenshotforscenario();
 		Basic.popup_Handle2();
 		Thread.sleep(2000);
-		
-		// Update : Add another Language
-		Actions actions115 = new Actions(DriverFactory.driver);
-		actions115.moveToElement(ObjectsReporsitory.Induction_Hearder_personal);
-		actions115.perform();
-		ObjectsReporsitory.Induction_personal.click();
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_languagesKnown));
-		Thread.sleep(3000);
-		ObjectsReporsitory.Personal_languagesKnown.click();
-		ObjectsReporsitory.Personal_Language_addLanguage.click();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		List<WebElement> DropdownResult2 = ObjectsReporsitory.Personal_Language_Languageselect_DR;
-		for (WebElement webElement : DropdownResult2) {
-			if (webElement.getText().equals(ConfigFileReader.getLanguage2_update())) {
-				webElement.click();
-				System.out.println("Language Selected:" + ConfigFileReader.getLanguage2_update());
-				break;
-			}
-		}
-		if (ConfigFileReader.getL2Read_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Read));
-			ObjectsReporsitory.Personal_Language_Read.click();
-		} else if (ConfigFileReader.getL2Read_update().equals("True")) {
-			System.out.println("Language Read Unchecked");
-		}
-		if (ConfigFileReader.getL2Write_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Write));
-			ObjectsReporsitory.Personal_Language_Write.click();
-		} else if (ConfigFileReader.getL2Write_update().equals("True")) {
-			System.out.println("Language Write Unchecked");
-		}
-		if (ConfigFileReader.getL2speak_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Speak));
-			ObjectsReporsitory.Personal_Language_Speak.click();
-		} else if (ConfigFileReader.getL2speak_update().equals("True")) {
-			System.out.println("Language Speak Unchecked");
-		}
-		ObjectsReporsitory.Personal_Language_Save.click();
-
-		System.out.println("Language " + ConfigFileReader.getLanguage2_update() + " added successfully");
-		// ***************************************************************************
-		int Row = ObjectsReporsitory.language_Count.size();
-		List<String> MultipleCol = new ArrayList<String>();
-		System.out.println("Total Languages :" + Row);
-		for (int i = 1; i <= Row - 1; i++) {
-			MultipleCol.add(ObjectsReporsitory.language(i).getText());
-			MultipleCol.add(ObjectsReporsitory.Read(i).getText().substring(0, 1));
-			MultipleCol.add(ObjectsReporsitory.speak(i).getText().substring(0, 1));
-			MultipleCol.add(ObjectsReporsitory.write(i).getText().substring(0, 1));
-			System.out.println("LANGUAGE:" + ObjectsReporsitory.language(i).getText());
-			System.out.println("READ 	:" + ObjectsReporsitory.Read(i).getText().substring(0, 1));
-			System.out.println("SPEAK 	:" + ObjectsReporsitory.speak(i).getText().substring(0, 1));
-			System.out.println("WRITE 	:" + ObjectsReporsitory.write(i).getText().substring(0, 1));
-
-		}
-		// ***************************************************************************
-		ObjectsReporsitory.Personal_Language_closewindow.click();
-		Actions actions116 = new Actions(DriverFactory.driver);
-		actions116.moveToElement(ObjectsReporsitory.Induction_Hearder_communicationDetails);
-		actions116.perform();
-		ObjectsReporsitory.Personal_saveNext.click();
-		ObjectsReporsitory.Induction_communication.click();
-		Actions actions117 = new Actions(DriverFactory.driver);
-		actions117.moveToElement(ObjectsReporsitory.skill_header);
-		actions117.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Screenshot.Screenshotforscenario();
-		Basic.popup_handle();
-		// ***************************************************************************
 		DataBaseConnection.getverifyupdateworkmanLanguage();
-		// ***************************************************************************
-
-		// Update : Edit
-
-		System.out.println("Update : Edit Language");
-		Actions actions118 = new Actions(DriverFactory.driver);
-		actions118.moveToElement(ObjectsReporsitory.Induction_Hearder_personal);
-		actions118.perform();
-		ObjectsReporsitory.Induction_personal.click();
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_languagesKnown));
-		Thread.sleep(3000);
-		ObjectsReporsitory.Personal_languagesKnown.click();
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Edit));
-		ObjectsReporsitory.Personal_Language_Edit.click();
-		ObjectsReporsitory.Personal_Language.clear();
-		ObjectsReporsitory.Personal_Language.sendKeys(ConfigFileReader.getLanguage3_update());
-		List<WebElement> DropdownResult3 = ObjectsReporsitory.Personal_Language_Languageselect_DR;
-		for (WebElement webElement : DropdownResult3) {
-			if (webElement.getText().equals(ConfigFileReader.getLanguage3_update())) {
-				webElement.click();
-				System.out.println("Language Selected:" + ConfigFileReader.getLanguage3_update());
-				break;
-			} else {
-				System.out.println("language Not found");
-			}
-		}
-		if (ConfigFileReader.getL2Read_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Read));
-			ObjectsReporsitory.Personal_Language_Read.click();
-		} else if (ConfigFileReader.getL2Read_update().equals("True")) {
-			System.out.println("Language Read Unchecked");
-		}
-		if (ConfigFileReader.getL2Write_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Write));
-			ObjectsReporsitory.Personal_Language_Write.click();
-		} else if (ConfigFileReader.getL2Write_update().equals("True")) {
-			System.out.println("Language Write Unchecked");
-		}
-		if (ConfigFileReader.getL2speak_update().equals("True")) {
-			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Personal_Language_Speak));
-			ObjectsReporsitory.Personal_Language_Speak.click();
-		} else if (ConfigFileReader.getL2speak_update().equals("True")) {
-			System.out.println("Language Speak Unchecked");
-		}
-		ObjectsReporsitory.Personal_Language_Save.click();
-		System.out.println("Language " + ConfigFileReader.getLanguage2_update() + " Edited successfully");
-
-		// ***************************************************************************
-		int Row2 = ObjectsReporsitory.language_Count.size();
-		List<String> MultipleCol2 = new ArrayList<String>();
-		System.out.println("Total Languages :" + Row2);
-		for (int i = 1; i <= Row2 - 1; i++) {
-			MultipleCol2.add(ObjectsReporsitory.language(i).getText());
-			MultipleCol2.add(ObjectsReporsitory.Read(i).getText().substring(0, 1));
-			MultipleCol2.add(ObjectsReporsitory.speak(i).getText().substring(0, 1));
-			MultipleCol2.add(ObjectsReporsitory.write(i).getText().substring(0, 1));
-			System.out.println("LANGUAGE:" + ObjectsReporsitory.language(i).getText());
-			System.out.println("READ 	:" + ObjectsReporsitory.Read(i).getText().substring(0, 1));
-			System.out.println("SPEAK 	:" + ObjectsReporsitory.speak(i).getText().substring(0, 1));
-			System.out.println("WRITE 	:" + ObjectsReporsitory.write(i).getText().substring(0, 1));
-
-		}
-		// ***************************************************************************
-		ObjectsReporsitory.Personal_Language_closewindow.click();
-		Actions actions119 = new Actions(DriverFactory.driver);
-		actions119.moveToElement(ObjectsReporsitory.Induction_Hearder_communicationDetails);
-		actions119.perform();
-		ObjectsReporsitory.Personal_saveNext.click();
-		ObjectsReporsitory.Induction_communication.click();
-		Actions actions120 = new Actions(DriverFactory.driver);
-		actions120.moveToElement(ObjectsReporsitory.skill_header);
-		actions120.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Screenshot.Screenshotforscenario();
-		Basic.popup_handle();
-		// ***************************************************************************
-		DataBaseConnection.getverifyupdateworkmanLanguage();
-		// ***************************************************************************
-
-		// Delete Language
-		Actions actions121 = new Actions(DriverFactory.driver);
-		actions121.moveToElement(ObjectsReporsitory.Induction_Hearder_personal);
-		actions121.perform();
-		ObjectsReporsitory.Induction_personal.click();
-		Personal.Verify_user_able_to_delete_Language();
-		// ***************************************************************************
-		int Row3 = ObjectsReporsitory.language_Count.size();
-		List<String> MultipleCol3 = new ArrayList<String>();
-		System.out.println("Total Languages :" + Row3);
-		for (int i = 1; i <= Row3 - 1; i++) {
-			MultipleCol3.add(ObjectsReporsitory.language(i).getText());
-			MultipleCol3.add(ObjectsReporsitory.Read(i).getText().substring(0, 1));
-			MultipleCol3.add(ObjectsReporsitory.speak(i).getText().substring(0, 1));
-			MultipleCol3.add(ObjectsReporsitory.write(i).getText().substring(0, 1));
-			System.out.println("LANGUAGE:" + ObjectsReporsitory.language(i).getText());
-			System.out.println("READ 	:" + ObjectsReporsitory.Read(i).getText().substring(0, 1));
-			System.out.println("SPEAK 	:" + ObjectsReporsitory.speak(i).getText().substring(0, 1));
-			System.out.println("WRITE 	:" + ObjectsReporsitory.write(i).getText().substring(0, 1));
-
-		}
-		// ***************************************************************************
-		Actions actions122 = new Actions(DriverFactory.driver);
-		actions122.moveToElement(ObjectsReporsitory.Personal_saveNext);
-		actions122.perform();
-		ObjectsReporsitory.Personal_saveNext.click();
-
-		Actions actions123 = new Actions(DriverFactory.driver);
-		actions123.moveToElement(ObjectsReporsitory.Communication_saveNext);
-		actions123.perform();
-		ObjectsReporsitory.Communication_saveNext.click();
-		Thread.sleep(2000);
-		Basic.popup_Handle2();
-		Thread.sleep(2000);
-
-//		Actions actions4 = new Actions(DriverFactory.driver);
-//		actions4.moveToElement(ObjectsReporsitory.skill_save);
-//		actions4.perform();
-//		ObjectsReporsitory.skill_save.click();
-//		Thread.sleep(2000);
-//		Screenshot.Screenshotforscenario();
-//		Basic.popup_Handle2();
-		// ***************************************************************************
-		DataBaseConnection.getverifyupdateworkmanLanguage();
-		// ***************************************************************************
 
 	}
 
 	@Then("^Verify user can able to update Gender$")
 	public static void Verify_user_can_able_to_update_Gender() throws Throwable {
 
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Induction_personal));
 		ObjectsReporsitory.Induction_personal.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Induction_personal));
 		String Gender = ConfigFileReader.getGender_update();
 		if (Gender.equals("Male")) {
 			ObjectsReporsitory.Personal_Gender_Male.click();
@@ -896,18 +685,18 @@ public class Edit_Personal_Details {
 			}
 		}
 		// ***************************************************************************
-				Actions actions2 = new Actions(DriverFactory.driver);
-				actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
-				actions2.perform();
-				ObjectsReporsitory.Personal_saveNext.click();
+		Actions actions2 = new Actions(DriverFactory.driver);
+		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actions2.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
 
-				Actions actions3 = new Actions(DriverFactory.driver);
-				actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-				actions3.perform();
-				ObjectsReporsitory.Communication_saveNext.click();
-				Thread.sleep(2000);
-				Basic.popup_Handle2();
-				Thread.sleep(2000);
+		Actions actions3 = new Actions(DriverFactory.driver);
+		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+		actions3.perform();
+		ObjectsReporsitory.Communication_saveNext.click();
+		Thread.sleep(2000);
+		Basic.popup_Handle2();
+		Thread.sleep(2000);
 
 //				Actions actions4 = new Actions(DriverFactory.driver);
 //				actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -916,7 +705,7 @@ public class Edit_Personal_Details {
 //				Thread.sleep(2000);
 //				Screenshot.Screenshotforscenario();
 //				Basic.popup_Handle2();
-				// ***************************************************************************
+		// ***************************************************************************
 		DataBaseConnection.getverifyupdateworkmanBloodGroup();
 	}
 
@@ -935,18 +724,18 @@ public class Edit_Personal_Details {
 			}
 		}
 		// ***************************************************************************
-				Actions actions2 = new Actions(DriverFactory.driver);
-				actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
-				actions2.perform();
-				ObjectsReporsitory.Personal_saveNext.click();
+		Actions actions2 = new Actions(DriverFactory.driver);
+		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actions2.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
 
-				Actions actions3 = new Actions(DriverFactory.driver);
-				actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-				actions3.perform();
-				ObjectsReporsitory.Communication_saveNext.click();
-				Thread.sleep(2000);
-				Basic.popup_Handle2();
-				Thread.sleep(2000);
+		Actions actions3 = new Actions(DriverFactory.driver);
+		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+		actions3.perform();
+		ObjectsReporsitory.Communication_saveNext.click();
+		Thread.sleep(2000);
+		Basic.popup_Handle2();
+		Thread.sleep(2000);
 
 //				Actions actions4 = new Actions(DriverFactory.driver);
 //				actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -955,7 +744,7 @@ public class Edit_Personal_Details {
 //				Thread.sleep(2000);
 //				Screenshot.Screenshotforscenario();
 //				Basic.popup_Handle2();
-				// ***************************************************************************
+		// ***************************************************************************
 		DataBaseConnection.getverifyupdateworkmanMaritalStatus();
 	}
 
@@ -1121,18 +910,18 @@ public class Edit_Personal_Details {
 
 		}
 		// ***************************************************************************
-				Actions actions2 = new Actions(DriverFactory.driver);
-				actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
-				actions2.perform();
-				ObjectsReporsitory.Personal_saveNext.click();
+		Actions actions2 = new Actions(DriverFactory.driver);
+		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actions2.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
 
-				Actions actions3 = new Actions(DriverFactory.driver);
-				actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
-				actions3.perform();
-				ObjectsReporsitory.Communication_saveNext.click();
-				Thread.sleep(2000);
-				Basic.popup_Handle2();
-				Thread.sleep(2000);
+		Actions actions3 = new Actions(DriverFactory.driver);
+		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+		actions3.perform();
+		ObjectsReporsitory.Communication_saveNext.click();
+		Thread.sleep(2000);
+		Basic.popup_Handle2();
+		Thread.sleep(2000);
 
 //				Actions actions4 = new Actions(DriverFactory.driver);
 //				actions4.moveToElement(ObjectsReporsitory.skill_save);
@@ -1141,8 +930,142 @@ public class Edit_Personal_Details {
 //				Thread.sleep(2000);
 //				Screenshot.Screenshotforscenario();
 //				Basic.popup_Handle2();
-				// ***************************************************************************
+		// ***************************************************************************
 		DataBaseConnection.getverifyupdateCSTIOrNAPS();
+
+	}
+
+	@Then("^Verify user can able to update Religion$")
+	public static void Verify_user_can_able_to_update_Religion() throws Throwable {
+
+		ObjectsReporsitory.Induction_personal.click();
+		Actions actions129 = new Actions(DriverFactory.driver);
+		actions129.moveToElement(ObjectsReporsitory.Personal_religion);
+		actions129.perform();
+
+		ObjectsReporsitory.Personal_religion.click();
+		Thread.sleep(3000);
+		List<WebElement> DropdownResult = ObjectsReporsitory.Personal_religion_DR;
+
+		System.out.println("Updating Religion Status");
+		Random rand78522a = new Random();
+		int religion = rand78522a.nextInt(ObjectsReporsitory.Personal_religion_DR.size());
+		Selected_religionStatus = ObjectsReporsitory.Personal_religion_DR.get(religion).getText();
+
+		for (WebElement webElement : DropdownResult) {
+			if (webElement.getText().equals(Selected_religionStatus)) {
+				webElement.click();
+				Thread.sleep(3000);
+				System.out.println("Workmen's Religion is " + ObjectsReporsitory.Personal_religion.getText());
+				break;
+			}
+		}
+
+		// ***************************************************************************
+		Actions actions2 = new Actions(DriverFactory.driver);
+		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actions2.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
+
+		Actions actions3 = new Actions(DriverFactory.driver);
+		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+		actions3.perform();
+		ObjectsReporsitory.Communication_saveNext.click();
+		Thread.sleep(2000);
+		Basic.popup_Handle2();
+		Thread.sleep(2000);
+
+//		Actions actions4 = new Actions(DriverFactory.driver);
+//		actions4.moveToElement(ObjectsReporsitory.skill_save);
+//		actions4.perform();
+//		ObjectsReporsitory.skill_save.click();
+//		Thread.sleep(2000);
+//		Screenshot.Screenshotforscenario();
+//		Basic.popup_Handle2();
+		// ***************************************************************************
+
+	}
+
+	@Then("^Verify user can able to update Nearest police Station$")
+	public static void Verify_user_can_able_to_update_Nearest_police_Station() throws Throwable {
+
+		ObjectsReporsitory.Personal_nearestPoliceStation.click();
+		ObjectsReporsitory.Personal_nearestPoliceStation.clear();
+		ObjectsReporsitory.Personal_nearestPoliceStation.click();
+		ObjectsReporsitory.Personal_nearestPoliceStation
+				.sendKeys(ConfigFileReader.getnearestpolicestation() + RandomString.make(10));
+		System.out
+				.println("Update Nearest police Station " + ObjectsReporsitory.Personal_nearestPoliceStation.getText());
+
+		// ***************************************************************************
+		Actions actions2 = new Actions(DriverFactory.driver);
+		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actions2.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
+
+		Actions actions3 = new Actions(DriverFactory.driver);
+		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+		actions3.perform();
+		ObjectsReporsitory.Communication_saveNext.click();
+		Thread.sleep(2000);
+		Basic.popup_Handle2();
+		Thread.sleep(2000);
+
+//		Actions actions4 = new Actions(DriverFactory.driver);
+//		actions4.moveToElement(ObjectsReporsitory.skill_save);
+//		actions4.perform();
+//		ObjectsReporsitory.skill_save.click();
+//		Thread.sleep(2000);
+//		Screenshot.Screenshotforscenario();
+//		Basic.popup_Handle2();
+		// ***************************************************************************
+
+	}
+
+	@Then("^Verify user can able to update Nationality$")
+	public static void Verify_user_can_able_to_update_Nationality() throws Throwable {
+
+		ObjectsReporsitory.Personal_nationality.click();
+		Thread.sleep(3000);
+		List<WebElement> DropdownResult = ObjectsReporsitory.Personal_nationality_DR;
+
+		System.out.println("Updating Nationality Status");
+		Random rand785223a = new Random();
+		int nationality = rand785223a.nextInt(ObjectsReporsitory.Personal_nationality_DR.size());
+		Selected_nationalityStatus = ObjectsReporsitory.Personal_nationality_DR.get(nationality).getText();
+
+		for (WebElement webElement : DropdownResult) {
+			if (webElement.getText().equals(Selected_nationalityStatus)) {
+				webElement.click();
+				Thread.sleep(3000);
+				System.out
+						.println("UpdatWorkmen's Nationality is " + ObjectsReporsitory.Personal_nationality.getText());
+				break;
+			}
+		}
+
+		// ***************************************************************************
+		Actions actions2 = new Actions(DriverFactory.driver);
+		actions2.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actions2.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
+
+		Actions actions3 = new Actions(DriverFactory.driver);
+		actions3.moveToElement(ObjectsReporsitory.Communication_saveNext);
+		actions3.perform();
+		ObjectsReporsitory.Communication_saveNext.click();
+		Thread.sleep(2000);
+		Basic.popup_Handle2();
+		Thread.sleep(2000);
+
+//		Actions actions4 = new Actions(DriverFactory.driver);
+//		actions4.moveToElement(ObjectsReporsitory.skill_save);
+//		actions4.perform();
+//		ObjectsReporsitory.skill_save.click();
+//		Thread.sleep(2000);
+//		Screenshot.Screenshotforscenario();
+//		Basic.popup_Handle2();
+		// ***************************************************************************
 
 	}
 
