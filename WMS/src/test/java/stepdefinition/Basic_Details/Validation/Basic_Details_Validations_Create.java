@@ -295,6 +295,14 @@ public class Basic_Details_Validations_Create {
 		ObjectsReporsitory.Personal_saveNext.click();
 		Verification_Popup.Validation_popup_handle();
 
+		Personal.Verify_user_can_able_to_select_DOB();
+
+		Actions actionsave123 = new Actions(DriverFactory.driver);
+		actionsave123.moveToElement(ObjectsReporsitory.Personal_saveNext);
+		actionsave123.perform();
+		ObjectsReporsitory.Personal_saveNext.click();
+		Verification_Popup.Validation_popup_handle();
+
 	}
 
 	@Then("^Verify user can able to Validate Workmen marital status$")
@@ -1986,6 +1994,10 @@ public class Basic_Details_Validations_Create {
 		ObjectsReporsitory.statutoryDetails_save.click();
 
 		Verification_Popup.Validation_popup_handle();
+		
+		Actions actionsobjdasd = new Actions(DriverFactory.driver);
+		actionsobjdasd.moveToElement(ObjectsReporsitory.statutoryDetails_Aadhaar);
+		actionsobjdasd.perform();
 
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.statutoryDetails_Aadhaar));
 		ObjectsReporsitory.statutoryDetails_Aadhaar.click();
@@ -2053,7 +2065,7 @@ public class Basic_Details_Validations_Create {
 		Verification_Popup.Validation_popup_handle();
 	}
 
-	@Then("^Verify user can able to Validate Workmen Workpermit expiry$")
+	@Then("^Verify user can able to Validate Workmen Workpermit$")
 	public static void Verify_user_can_able_to_Validate_Workmen_Workpermit_expiry() throws Throwable {
 
 		Actions actionsobj = new Actions(DriverFactory.driver);
@@ -2439,7 +2451,36 @@ public class Basic_Details_Validations_Create {
 		actionobjqeqwrweqr.moveToElement(ObjectsReporsitory.Personal_CSTI);
 		actionobjqeqwrweqr.perform();
 
-		ObjectsReporsitory.Personal_CSTI.click();
+		if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			System.out.println("Enabling CSTI NOW");
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("false")) {
+			System.out.println("CSTI Enabled already");
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("false")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			System.out.println("Enabling CSTI NOW");
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+		} else {
+			System.out.println("Nothing is Enabled");
+			System.out.println("Enabling CSTI");
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+
+		}
 
 		Actions actionobj = new Actions(DriverFactory.driver);
 		actionobj.moveToElement(ObjectsReporsitory.Personal_cSTINumber);
@@ -2468,6 +2509,37 @@ public class Basic_Details_Validations_Create {
 		actionobjqeqwrweqr.moveToElement(ObjectsReporsitory.Personal_CSTI);
 		actionobjqeqwrweqr.perform();
 
+		if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			System.out.println("Enabling CSTI NOW");
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("false")) {
+			System.out.println("CSTI Enabled already");
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("false")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			System.out.println("Enabling CSTI NOW");
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+		} else {
+			System.out.println("Nothing is Enabled");
+			System.out.println("Enabling CSTI");
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+
+		}
+
 		Actions actionobj = new Actions(DriverFactory.driver);
 		actionobj.moveToElement(ObjectsReporsitory.Personal_cSTINumber);
 		actionobj.perform();
@@ -2492,10 +2564,36 @@ public class Basic_Details_Validations_Create {
 			throws Throwable {
 
 		Actions actionobjqeqwrweqr = new Actions(DriverFactory.driver);
-		actionobjqeqwrweqr.moveToElement(ObjectsReporsitory.Personal_NAPS);
+		actionobjqeqwrweqr.moveToElement(ObjectsReporsitory.Personal_CSTI);
 		actionobjqeqwrweqr.perform();
 
-		ObjectsReporsitory.Personal_NAPS.click();
+		if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			Thread.sleep(2000);
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("false")) {
+			System.out.println("CSTI Enabled already");
+			System.out.println("Enabling NAPS NOW");
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("false")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			Thread.sleep(2000);
+		} else {
+			System.out.println("Nothing is Enabled");
+			System.out.println("Enabling NAPS");
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+
+		}
 
 		Actions actionobj = new Actions(DriverFactory.driver);
 		actionobj.moveToElement(ObjectsReporsitory.Personal_nAPSNumber);
@@ -2519,9 +2617,38 @@ public class Basic_Details_Validations_Create {
 	@Then("^Verify user can able to Validate Workmen NAPS with Special characters value if enabled$")
 	public static void Verify_user_can_able_to_Validate_Workmen_NAPS_with_Special_characters_value_if_enabled()
 			throws Throwable {
+
 		Actions actionobjqeqwrweqr = new Actions(DriverFactory.driver);
-		actionobjqeqwrweqr.moveToElement(ObjectsReporsitory.Personal_NAPS);
+		actionobjqeqwrweqr.moveToElement(ObjectsReporsitory.Personal_CSTI);
 		actionobjqeqwrweqr.perform();
+
+		if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			Thread.sleep(2000);
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("true")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("false")) {
+			System.out.println("CSTI Enabled already");
+			System.out.println("Enabling NAPS NOW");
+			ObjectsReporsitory.Personal_CSTI.click();
+			Thread.sleep(2000);
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+		}
+
+		else if (ObjectsReporsitory.Personal_CSTI.getAttribute("aria-checked").equals("false")
+				&& ObjectsReporsitory.Personal_NAPS.getAttribute("aria-checked").equals("true")) {
+			System.out.println("NAPS Enabled already");
+			Thread.sleep(2000);
+		} else {
+			System.out.println("Nothing is Enabled");
+			System.out.println("Enabling NAPS");
+			ObjectsReporsitory.Personal_NAPS.click();
+			Thread.sleep(2000);
+
+		}
 
 		Actions actionobj = new Actions(DriverFactory.driver);
 		actionobj.moveToElement(ObjectsReporsitory.Personal_nAPSNumber);

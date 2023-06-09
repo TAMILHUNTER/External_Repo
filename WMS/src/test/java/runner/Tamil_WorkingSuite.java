@@ -16,7 +16,7 @@ import io.cucumber.junit.CucumberOptions;
 		glue = {"stepdefinition" }, 
 		monochrome = true, 
 		publish = true, 
-				tags = "@E2E_Induction_Edit_Basic_Details_Education",
+				tags = "@Wage_Master_View",
 						
 						
 		plugin = { 

@@ -17,7 +17,6 @@ import stepdefinition.Basic;
 import stepdefinition.Login;
 import stepdefinition.Screenshot;
 import stepdefinition.Job_Switch.Create.SwitchJob_Create;
-import test.DataBaseConnection;
 import utils.DriverFactory;
 
 public class Attendance_upload {
@@ -92,7 +91,7 @@ public class Attendance_upload {
 		} else {
 			System.out.println("File Not Uploaded");
 		}
-
+		Basic.popup_handle();
 	}
 
 	@Then("^Upload All Attendance Data for the year$")
@@ -131,7 +130,8 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+
+			Basic.popup_handle();// ********************************************End***************
 		} else if ((Month.equals("Feb"))) {
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -159,7 +159,8 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();
+			// ********************************************End***************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -186,7 +187,8 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();
+			// ********************************************End***************
 		}
 
 		else if ((Month.equals("Dec"))) {
@@ -217,7 +219,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -244,7 +246,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -272,7 +274,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -300,7 +302,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -328,7 +330,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 //********************************************Start************************************************
@@ -357,7 +359,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -385,7 +387,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -413,7 +415,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -441,7 +443,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -469,7 +471,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -497,6 +499,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
+			Basic.popup_handle();
 
 //********************************************End************************************************
 // ********************************************Start************************************************
@@ -525,7 +528,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 		}
@@ -576,7 +579,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -603,7 +606,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -631,7 +634,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -659,7 +662,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 //********************************************Start************************************************
@@ -688,7 +691,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -716,7 +719,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -744,7 +747,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -772,7 +775,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -800,7 +803,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -828,7 +831,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 		}
@@ -878,7 +881,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -905,7 +908,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -933,7 +936,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -961,7 +964,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 //********************************************Start************************************************
@@ -990,7 +993,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1018,7 +1021,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1046,7 +1049,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1074,7 +1077,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1102,7 +1105,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 		}
@@ -1152,7 +1155,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -1179,7 +1182,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1207,7 +1210,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1235,7 +1238,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 //********************************************Start************************************************
@@ -1264,7 +1267,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1292,7 +1295,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1320,7 +1323,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1348,7 +1351,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 		}
@@ -1379,7 +1382,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -1406,7 +1409,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1434,7 +1437,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1462,7 +1465,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 // ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1490,7 +1493,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 //********************************************Start************************************************
@@ -1519,7 +1522,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 // ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1547,7 +1550,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 // ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1575,7 +1578,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 		} else if ((Month.equals("Jul"))) {// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1603,7 +1606,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -1630,7 +1633,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1658,7 +1661,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1686,7 +1689,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 // ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1714,7 +1717,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 //********************************************Start************************************************
@@ -1743,7 +1746,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 // ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1771,7 +1774,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 		} else if ((Month.equals("Jun"))) {// ********************************************Start************************************************
@@ -1800,7 +1803,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -1827,7 +1830,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1855,7 +1858,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1883,7 +1886,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 // ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -1911,7 +1914,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 
 //********************************************Start************************************************
@@ -1941,7 +1944,7 @@ public class Attendance_upload {
 				System.out.println("File Not Uploaded");
 			}
 
-//********************************************End************************************************
+			Basic.popup_handle();
 		} else if ((Month.equals("May"))) {// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -1968,8 +1971,9 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 			// ********************************************Start************************************************
+
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Menu_Attendance));
@@ -1995,7 +1999,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2023,7 +2027,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2051,7 +2055,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 // ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2079,7 +2083,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 		} else if ((Month.equals("Apr"))) {// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2107,7 +2111,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -2134,7 +2138,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2162,7 +2166,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2191,6 +2195,7 @@ public class Attendance_upload {
 				System.out.println("File Not Uploaded");
 			}
 
+			Basic.popup_handle();
 //********************************************End************************************************
 		} else if ((Month.equals("Mar"))) {// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2218,7 +2223,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 			// ********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
 			ObjectsReporsitory.WMS_induction2.click();
@@ -2245,7 +2250,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-			// ********************************************End************************************************
+			Basic.popup_handle();// ********************************************End***************
 
 //********************************************Start************************************************
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_induction2));
@@ -2273,7 +2278,7 @@ public class Attendance_upload {
 			} else {
 				System.out.println("File Not Uploaded");
 			}
-
+			Basic.popup_handle();
 //********************************************End************************************************
 		}
 		System.out.println("Attendance Data uploaded untill " + Month + " Month");
@@ -2387,13 +2392,13 @@ public class Attendance_upload {
 	@Then("^Verify User can be able to view attendance record$")
 	public static void Verify_User_can_be_able_to_view_attendance_record() throws Throwable {
 
-		DataBaseConnection.GetattendanceDate();
+		//DataBaseConnection.GetattendanceDate();
 
 		Thread.sleep(5000);
 		Screenshot.Screenshotforscenario();
 
 		if (ObjectsReporsitory.Attendacne_record.getText().contains("No records available")) {
-			
+
 			System.out.println(" Attendance records not available for the selected date");
 
 		} else {
@@ -2448,11 +2453,10 @@ public class Attendance_upload {
 		}
 
 	}
-	
-	
+
 	@Then("^Verify User can be able to expand or collapse attendance view grid$")
 	public static void Verify_User_can_be_able_to_Expand_Collapse_attendance_window() throws Throwable {
-		
+
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.FA_Expand));
 		ObjectsReporsitory.FA_Expand.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.FA_collapse));
@@ -2461,8 +2465,7 @@ public class Attendance_upload {
 		ObjectsReporsitory.FA_collapse.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.FA_Expand));
 		System.out.println("Attendance window Collapsed");
-		
-		
+
 	}
 
 }

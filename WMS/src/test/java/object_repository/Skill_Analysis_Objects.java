@@ -79,7 +79,7 @@ public class Skill_Analysis_Objects {
 			@FindBy(how = How.XPATH, using="(//div[@class='cardDiv'])[last()]")
 			public static WebElement Skill_Analysis_Workman_Profile_Last_Card;
 			
-			@FindBy(how = How.XPATH, using="(//div[@class='row cardRow'])[last()]")
+			@FindBy(how = How.XPATH, using="(//div[@class='cardDiv'])[last()]")
 			public static WebElement Skill_Analysis_Workman_Profile_Last_Card_Para;
 			
 			@FindBy(how = How.XPATH, using="(//div[@class='cardDiv'])")

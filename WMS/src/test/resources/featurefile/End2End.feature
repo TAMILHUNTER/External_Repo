@@ -140,10 +140,9 @@ Feature: End_to_End
     Then Verify User can able save Statutory Details
     Then Verify User can able Add PF Nominee Details
     Then Verify User can able Submit PF Nominee Details
-    #Then Verify User can able Edit PF Nominee Details
-    #Then Verify User can able Delete PF Nominee Details
-    
-    
+
+  #Then Verify User can able Edit PF Nominee Details
+  #Then Verify User can able Delete PF Nominee Details
   @E2E_Induction_Create_Basic_Details_Bank
   Scenario: Bank
     Description :  As a EIP User i should be able to Fill Workmen Bank Details
@@ -279,10 +278,7 @@ Feature: End_to_End
   #Then Verify user can be able to change bank account type
   #Then Verify User can able to Edit International Bank Type Swift
   #Then Verify User can able to Edit International Bank Type IBAN
-
-
-#Induction Validation for Basic details 
-  
+  #Induction Validation for Basic details
   @E2E_Induction_Basic_Details_Validations_PartnerName
   Scenario: Partner_Name Validation
     Description :  As a EIP User i should be able to Validate Partner Name fields while creating Partner
@@ -311,8 +307,8 @@ Feature: End_to_End
     Description :  As a EIP User i should be able to Validate Personal fields while creating Workmen with No inputs Provided
 
     Given Fill Partner details and navigate to Personal
- 		Then Verify user can able to Validate Nationality
- 		Then Verify user can able to Validate workmenname
+    Then Verify user can able to Validate Nationality
+    Then Verify user can able to Validate workmenname
     Then Verify user can able to Validate fathername
     Then Verify user can able to Validate DOB
     Then Verify user can able to Validate DOB field with date value less then statutory norms
@@ -481,7 +477,7 @@ Feature: End_to_End
     Then Verify user can able to Validate Workmen Aadhaar
     Then Verify user can able to Validate Workmen invalid Aadhaar number
     #Issue Report
-    Then Verify user can able to Validate Workmen Workpermit expiry
+    Then Verify user can able to Validate Workmen Workpermit
     Then Verify user can able to Validate Workmen Labourcard expiry
     Then Verify user can able to Validate Workmen PF Nominee Name
     Then Verify user can able to Validate Workmen PF Nominee Relationship
@@ -771,22 +767,21 @@ Feature: End_to_End
   #Issue Report
   #@E2E_Induction__Wage_Create_no_input
   #Scenario: Verify User can be able to Validate wage fields with no input
-    #Given Login and Navigate to Wage
-    #Then Verify user can be able to select workmen profile for Wage Validation
-    #Then Verify user can be able to Validate Basic Earnings with no input
-    #Issue Report
-    #Then Verify user can be able to Validate HRA Earnings with no input
-    #Then Verify user can be able to Validate other allowance Reason with no input
-    #Then Verify user can be able to Validate other allowance with dependent not selected
-    #Then Verify user can be able to Validate other allowance Value with no input
-    #Issue Report
-    #Then Verify user can be able to Validate if PF Deduction is enabled
-    #Then Verify user can be able to Validate if ESI Deduction is enabled
-    #Then Verify user can be able to Validate if Professional Tax Deduction is enabled
-   # Then Verify user can be able to Validate other recoveries Reason with no input
-    #Then Verify user can be able to Validate other recoveries with dependent not selected
-    #Then Verify user can be able to Validate other recoveries with no input
-
+  #Given Login and Navigate to Wage
+  #Then Verify user can be able to select workmen profile for Wage Validation
+  #Then Verify user can be able to Validate Basic Earnings with no input
+  #Issue Report
+  #Then Verify user can be able to Validate HRA Earnings with no input
+  #Then Verify user can be able to Validate other allowance Reason with no input
+  #Then Verify user can be able to Validate other allowance with dependent not selected
+  #Then Verify user can be able to Validate other allowance Value with no input
+  #Issue Report
+  #Then Verify user can be able to Validate if PF Deduction is enabled
+  #Then Verify user can be able to Validate if ESI Deduction is enabled
+  #Then Verify user can be able to Validate if Professional Tax Deduction is enabled
+  # Then Verify user can be able to Validate other recoveries Reason with no input
+  #Then Verify user can be able to Validate other recoveries with dependent not selected
+  #Then Verify user can be able to Validate other recoveries with no input
   @E2E_Induction__Wage_Create_With_multipleInput
   Scenario: Verify User can be able to Validate wage fields with Numeric,alphabets,Special Charecters & MaxValues inputs Provided
     Given Login and Navigate to Wage
@@ -948,7 +943,7 @@ Feature: End_to_End
     Then Verify Error message dipsplayed if visaproID is filled with Special Charectors
     Then Verify Error message dipsplayed if Passport number is filled with Special Charectors
 
-  @E2E_Induction__Skill_Analysis_Workman_Search @E2E_Induction__Skill_Analysis_Workman_Search_By_Name
+  @E2E_Induction__Skill_Analysis_Workman_Search_By_Name
   Scenario: Search Workman Profile By Workman Name
     Given Login and Navigate to Skill Analysis
     Then Verify User can able to search Workman by Name
@@ -968,7 +963,7 @@ Feature: End_to_End
     Given Login and Navigate to Skill Analysis
     Then Verify User can able to search Workman by Partner Name
 
-  @E2E_Induction__Paramedics_Workman_Search @E2E_Induction__Paramedics_Workman_Search_By_Name
+  @E2E_Induction__Paramedics_Workman_Search_By_Name
   Scenario: Search Workman Profile By Workman Name
     Given Login and Navigate to Paramedics
     Then Verify User can able to search Workman by Name
@@ -988,7 +983,7 @@ Feature: End_to_End
     Given Login and Navigate to Paramedics
     Then Verify User can able to search Workman by Partner Name
 
-  @E2E_Induction__Medical_Test_Workman_Search @E2E_Induction__Medical_Test_Workman_Search_By_Name
+  @E2E_Induction__Medical_Test_Workman_Search_By_Name
   Scenario: Search Workman Profile By Workman Name
     Given Login and Navigate to MedicalTest
     Then Verify User can able to search Workman by Name
@@ -1008,7 +1003,7 @@ Feature: End_to_End
     Given Login and Navigate to MedicalTest
     Then Verify User can able to search Workman by Partner Name
 
-  @E2E_Induction__EHS_Workman_Search @E2E_Induction__EHS_Workman_Search_By_Name
+  @E2E_Induction__EHS_Workman_Search_By_Name
   Scenario: Search Workman Profile By Workman Name
     Given Login and Navigate to EHS
     Then Verify User can able to search Workman by Name
@@ -1055,45 +1050,41 @@ Feature: End_to_End
   #				  Scenario: Search Workman Profile By Workman Name
   #				    Given Login and Navigate to Wage
   #				    Then Verify User can able to search Workman by Name
-  
-  
   # Need to work on another job
-  
   #@E2E_Induction__Job_Switch_by_Domestic_aadhaar
   #Scenario: Verify User Can be able to Switch Workmen Job Domestic
-    #Given Navigate to Induction Dashboard
-    #Then Verify User can be able to Switch Job Domestic
-    #Then Verify Domestic Job DLR Entry
-    #Then Verify User can be able to Search workmen by Aadhar for Switch
-    #Then Verify User can be able to navigate to Basic Details
-    #Then Verify User can be able to Edit Basic Details
-    #Then Verify Workmen Job Successfully Switched
-#
+  #Given Navigate to Induction Dashboard
+  #Then Verify User can be able to Switch Job Domestic
+  #Then Verify Domestic Job DLR Entry
+  #Then Verify User can be able to Search workmen by Aadhar for Switch
+  #Then Verify User can be able to navigate to Basic Details
+  #Then Verify User can be able to Edit Basic Details
+  #Then Verify Workmen Job Successfully Switched
+  #
   #@E2E_Induction__Job_Switch_by_Domestic_passport
   #Scenario: Verify User Can be able to Switch Workmen Job Domestic
-    #Given Navigate to Induction Dashboard
-    #Then Verify User can be able to Switch Job Domestic
-    #Then Verify Domestic Job DLR Entry
-    #Then Verify User can be able to Search workmen by Passport for Switch Domestic
-    #Then Verify User can be able to navigate to Basic Details
-    #Then Verify User can be able to Edit Basic Details
-    #Then Verify Workmen Job Successfully Switched
-#
+  #Given Navigate to Induction Dashboard
+  #Then Verify User can be able to Switch Job Domestic
+  #Then Verify Domestic Job DLR Entry
+  #Then Verify User can be able to Search workmen by Passport for Switch Domestic
+  #Then Verify User can be able to navigate to Basic Details
+  #Then Verify User can be able to Edit Basic Details
+  #Then Verify Workmen Job Successfully Switched
+  #
   #@E2E_Induction__Job_Switch_by_International_passport
   #Scenario: Verify User Can be able to Switch Workmen Job International
-    #Given Navigate to Induction Dashboard
-    #Then Verify User can be able to Switch Job International
-    #Then Verify Domestic Job DLR Entry
-    #Then Verify User can be able to Search workmen by Passport for Switch Domestic
-    #Then Verify User can be able to navigate to Basic Details
-    #Then Verify User can be able to Edit Basic Details
-    #Then Verify Workmen Job Successfully Switched
-#
+  #Given Navigate to Induction Dashboard
+  #Then Verify User can be able to Switch Job International
+  #Then Verify Domestic Job DLR Entry
+  #Then Verify User can be able to Search workmen by Passport for Switch Domestic
+  #Then Verify User can be able to navigate to Basic Details
+  #Then Verify User can be able to Edit Basic Details
+  #Then Verify Workmen Job Successfully Switched
+  #
   #@E2E_Induction__Job_Switch_Verification_input
   #Scenario: Verify User Can be able to verify Switch Workmen Job fields
-    #Given Navigate to Induction Dashboard
-    #Then Verify Error message dipsplayed if user select job code that user does not have access
-
+  #Given Navigate to Induction Dashboard
+  #Then Verify Error message dipsplayed if user select job code that user does not have access
   @E2E_Workforce_Allocation_Workman_Search_DashBorad
   Scenario: Verify Personal in Basic Details are displayed Correctly in Workman Profile
     Given Navigate to Induction Dashboard
@@ -1428,3 +1419,265 @@ Feature: End_to_End
     Then Enter DLR Breakup Workmen Affected by Covid
     Then DLR Breakup Calculated Correctly
     Then Verify User can be able to Save DLR Entry
+
+  #Configuration
+  #Configuration- Add Camp
+  @Add_New_Camp_E2E
+  Scenario: Add New Camp
+    Description :  As a EIP User i should be able to Add New Camp
+
+    Given Login and Navigate to Camp Management
+    Then Verify User can be able to add camp name
+    Then Verify User can be able to add camp address
+    Then Verify User can be able to add camp Pincode
+    Then Verify User can be able to save camp details
+
+  @Add_Camp_Structure_E2E
+  Scenario: Add Camp Structure
+    Description :  As a EIP User i should be able to Add Camp Structure
+
+    Given Login and Navigate to Camp Management
+    Then Verify User can be able to Add Camp Structure name
+    Then Verify User can be able to Add Room count to Camp Structure
+    Then Verify User can be able to save camp Structure details
+
+  @Add_Camp_Structure_Room_E2E
+  Scenario: Add Camp Structure Room
+    Description :  As a EIP User i should be able to Add Camp Structure Room
+
+    Given Login and Navigate to Camp Management
+    Then Verify User can be able to Add Camp room name
+    Then Verify User can be able to Add max bed count in room
+    Then Verify User can be able to Add area size of room
+    Then Verify User can be able to save camp room details
+
+  @Add_Workmen_to_Room_E2E
+  Scenario: Add workmen to room
+    Description :  As a EIP User i should be able to Add workmen to room
+
+    Given Login and Navigate to Camp Management
+    Then Verify User can be able to select room
+    Then Verify User can be able to Add workmen to room
+    Then Verify User can be able to view workmen details in room
+
+  #Configuration
+  #Configuration- Role Mapping
+  @Configuration_RoleMapping_E2E
+  Scenario: Verify User can be able to map role for user
+    Description :  As a EIP User i should be able to map role for user
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Role Mapping
+    Then Verify user can be able to add Time Office role for user
+    Then Verify user can be able to add IR Manager role for user
+    Then Verify user can be able to add Accounts role for user
+    Then Verify user can be able to add Skill Approver role for user
+    Then Verify user can be able to add Paramedics role for user
+    Then Verify user can be able to add Medical Officer role for user
+    Then Verify user can be able to add Safety Officer role for user
+
+  @Remove_RoleMapping_E2E
+  Scenario: Verify User can be able to remove role for user
+    Description :  As a EIP User i should be able to remove role for user
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Role Mapping
+    Then Verify user can be able to Remove Time Office role for user
+    Then Verify user can be able to Remove IR Manager role for user
+    Then Verify user can be able to Remove Accounts role for user
+    Then Verify user can be able to Remove Skill Approver role for user
+    Then Verify user can be able to Remove Paramedics role for user
+    Then Verify user can be able to Remove Medical Officer role for user
+    Then Verify user can be able to Remove Safety Officer role for user
+
+  #Configuration
+  #Configuration- Calender
+  @Add_Festival_or_National_Holidays_Calender_E2E
+  Scenario: Verify User can be able to add Festival/National Holidays to calender
+    Description :  As a EIP User i should be able to add Festival/National Holidays to calender
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Calender
+    Then Verify user can be able to select Year for Calender Master
+    Then Verify user can be able to view Total Holidays for selected Year
+    Then Verify user can be able to view existing Festival or National Holidays for selected Year
+    Then Verify user can be able to view existing Regular Holidays for selected Year
+    Then Verify user can be able to select Year to add Festival or National Holiday
+    Then Verify user can be able to select month to add Festival or National Holiday
+    Then Verify user can be able to select date to add Festival or National Holiday
+    Then Verify user can be able to view date selected for Festival or National Holiday
+    Then Verify user can be able to select Holiday type
+    Then Verify user can be able to description of Holiday
+    Then Verify user can be able to save Holiday
+    Then Verify user can be able to submit saved Holiday list
+
+  @Add_Regular_Holidays_Calender_E2E
+  Scenario: Verify User can be able to add Regular Holidays to calender
+    Description :  As a EIP User i should be able to add Regular Holidays to calender
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Calender
+    Then Verify user can be able to select Year for Calender Master
+    Then Verify user can be able to view Total Holidays for selected Year
+    Then Verify user can be able to view existing Regular Holidays for selected Year
+    Then Verify user can be able to select Regular Holiday type
+    Then Verify user can be able to select Regular Holiday Day
+    Then Verify user can be able to save Regular Holiday
+    Then Verify user can be able to submit saved Holiday list
+
+  @Add_Festival_or_National_and_Regular_Holidays_Calender_E2E
+  Scenario: Verify User can be able to add Festival/National and Regular Holidays to calender
+    Description :  As a EIP User i should be able to add Festival/National and Regular Holidays to calender
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Calender
+    Then Verify user can be able to select Year for Calender Master
+    Then Verify user can be able to view Total Holidays for selected Year
+    Then Verify user can be able to view existing Festival or National Holidays for selected Year
+    Then Verify user can be able to view existing Regular Holidays for selected Year
+    Then Verify user can be able to select Year to add Festival or National Holiday
+    Then Verify user can be able to select month to add Festival or National Holiday
+    Then Verify user can be able to select date to add Festival or National Holiday
+    Then Verify user can be able to view date selected for Festival or National Holiday
+    Then Verify user can be able to select Holiday type
+    Then Verify user can be able to description of Holiday
+    Then Verify user can be able to save Holiday
+    Then Verify user can be able to select Regular Holiday type
+    Then Verify user can be able to select Regular Holiday Day
+    Then Verify user can be able to save Regular Holiday
+    Then Verify user can be able to submit saved Holiday list
+
+  @Remove_Festival_or_National_Holidays_Calender_E2E
+  Scenario: Verify User can be able to remove Festival/National Holidays to calender
+    Description :  As a EIP User i should be remove to add Festival/National Holidays to calender
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Calender
+    Then Verify user can be able to select Year for Calender Master
+    Then Verify user can be able to view Total Holidays for selected Year
+    Then Verify user can be able to Remove existing Festival or National Holidays for selected Year
+
+  #Configuration
+  #Configuration- Shift
+  @Configuration_Shift_View_E2E
+  Scenario: Verify User can be able to View Shift for the selected Job
+    Description :  As a EIP User i should be able to View Shift for the selected Job
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to view exhisting Shift for the selected job
+
+  @Configuration_View_Shift_in_Master_E2E
+  Scenario: Verify User can be able to View Shift in Master
+    Description :  As a EIP User i should be able to View Shift in Master
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to view exhisting Shift for the selected job
+    Then Verify user can be able to view Shifts available in master
+
+  @Configuration_Add_Shift_to_Master_E2E
+  Scenario: Verify User can be able to Add Shift to Master
+    Description :  As a EIP User i should be able to Add Shift to Master
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to view exhisting Shift for the selected job
+    Then Verify user can be able to view Shifts available in master
+    Then Verify user can be able to Add Shift Code to add Shift in master
+    Then Verify user can be able to Add Shift Description to add Shift in master
+    Then Verify user can be able to Add Shift From Hour to add Shift in master
+    Then Verify user can be able to Add Shift To Hour to add Shift in master
+    Then Verify user can be able to Add Break From Hour to add Shift in master
+    Then Verify user can be able to Add Break To Hour to add Shift in master
+    Then Verify user can be able to Add Shift to Shift Master
+
+  @Configuration_Add_Shift_to_Job_E2E
+  Scenario: Verify User can be able to Add Shift to Master
+    Description :  As a EIP User i should be able to Add Shift to Master
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to view exhisting Shift for the selected job
+    Then Verify user can be able to view Shifts available in master
+    Then Verify user can be able to Add Shift to Job
+    Then Verify user can be able to save Shift for the selected job
+    Then Verify user can be able to view exhisting Shift for the selected job
+
+  @Configuration_View_Shift_in_Master_filter_E2E
+  Scenario: Verify User can be able to Filter Shift in Master
+    Description :  As a EIP User i should be able to Filter Shift in Master
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to view exhisting Shift for the selected job
+    Then Verify user can be able to view Shifts available in master
+    Then Verify user can be able to Verify Shift Master Records
+    Then Verify user can be able to filter records by Shift code in master
+    Then Verify user can be able to filter records by Shift Desc in master
+    #		Issue Reported
+    #		Then Verify user can be able to filter records by Shift From Hour in master
+    #		Then Verify user can be able to filter records by Shift To Hour in master
+    #		Then Verify user can be able to filter records by Break From Hour in master
+    #		Then Verify user can be able to filter records by Break To Hour in master
+    Then Verify user can be able to filter records by Status in master
+
+  @Configuration_Delete_Shift_from_Master_E2E
+  Scenario: Verify User can be able to Delete Shift from Master
+    Description :  As a EIP User i should be able to Delete Shift from Master
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to Verify Shift Master Records
+    Then Verify user can be able to delete Shift from Master
+    Then Verify user can be able to view exhisting Shift for the selected job
+
+  @Configuration_Edit_Shift_from_Master_E2E
+  Scenario: Verify User can be able to Edit Shift from Master
+    Description :  As a EIP User i should be able to Edit Shift from Master
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to Verify Shift Master Records
+    Then Verify user can be able to select Shift record from Master for Edit Shift record
+    Then Verify user can be able to Edit Shift Description from Master
+    Then Verify user can be able to Edit Shift From Hour from Master
+    Then Verify user can be able to Edit Shift To Hour from Master
+    Then Verify user can be able to Edit Break From Hour from Master
+    Then Verify user can be able to Edit Break To Hour from Master
+    Then Verify user can be able to Add Shift to Shift Master
+    Then Verify user can be able to view Shifts available in master
+
+  @Configuration_Edit_Status_of_Shift_from_Master_E2E
+  Scenario: Verify User can be able to Edit Status of Shift from Master
+    Description :  As a EIP User i should be able to Edit Status of Shift from Master
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to Verify Shift Master Records
+    Then Verify user can be able to Edit Shift Status
+    Then Verify user can be able to view Shifts available in master
+
+  @Configuration_Remove_Shift_from_Job_E2E
+  Scenario: Verify User can be able to Remove shift from Job
+    Description :  As a EIP User i should be able to Remove shift from Job
+
+    Given Login and Navigate to Configuration
+    Then Verify User can be able to select Job
+    Then Verify user can be able to Navigate to Shift
+    Then Verify user can be able to Verify exhisting Shift for the selected job
+    Then Verify user can be able to Remove Shift from job

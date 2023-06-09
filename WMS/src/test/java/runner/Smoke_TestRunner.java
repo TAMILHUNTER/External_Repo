@@ -12,26 +12,23 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-
 		features = { "src\\test\\resources\\featurefile" }, 
 		glue = {"stepdefinition" }, 
 		monochrome = true, 
 		publish = true, 
-		tags = 
-		
-// Feature : Induction				
-								
-								 "@E2E"
-,
-		plugin = { "pretty",  
+				tags = "@Smoke",
+						
+						
+		plugin = { 
+				"pretty",  
 				"html:src/reports/Junit-Cucumber/cucumber.html",
 				"json:src/reports/Junit-Cucumber/cucumber.json", 
 				"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-
-		})
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+		}
+)
 public class Smoke_TestRunner {
-
+	
 	String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	
 	@AfterClass

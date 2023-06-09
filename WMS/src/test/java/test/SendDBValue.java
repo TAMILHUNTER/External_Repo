@@ -1076,6 +1076,15 @@ public class SendDBValue extends Edit_Experience {
 
 		
 	}
+
+	public static void GetWorkmenIDforCamp(String workmannID_Camp) {
+		
+		System.out.println("WorkmenID From DB :" + workmannID_Camp);
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_Management_Camp_Mngt_room_WMID));
+		ObjectsReporsitory.WMS_Management_Camp_Mngt_room_WMID.sendKeys(workmannID_Camp);
+		
+		
+	}
 	
 	
 	

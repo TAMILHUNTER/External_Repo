@@ -605,6 +605,18 @@ public class Verification_Popup {
 
 				}
 
+				else if (ObjectsReporsitory.popup_text.getText().contains("Please enter Valid Aadhaar")) {
+
+					Screenshot.Screenshotforscenario();
+					System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+					System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+					Actions actioneww = new Actions(DriverFactory.driver);
+					actioneww.sendKeys(Keys.ESCAPE).build().perform();
+					System.out.println("Error Handled : Validation Message is displayed");
+					System.out.println("--------------------------------------------------------");
+
+				}
+				
 				else if (ObjectsReporsitory.popup_text.getText().contains("Aadhaar field is required")) {
 
 					Screenshot.Screenshotforscenario();

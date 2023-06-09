@@ -14,7 +14,7 @@ Feature: Feature : Induction (89564) UserStory : Workman Basic Details (89579)
     Then Verify user can able to Validate Workmen Aadhaar
     Then Verify user can able to Validate Workmen invalid Aadhaar number
     #Issue Report
-    Then Verify user can able to Validate Workmen Workpermit expiry
+    Then Verify user can able to Validate Workmen Workpermit
     Then Verify user can able to Validate Workmen Labourcard expiry
     Then Verify user can able to Validate Workmen PF Nominee Name
     Then Verify user can able to Validate Workmen PF Nominee Relationship

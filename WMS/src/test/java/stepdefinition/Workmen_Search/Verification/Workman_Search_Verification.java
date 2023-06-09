@@ -72,6 +72,7 @@ public class Workman_Search_Verification {
 		ObjectsReporsitory.Dashboard_SearchBy_WorkmenID.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Dashboard_submit));
 		ObjectsReporsitory.Dashboard_submit.click();
+		Basic.PageLoader_Validation();
 		Basic.Error_popup_validation_Reg();
 
 	}

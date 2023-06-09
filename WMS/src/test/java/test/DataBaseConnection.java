@@ -20,6 +20,7 @@ public class DataBaseConnection {
 	static Connection con;
 	static String finalResult;
 	public static String Workmannumber;
+	public static String WorkmannID_Camp;
 	public static String Workmaname;
 	public static String WorkmaFathername;
 	public static String WorkmaPassportNumber;
@@ -2365,8 +2366,8 @@ public class DataBaseConnection {
 
 	public static void GetWorkmanName_Verificationquery() throws SQLException {
 
-		ResultSet results = stmt.executeQuery(
-				"select  top 1  WMP_Workmen_Name from IND.WPR_M_PERSONAL order by WMP_Inserted_On desc");
+		ResultSet results = stmt
+				.executeQuery("select  top 1  WMP_Workmen_Name from IND.WPR_M_PERSONAL order by WMP_Inserted_On desc");
 		while (results.next()) {
 			Workmannname_verification = results.getString(1);
 			// System.out.println(WorkmanID);
@@ -2384,16 +2385,17 @@ public class DataBaseConnection {
 
 	public static void GetWorkmanFatherName_Verificationquery() throws SQLException {
 
-		ResultSet results2 = stmt.executeQuery(
-				"select  top 1  WMP_Workmen_Name from IND.WPR_M_PERSONAL order by WMP_Inserted_On desc");
+		ResultSet results2 = stmt
+				.executeQuery("select  top 1  WMP_Workmen_Name from IND.WPR_M_PERSONAL order by WMP_Inserted_On desc");
 		while (results2.next()) {
 			Workmannname_verification_set = results2.getString(1);
 			// System.out.println(WorkmanID);
 
 		}
-		
-		ResultSet results = stmt.executeQuery(
-				"select  top 1  WMP_Father_Name from IND.WPR_M_PERSONAL where WMP_Workmen_Name='"+Workmannname_verification_set +"'");
+
+		ResultSet results = stmt
+				.executeQuery("select  top 1  WMP_Father_Name from IND.WPR_M_PERSONAL where WMP_Workmen_Name='"
+						+ Workmannname_verification_set + "'");
 		while (results.next()) {
 			WorkmanFatherName_verification = results.getString(1);
 			// System.out.println(WorkmanID);
@@ -2428,6 +2430,27 @@ public class DataBaseConnection {
 		dataBaseConnectionWMS();
 		GetattendanceDatequery();
 		SendDBValue.Getattendancecalender(AttendanceDate, Attendancemonth, AttendanceYear);
+		databaseConnectionClose();
+
+	}
+
+	// Camp Management
+
+	public static void GetWorkmenIDforCampquery() throws SQLException {
+
+		ResultSet results = stmt
+				.executeQuery("SELECT TOP 1 WMP_Workmen_Number FROM IND.WPR_M_PERSONAL where WMP_Jobcode='LE180046' ORDER BY NEWID()");
+		while (results.next()) {
+			WorkmannID_Camp = results.getString(1);
+			// System.out.println(WorkmanID);
+
+		}
+	}
+
+	public static void GetWorkmenIDforCamp() throws SQLException, InterruptedException {
+		dataBaseConnectionWMS();
+		GetWorkmenIDforCampquery();
+		SendDBValue.GetWorkmenIDforCamp(WorkmannID_Camp);
 		databaseConnectionClose();
 
 	}

@@ -2476,6 +2476,22 @@ public class ConfigFileReader {
 		else
 			throw new RuntimeException("Induction_Creator_username_nepal not specified in the Configuration.properties file.");
 	}
+	
+	public static String getCampmngt_Creator_username() {
+		String Campmngt_Creator_username = properties.getProperty("Campmngt_Creator_username");
+		if (Campmngt_Creator_username != null)
+			return Campmngt_Creator_username;
+		else
+			throw new RuntimeException("Campmngt_Creator_username not specified in the Configuration.properties file.");
+	}
+	
+	public static String getCampmngt_Creator_password() {
+		String Campmngt_Creator_password = properties.getProperty("Campmngt_Creator_password");
+		if (Campmngt_Creator_password != null)
+			return Campmngt_Creator_password;
+		else
+			throw new RuntimeException("Campmngt_Creator_password not specified in the Configuration.properties file.");
+	}
 
 	public static String getInduction_Creator_password_nepal() {
 		String Induction_Creator_password_nepal = properties.getProperty("Induction_Creator_password_nepal");
@@ -3737,6 +3753,297 @@ public class ConfigFileReader {
 		else
 			throw new RuntimeException("ScreenRecordPath not specified in the Configuration.properties file.");
 	}
+	public static String getcamp_name() {
+		String camp_name = properties.getProperty("camp_name");
+		if (camp_name != null)
+			return camp_name;
+		else
+			throw new RuntimeException("camp_name not specified in the Configuration.properties file.");
+	}
+	public static String getcamp_address() {
+		String camp_address = properties.getProperty("camp_address");
+		if (camp_address != null)
+			return camp_address;
+		else
+			throw new RuntimeException("camp_address not specified in the Configuration.properties file.");
+	}
+	public static String getcamp_pincode() {
+		String camp_pincode = properties.getProperty("camp_pincode");
+		if (camp_pincode != null)
+			return camp_pincode;
+		else
+			throw new RuntimeException("camp_pincode not specified in the Configuration.properties file.");
+	}
+	public static String getcamp_Structure_name() {
+		String camp_Structure_name = properties.getProperty("camp_Structure_name");
+		if (camp_Structure_name != null)
+			return camp_Structure_name;
+		else
+			throw new RuntimeException("camp_Structure_name not specified in the Configuration.properties file.");
+	}
 	
+	public static String getcamp_room_name() {
+		String camp_room_name = properties.getProperty("camp_room_name");
+		if (camp_room_name != null)
+			return camp_room_name;
+		else
+			throw new RuntimeException("camp_room_name not specified in the Configuration.properties file.");
+	}
+
+//Configuration
+	
+	public static String getconfigurationjob() {
+		String configurationjob = properties.getProperty("configurationjob");
+		if (configurationjob != null)
+			return configurationjob;
+		else
+			throw new RuntimeException("configurationjob not specified in the Configuration.properties file.");
+	}
+
+	public static String getconfigurationLASelection() {
+		String configurationLASelection = properties.getProperty("configurationLASelection");
+		if (configurationLASelection != null)
+			return configurationLASelection;
+		else
+			throw new RuntimeException("configurationLASelection not specified in the Configuration.properties file.");
+	}
+	
+	public static String getconfigurationLAinputvalue() {
+		String configurationLAinputvalue = properties.getProperty("configurationLAinputvalue");
+		if (configurationLAinputvalue != null)
+			return configurationLAinputvalue;
+		else
+			throw new RuntimeException("configurationLAinputvalue not specified in the Configuration.properties file.");
+	}
+	
+	public static String getconfigurationEstablishmentIDSelection() {
+		String configurationEstablishmentIDSelection = properties.getProperty("configurationEstablishmentIDSelection");
+		if (configurationEstablishmentIDSelection != null)
+			return configurationEstablishmentIDSelection;
+		else
+			throw new RuntimeException("configurationEstablishmentIDSelection not specified in the Configuration.properties file.");
+	}
+	
+	public static String getconfigurationEstablishmentIDinputvalue() {
+		String configurationEstablishmentIDinputvalue = properties.getProperty("configurationEstablishmentIDinputvalue");
+		if (configurationEstablishmentIDinputvalue != null)
+			return configurationEstablishmentIDinputvalue;
+		else
+			throw new RuntimeException("configurationEstablishmentIDinputvalue not specified in the Configuration.properties file.");
+	}
+	
+//*********************************************************************************************************************************************
+	
+	public static String getconfigurationLocationStateSelection() {
+		String configurationLocationStateSelection = properties.getProperty("configurationLocationStateSelection");
+		if (configurationLocationStateSelection != null)
+			return configurationLocationStateSelection;
+		else
+			throw new RuntimeException("configurationLocationStateSelection not specified in the Configuration.properties file.");
+	}
+	
+	public static String getgetconfigurationstateInput() {
+		String getconfigurationstateInput = properties.getProperty("getconfigurationstateInput");
+		if (getconfigurationstateInput != null)
+			return getconfigurationstateInput;
+		else
+			throw new RuntimeException("getconfigurationstateInput not specified in the Configuration.properties file.");
+	}
+	
+	public static String getconfigurationLocationZoneSelection() {
+		String configurationLocationZoneSelection = properties.getProperty("configurationLocationZoneSelection");
+		if (configurationLocationZoneSelection != null)
+			return configurationLocationZoneSelection;
+		else
+			throw new RuntimeException("configurationLocationZoneSelection not specified in the Configuration.properties file.");
+	}
+	
+	public static String getgetconfigurationZoneInput() {
+		String getconfigurationZoneInput = properties.getProperty("getconfigurationZoneInput");
+		if (getconfigurationZoneInput != null)
+			return getconfigurationZoneInput;
+		else
+			throw new RuntimeException("getconfigurationZoneInput not specified in the Configuration.properties file.");
+	}
+	
+	public static String getconfigurationStatutoryActCount() {
+		String getconfigurationZoneInput = properties.getProperty("getconfigurationZoneInput");
+		if (getconfigurationZoneInput != null)
+			return getconfigurationZoneInput;
+		else
+			throw new RuntimeException("getconfigurationZoneInput not specified in the Configuration.properties file.");
+	}
+	
+	public static String getPMSign_File() {
+		String PMSign_File = properties.getProperty("PMSign_File");
+		if (PMSign_File != null)
+			return PMSign_File;
+		else
+			throw new RuntimeException("PMSign_File not specified in the Configuration.properties file.");
+	}
+	
+	public static String getPDSign_File() {
+		String PDSign_File = properties.getProperty("PDSign_File");
+		if (PDSign_File != null)
+			return PDSign_File;
+		else
+			throw new RuntimeException("PDSign_File not specified in the Configuration.properties file.");
+	}
+	public static String getRegulatory_Compliance_Job_selection_type() {
+		String Regulatory_Compliance_Job_selection_type = properties.getProperty("Regulatory_Compliance_Job_selection_type");
+		if (Regulatory_Compliance_Job_selection_type != null)
+			return Regulatory_Compliance_Job_selection_type;
+		else
+			throw new RuntimeException("Regulatory_Compliance_Job_selection_type not specified in the Configuration.properties file.");
+	}
+	public static String getconfiguration_addrole_InputType() {
+		String configuration_addrole_InputType = properties.getProperty("configuration_addrole_InputType");
+		if (configuration_addrole_InputType != null)
+			return configuration_addrole_InputType;
+		else
+			throw new RuntimeException("configuration_addrole_InputType not specified in the Configuration.properties file.");
+	}
+	public static String getconfiguration_addrole_userIDInput() {
+		String configuration_addrole_userIDInput = properties.getProperty("configuration_addrole_userIDInput");
+		if (configuration_addrole_userIDInput != null)
+			return configuration_addrole_userIDInput;
+		else
+			throw new RuntimeException("configuration_addrole_userIDInput not specified in the Configuration.properties file.");
+	}
+	public static String getScreenshotPath_testcomplete() {
+		String ScreenshotPath_testcomplete = properties.getProperty("ScreenshotPath_testcomplete");
+		if (ScreenshotPath_testcomplete != null)
+			return ScreenshotPath_testcomplete;
+		else
+			throw new RuntimeException("ScreenshotPath_testcomplete not specified in the Configuration.properties file.");
+	}
+	public static String getcalenderyearmaster_type() {
+		String calenderyearmaster_type = properties.getProperty("calenderyearmaster_type");
+		if (calenderyearmaster_type != null)
+			return calenderyearmaster_type;
+		else
+			throw new RuntimeException("calenderyearmaster_type not specified in the Configuration.properties file.");
+	}
+	public static String getcalenderyearmaster_Input() {
+		String calenderyearmaster_Input = properties.getProperty("calenderyearmaster_Input");
+		if (calenderyearmaster_Input != null)
+			return calenderyearmaster_Input;
+		else
+			throw new RuntimeException("calenderyearmaster_Input not specified in the Configuration.properties file.");
+	}
+	
+	public static String getFesORNat_Holidays_Type() {
+		String FesORNat_Holidays_Type = properties.getProperty("FesORNat_Holidays_Type");
+		if (FesORNat_Holidays_Type != null)
+			return FesORNat_Holidays_Type;
+		else
+			throw new RuntimeException("FesORNat_Holidays_Type not specified in the Configuration.properties file.");
+	}
+	
+	public static String getFesORNat_Holidays_Type_value() {
+		String FesORNat_Holidays_Type_value = properties.getProperty("FesORNat_Holidays_Type_value");
+		if (FesORNat_Holidays_Type_value != null)
+			return FesORNat_Holidays_Type_value;
+		else
+			throw new RuntimeException("FesORNat_Holidays_Type_value not specified in the Configuration.properties file.");
+	}
+	public static String getFesORNat_Holidays_desc() {
+		String FesORNat_Holidays_desc = properties.getProperty("FesORNat_Holidays_desc");
+		if (FesORNat_Holidays_desc != null)
+			return FesORNat_Holidays_desc;
+		else
+			throw new RuntimeException("FesORNat_Holidays_desc not specified in the Configuration.properties file.");
+	}
+	
+	public static String getRegular_Holidays_Type() {
+		String Regular_Holidays_Type = properties.getProperty("Regular_Holidays_Type");
+		if (Regular_Holidays_Type != null)
+			return Regular_Holidays_Type;
+		else
+			throw new RuntimeException("Regular_Holidays_Type not specified in the Configuration.properties file.");
+	}
+	
+	public static String getRegular_Holidays_Type_value() {
+		String Regular_Holidays_Type_value = properties.getProperty("Regular_Holidays_Type_value");
+		if (Regular_Holidays_Type_value != null)
+			return Regular_Holidays_Type_value;
+		else
+			throw new RuntimeException("Regular_Holidays_Type_value not specified in the Configuration.properties file.");
+	}
+	
+	public static String getRegular_Holidays_Day_Type() {
+		String Regular_Holidays_Day_Type = properties.getProperty("Regular_Holidays_Day_Type");
+		if (Regular_Holidays_Day_Type != null)
+			return Regular_Holidays_Day_Type;
+		else
+			throw new RuntimeException("Regular_Holidays_Day_Type not specified in the Configuration.properties file.");
+	}
+	
+	public static String getRegular_Holidays_Day_Type_value() {
+		String Regular_Holidays_Day_Type_value = properties.getProperty("Regular_Holidays_Day_Type_value");
+		if (Regular_Holidays_Day_Type_value != null)
+			return Regular_Holidays_Day_Type_value;
+		else
+			throw new RuntimeException("Regular_Holidays_Day_Type_value not specified in the Configuration.properties file.");
+	}
+	public static String getshift_Master_shiftDesc_input() {
+		String shift_Master_shiftDesc_input = properties.getProperty("shift_Master_shiftDesc_input");
+		if (shift_Master_shiftDesc_input != null)
+			return shift_Master_shiftDesc_input;
+		else
+			throw new RuntimeException("shift_Master_shiftDesc_input not specified in the Configuration.properties file.");
+	}
+	public static String getaddshiftjob() {
+		String addshiftjob = properties.getProperty("addshiftjob");
+		if (addshiftjob != null)
+			return addshiftjob;
+		else
+			throw new RuntimeException("addshiftjob not specified in the Configuration.properties file.");
+	}
+	
+	public static String getMainWage_username() {
+		String MainWage_username = properties.getProperty("MainWage_username");
+		if (MainWage_username != null)
+			return MainWage_username;
+		else
+			throw new RuntimeException("MainWage_username not specified in the Configuration.properties file.");
+	}
+
+	public static String getMainWage_password() {
+		String getMainWage_password = properties.getProperty("MainWage_password");
+		if (getMainWage_password != null)
+			return getMainWage_password;
+		else
+			throw new RuntimeException("getMainWage_password not specified in the Configuration.properties file.");
+	}
+	
+	public static String getWagemster_State() {
+		String Wagemster_State = properties.getProperty("Wagemster_State");
+		if (Wagemster_State != null)
+			return Wagemster_State;
+		else
+			throw new RuntimeException("Wagemster_State not specified in the Configuration.properties file.");
+	}
+	public static String getWagemster_SheduleOfEmployment() {
+		String Wagemster_SheduleOfEmployment = properties.getProperty("Wagemster_SheduleOfEmployment");
+		if (Wagemster_SheduleOfEmployment != null)
+			return Wagemster_SheduleOfEmployment;
+		else
+			throw new RuntimeException("Wagemster_SheduleOfEmployment not specified in the Configuration.properties file.");
+	}
+	public static String getWagemster_State_Type() {
+		String Wagemster_State_Type = properties.getProperty("Wagemster_State_Type");
+		if (Wagemster_State_Type != null)
+			return Wagemster_State_Type;
+		else
+			throw new RuntimeException("Wagemster_State_Type not specified in the Configuration.properties file.");
+	}
+	public static String getWagemster_SheduleOfEmployment_Type() {
+		String Wagemster_SheduleOfEmployment_Type = properties.getProperty("Wagemster_SheduleOfEmployment_Type");
+		if (Wagemster_SheduleOfEmployment_Type != null)
+			return Wagemster_SheduleOfEmployment_Type;
+		else
+			throw new RuntimeException("Wagemster_SheduleOfEmployment_Type not specified in the Configuration.properties file.");
+	}
 }
 

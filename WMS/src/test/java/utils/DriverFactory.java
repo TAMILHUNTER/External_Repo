@@ -33,7 +33,6 @@ public class DriverFactory {
 //			e.printStackTrace();
 //		}
 		try {
-			
 
 			// ReadConfigFile file = new ReadConfigFile();
 
@@ -45,7 +44,6 @@ public class DriverFactory {
 
 			switch (browserName) {
 
-			
 			case "chrome":
 				WebDriverManager.chromedriver().setup();
 				// System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY,
@@ -55,9 +53,11 @@ public class DriverFactory {
 				options.addArguments("use-fake-ui-for-media-stream");
 				if (ConfigFileReader.getEnableHeadless().equals("True")) {
 					System.out.println("Automation execution will run in Headless Browser");
+					System.out.println("-------------------------------------------------");
 					options.addArguments("headless");
 				} else {
 					System.out.println("Automation execution will run in " + browserName + " Head - Browser");
+					System.out.println("-------------------------------------------------");
 				}
 				options.addArguments("start-maximized");
 				Map<String, Object> prefs = new HashMap<String, Object>();
@@ -68,11 +68,12 @@ public class DriverFactory {
 				driver = new ChromeDriver(options);
 				Dimension d = new Dimension(1920, 1080);
 				driver.manage().window().setSize(d);
-				
+
 				break;
-				
+
 			case "firefox":
 				System.out.println("Automation execution will run in " + browserName + "Browser");
+				System.out.println("-------------------------------------------------");
 				WebDriverManager.firefoxdriver().setup();
 				// System.setProperty("webdriver.gecko.driver",
 				// BrowserConstants.FireFox_Driver_Path);

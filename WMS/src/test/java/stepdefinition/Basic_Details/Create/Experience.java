@@ -217,6 +217,9 @@ public class Experience {
 		if (ConfigFileReader.getExperience_Applicable().equals("Yes")) {
 			ObjectsReporsitory.Experience_addExperience_savebtn.click();
 			System.out.println("Experience details are saved");
+			Screenshot.Screenshotforscenario();
+			Basic.popup_validation();
+			Basic.PageLoader_Validation();
 		}
 	}
 

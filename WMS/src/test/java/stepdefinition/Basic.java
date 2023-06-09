@@ -20,6 +20,9 @@ import dataProviders.ConfigFileReader;
 import object_repository.ObjectsReporsitory;
 import stepdefinition.Basic_Details.Create.Partner;
 import stepdefinition.Basic_Details.Create.Statutory;
+import stepdefinition.Configuration.Calendar.Calender_Create;
+import stepdefinition.Management.Camp_Management.Camp_Management_Create;
+import stepdefinition.Management.RoleMapping.RoleMapping_Create;
 import utils.DriverFactory;
 import java.time.Duration;
 import net.bytebuddy.utility.RandomString;
@@ -45,7 +48,7 @@ public class Basic {
 	public static ConfigFileReader configFileReader;
 
 	// Common Imports
-	static WebDriverWait wait = new WebDriverWait(DriverFactory.driver, Duration.ofSeconds(10));
+	static WebDriverWait wait = new WebDriverWait(DriverFactory.driver, Duration.ofSeconds(30));
 
 	// **************** Start import methods for step definition
 	// ********************
@@ -72,14 +75,10 @@ public class Basic {
 		System.out.println("Popup Response :" + ObjectsReporsitory.popup.getText());
 
 		if (ObjectsReporsitory.popup_head.getText().equals("Success")) {
-			// System.out.println(ObjectsReporsitory.popup_text.getText().substring(17,
-			// 29));
 			System.out.println(ObjectsReporsitory.popup_text.getText());
-			// ObjectsReporsitory.partner_WorkmanPopup.click();
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_ok));
 			ObjectsReporsitory.WorkmanSearchPopup_ok.click();
 			System.out.println("*****Details are saved*****");
-
 		} else if (ObjectsReporsitory.popup_head.getText().equals("Error")) {
 
 			if (ObjectsReporsitory.popup_text.getText().contains("Please select the Partner")) {
@@ -134,6 +133,62 @@ public class Basic {
 
 				}
 
+			}
+
+			else if (ObjectsReporsitory.popup_text.getText().contains("No Bed is Available")) {
+
+				System.out.println("No Bed Available for Workmen");
+				System.out.println("---------------------------------");
+				System.out.println("Adding New Room for Workmen");
+				System.out.println("---------------------------------");
+				Camp_Management_Create.Verify_User_can_be_able_to_add_room_name();
+				Camp_Management_Create.Verify_User_can_be_able_max_bed_count_in_room();
+				Camp_Management_Create.Verify_User_can_be_able_to_Add_area_size_of_room();
+				Camp_Management_Create.Verify_User_can_be_able_to_save_camp_room_details();
+				Camp_Management_Create.Verify_User_can_be_able_to_select_room();
+				Camp_Management_Create.Verify_User_can_be_able_to_Add_workmen_to_room();
+				System.out.println("Workmen Has been added to the newly created room - Completed");
+				System.out.println("---------------------------------------");
+
+			}
+
+			else if (ObjectsReporsitory.popup_text.getText().contains("This date already exist")) {
+
+				System.out.println("This date for holiday is already exist");
+				System.out.println("---------------------------------");
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_ok));
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+				System.out.println("Selecting another date");
+				System.out.println("---------------------------------");
+				Calender_Create.Verify_user_can_be_able_to_select_Year_to_add_Festival_or_National_Holiday();
+				Calender_Create.Verify_user_can_be_able_to_select_month_to_add_Festival_or_National_Holiday();
+				Calender_Create.Verify_user_can_be_able_to_select_date_to_add_Festival_or_National_Holiday();
+				Calender_Create.Verify_user_can_be_able_to_view_date_selected_for_Festival_or_National_Holiday();
+				Calender_Create.Verify_user_can_be_able_to_save_Holiday();
+				System.out.println("Workmen Has been added to the newly created room - Completed");
+				System.out.println("---------------------------------------");
+
+			}
+
+			else if (ObjectsReporsitory.popup_text.getText().contains("User Already Exists in the same Role")) {
+
+				System.out.println("User Already Exists in the same Role");
+				System.out.println("---------------------------------");
+				System.out.println("selecting another workmen");
+				System.out.println("---------------------------------");
+				RoleMapping_Create.Role_Mapping();
+				System.out.println("Workmen Has been added to the Role");
+				System.out.println("---------------------------------------");
+
+			}
+
+			else if (ObjectsReporsitory.popup_text.getText().contains("Workmen Already Alloted")) {
+
+				System.out.println("Same Workmen Already Alloted to the selected room");
+				System.out.println("---------------------------------");
+				System.out.println("Selecting another workmen");
+				System.out.println("---------------------------------");
+				Camp_Management_Create.Verify_User_can_be_able_to_Add_workmen_to_room();
 			}
 
 			else if (ObjectsReporsitory.popup_text.getText().contains("Please select Partner")) {
@@ -261,11 +316,31 @@ public class Basic {
 
 		popup_validation = ObjectsReporsitory.basic_popup_validation.size();
 
-		if (popup_validation > 1) {
+		if (popup_validation > 0) {
 
 			System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
 			System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
 			Basic.popup_handle();
+
+		} else {
+			System.out.println("Records Available");
+		}
+
+	}
+
+	public static void popup_validation_calender() throws Throwable {
+
+		popup_validation = ObjectsReporsitory.basic_popup_validation.size();
+
+		if (popup_validation > 0) {
+
+			System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+			System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+
+			Actions actions_Keys2 = new Actions(DriverFactory.driver);
+			actions_Keys2.sendKeys(Keys.ESCAPE);
+			actions_Keys2.perform();
+			Basic.popup_validation_calender();
 
 		} else {
 			System.out.println("Records Available");
@@ -401,26 +476,25 @@ public class Basic {
 				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
 				Actions actioneww = new Actions(DriverFactory.driver);
 				actioneww.sendKeys(Keys.ESCAPE).build().perform();
+				Thread.sleep(3000);
 				Basic.Error_popup_validation_Reg();
-			}
-			else if (Popup_Message.contains("Given Aadhaar Number is not available")) {
+			} else if (Popup_Message.contains("Given Aadhaar Number is not available")) {
 				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
 				System.out.println("No Workmen Found : Continue for Induction");
 				System.out.println("***************************************");
 				System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
 				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
 				System.out.println("***************************************");
-				wait.until(ExpectedConditions
-						.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
+				Thread.sleep(3000);
 				Actions actionewsdaw = new Actions(DriverFactory.driver);
 				actionewsdaw.sendKeys(Keys.ESCAPE).build().perform();
-			}
-			else if (popup_validation3 > 0 && Popup_Message3.contains("No Records Found")) {
+			} else if (popup_validation3 > 0 && Popup_Message3.contains("No Records Found")) {
 
 				System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
 				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
 				Actions actioneww = new Actions(DriverFactory.driver);
 				actioneww.sendKeys(Keys.ESCAPE).build().perform();
+				Thread.sleep(3000);
 				Basic.Error_popup_validation_Reg();
 			} else if (popup_validation3 > 0 && Popup_Message3.contains("Please Enter Name")) {
 
@@ -445,6 +519,7 @@ public class Basic {
 				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
 				Actions actioneww = new Actions(DriverFactory.driver);
 				actioneww.sendKeys(Keys.ESCAPE).build().perform();
+				Thread.sleep(3000);
 				System.out.println("Error Handled : Validation Message is displayed");
 				System.out.println("--------------------------------------------------------");
 				Basic.Error_popup_validation_Reg();
@@ -534,11 +609,12 @@ public class Basic {
 
 		length_of_spinner = ObjectsReporsitory.Spinner.size();
 		if (length_of_spinner > 0) {
-			System.out.println("Page is Loading - Kindly Wait");
+			System.out.println("Page is Loading - Kindly Wait .........");
 			Thread.sleep(2000);
 			Basic.PageLoader_Validation();
 		} else {
-			System.out.println("Page Load Complete - Element is clickable now");
+			System.out.println("Page Load is Completed - Element is clickable now");
+			System.out.println("--------------------------------------------------");
 		}
 
 	}
@@ -696,7 +772,7 @@ public class Basic {
 	public static void popup_validation_new_Induction() throws Throwable {
 
 		popup_validation_new = ObjectsReporsitory.basic_popup_validation.size();
-		System.out.println("Popup Size : " +popup_validation_new);
+		System.out.println("Popup Size : " + popup_validation_new);
 		System.out.println("====================================");
 		if (popup_validation_new > 0) {
 			System.out.println("Popup Message Displayed");
@@ -741,5 +817,171 @@ public class Basic {
 			System.out.println("=========================================================");
 			Partner.Enter_aadhaar_number_for_Workmen_Induction();
 		}
+	}
+
+	public static void popup_validation_Login() throws Throwable {
+
+		popup_validation = ObjectsReporsitory.basic_popup_validation.size();
+
+		if (popup_validation > 1) {
+
+			Popup_Message = ObjectsReporsitory.popup_text.getText();
+			Popup_Status = ObjectsReporsitory.popup_head.getText();
+
+			System.out.println("Popup Status : " + Popup_Status);
+			System.out.println("Popup Message : " + Popup_Message);
+
+			if (Popup_Message.contains("Error occurred")) {
+
+				Actions actions_Keys2 = new Actions(DriverFactory.driver);
+				actions_Keys2.sendKeys(Keys.ESCAPE);
+				actions_Keys2.perform();
+				stepdefinition.Login.Camp_Management_login();
+
+			} else {
+				System.out.println("Failed : Check script log for failure");
+			}
+
+		} else {
+			System.out.println("No Error Found while on login");
+		}
+
+	}
+
+	public class RandomStringGenerator {
+		private static final String ALPHANUMERIC_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+		public static String generateRandomAlphaNumeric(int length) {
+			Random random = new Random();
+			StringBuilder sb = new StringBuilder(length);
+
+			for (int i = 0; i < length; i++) {
+				int randomIndex = random.nextInt(ALPHANUMERIC_CHARS.length());
+				char randomChar = ALPHANUMERIC_CHARS.charAt(randomIndex);
+				sb.append(randomChar);
+			}
+
+			return sb.toString();
+		}
+	}
+
+	public static void popup_validation_Remove_Role() throws Throwable {
+
+		popup_validation_new = ObjectsReporsitory.basic_popup_validation.size();
+		System.out.println("Popup Size : " + popup_validation_new);
+		System.out.println("====================================");
+
+		if (popup_validation_new > 0) {
+
+			Popup_Message = ObjectsReporsitory.popup_text.getText();
+			Popup_Status = ObjectsReporsitory.popup_head.getText();
+
+			System.out.println("Popup Status : " + Popup_Status);
+			System.out.println("Popup Message : " + Popup_Message);
+			System.out.println("***************************************");
+
+			if (Popup_Message.contains("Deleted successfully")) {
+
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_ok));
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+				Basic.PageLoader_Validation();
+
+				// ************************************************************************************************************
+
+				System.out.println("Role for selected user removed successfully");
+				System.out.println("________________________________________________");
+
+				// ************************************************************************************************************
+
+			}
+
+			else if (Popup_Message.contains("Are you sure , do you want to delete role?")) {
+				System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+				System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+				System.out.println("________________________________________________");
+				wait.until(ExpectedConditions
+						.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
+				ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes.click();
+				Basic.PageLoader_Validation();
+				Basic.popup_validation_Remove_Role();
+			}
+		} else {
+			System.out.println("Popup Message Not Displayed");
+			System.out.println("________________________________________________");
+		}
+	}
+
+	public static void popup_validation_Shift() throws Throwable {
+
+		popup_validation = ObjectsReporsitory.basic_popup_validation.size();
+
+		if (popup_validation > 0) {
+
+			System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+			System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+
+			Popup_Message = ObjectsReporsitory.popup_text.getText();
+			Popup_Status = ObjectsReporsitory.popup_head.getText();
+
+			if (Popup_Status.contains("Success")) {
+
+				Screenshot.Screenshotforscenario();
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_ok));
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+				Screenshot.Screenshotforscenario();
+
+			} else if (ObjectsReporsitory.popup_head.getText().equals("Error")) {
+
+				Actions actions_Keys2 = new Actions(DriverFactory.driver);
+				actions_Keys2.sendKeys(Keys.ESCAPE);
+				actions_Keys2.perform();
+			}
+			Basic.popup_validation_Shift();
+
+		} else {
+			System.out.println("Records Available");
+		}
+
+	}
+
+	public static void popup_validation_Shift_delete() throws Throwable {
+
+		popup_validation = ObjectsReporsitory.basic_popup_validation.size();
+
+		if (popup_validation > 0) {
+
+			System.out.println("Popup Status : " + ObjectsReporsitory.popup_head.getText());
+			System.out.println("Popup Message : " + ObjectsReporsitory.popup_text.getText());
+
+			Popup_Message = ObjectsReporsitory.popup_text.getText();
+			Popup_Status = ObjectsReporsitory.popup_head.getText();
+
+			if (Popup_Status.contains("Confirmation")) {
+				Screenshot.Screenshotforscenario();
+				wait.until(ExpectedConditions
+						.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes));
+				ObjectsReporsitory.WorkmanSearchPopup_Confirmation_Yes.click();
+				Basic.PageLoader_Validation();
+				Screenshot.Screenshotforscenario();
+
+			} else if (Popup_Status.contains("Error")) {
+
+				Actions actions_Keys2 = new Actions(DriverFactory.driver);
+				actions_Keys2.sendKeys(Keys.ESCAPE);
+				actions_Keys2.perform();
+			}else if (Popup_Status.contains("Success")) {
+
+				Screenshot.Screenshotforscenario();
+				wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WorkmanSearchPopup_ok));
+				ObjectsReporsitory.WorkmanSearchPopup_ok.click();
+				Screenshot.Screenshotforscenario();
+			}
+			
+			Basic.popup_validation_Shift();
+
+		} else {
+			System.out.println("Records Available");
+		}
+
 	}
 }

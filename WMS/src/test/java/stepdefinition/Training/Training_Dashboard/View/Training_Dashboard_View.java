@@ -62,8 +62,8 @@ public class Training_Dashboard_View {
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.Induction_eHS));
 		Thread.sleep(5000);
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_Management));
-		ObjectsReporsitory.WMS_Management.click();
+		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_Management_sidenav));
+		ObjectsReporsitory.WMS_Management_sidenav.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_Training));
 		ObjectsReporsitory.WMS_Training.click();
 		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.WMS_Training_Menu));

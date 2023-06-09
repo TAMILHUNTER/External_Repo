@@ -478,10 +478,10 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.CSS, using = "app-personal-details#basicDetails2>div:nth-of-type(2)>div>div:nth-of-type(3)>div:nth-of-type(3)>mat-form-field>div>div>div>input")
 	public static WebElement Personal_NoofChilderen;
 
-	@FindBy(how = How.XPATH, using = "((//mat-checkbox)[1]//label//span)[4]")
+	@FindBy(how = How.XPATH, using = "(//*[@id='csti-input'])")
 	public static WebElement Personal_CSTI;
 
-	@FindBy(how = How.XPATH, using = "((//mat-checkbox)[2]//label//span)[4]")
+	@FindBy(how = How.XPATH, using = "(//*[@id='naps-input'])")
 	public static WebElement Personal_NAPS;
 
 	@FindBy(how = How.XPATH, using = "//span[text()=' CSTI']")
@@ -728,16 +728,16 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//button[text()='Generate ID']")
 	public static WebElement skill_save;
 
-	@FindBy(how = How.ID, using = "skillCategory")
+	@FindBy(how = How.XPATH, using = "(//input[@id='skillCategory'])")
 	public static WebElement skillCategory_value;
 
-	@FindBy(how = How.XPATH, using = "(//app-skill-deployment//input)[2]")
+	@FindBy(how = How.XPATH, using = "(//input[@id='location'])")
 	public static WebElement skillGroup_value;
 
-	@FindBy(how = How.XPATH, using = "(//app-skill-deployment//input)[3]")
+	@FindBy(how = How.XPATH, using = "(//input[@id='skillDescription'])")
 	public static WebElement skillDesc_value;
 
-	@FindBy(how = How.ID, using = "skillType")
+	@FindBy(how = How.XPATH, using = "(//input[@id='skillType'])")
 	public static WebElement skillType_value;
 
 	// **Deployment*
@@ -946,7 +946,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[4]")
 	public static WebElement statutoryDetails_DL;
 
-	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[1]")
+	@FindBy(how = How.XPATH, using = "(//app-statutory-details//span[@class='k-dateinput-wrap']//input)[1]")
 	public static WebElement statutoryDetails_DL_expiry;
 
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[6]")
@@ -958,13 +958,13 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[3]")
 	public static WebElement statutoryDetails_WorkPermit_international;
 
-	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[2]")
+	@FindBy(how = How.XPATH, using = "(//app-statutory-details//span[@class='k-dateinput-wrap']//input)[2]")
 	public static WebElement statutoryDetails_WorkPermit_expiry;
 
-	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[1]")
+	@FindBy(how = How.XPATH, using = "(//app-statutory-details//span[@class='k-dateinput-wrap']//input)[1]")
 	public static WebElement statutoryDetails_International_WorkPermit_expiry;
 
-	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[1]")
+	@FindBy(how = How.XPATH, using = "(//app-statutory-details//span[@class='k-dateinput-wrap']//input)[1]")
 	public static WebElement statutoryDetails_WorkPermit_expiry_international;
 
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[9]")
@@ -976,7 +976,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//app-Statutory-details//input)[5]")
 	public static WebElement statutoryDetails_labour_international;
 
-	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[3]")
+	@FindBy(how = How.XPATH, using = "(//app-statutory-details//span[@class='k-dateinput-wrap']//input)[3]")
 	public static WebElement statutoryDetails_labour_expiry;
 
 	@FindBy(how = How.XPATH, using = "(//app-statutory-details//kendo-datepicker/span/span/span)[2]")
@@ -1081,7 +1081,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.ID, using = "saveSatutory")
 	public static WebElement statutoryDetails_save;
 
-	@FindBy(how = How.XPATH, using = "(//app-statutory-details//button)[5]")
+	@FindBy(how = How.XPATH, using = "(//button[@id='saveSatutory'])")
 	public static WebElement PFNomieeDetails_save;
 
 	@FindBy(how = How.XPATH, using = "//button[text()='Add PF Nominees']")
@@ -1210,7 +1210,7 @@ public class ObjectsReporsitory {
 
 	@FindBy(how = How.XPATH, using = "//span[text()=' Aadhaar ']")
 	public static WebElement Dashboard_SearchBy_Aadhar;
-	
+
 	@FindBy(how = How.XPATH, using = "(//mat-select)[1]")
 	public static WebElement Dashboard_SearchBy_DD;
 
@@ -1372,10 +1372,10 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//span[@title='Toggle calendar']//span[1]")
 	public static WebElement Datepicker_select_calender;
 
-	@FindBy(how = How.XPATH, using = "//kendo-calendar-header[@class='k-calendar-header']//span[1]")
+	@FindBy(how = How.XPATH, using = "(//*[@class='k-calendar-header']//span)[1]")
 	public static WebElement Datepicker_select_calender_header;
 
-	@FindBy(how = How.XPATH, using = "//kendo-calendar-header[@class='k-calendar-header']//span[1]")
+	@FindBy(how = How.XPATH, using = "(//*[@class='k-calendar-header']//span)[1]")
 	public static WebElement Datepicker_print_currect_year;
 
 	@FindBy(how = How.XPATH, using = "(//li[@data-date-index])[1]//span")
@@ -1509,14 +1509,17 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "//app-medical-test-params//b")
 	public static WebElement MedicalTest_Next_Medical_Examination_due;
 
-	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//p[2])[1]")
+	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//input)[1]")
 	public static WebElement MedicalTest_Skin_Temperature;
 
-	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//p[2])[2]")
+	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//input)[2]")
 	public static WebElement MedicalTest_ColorOfEyes;
 
-	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//p[2])[3]")
+	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//input)[3]")
 	public static WebElement MedicalTest_Complextion;
+
+	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//input)[4]")
+	public static WebElement MedicalTest_BP;
 
 	@FindBy(how = How.XPATH, using = "(//app-medical-test-params//div[3]//p[2])[4]")
 	public static WebElement MedicalTest_Heart_Rate;
@@ -1972,7 +1975,7 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//table//tbody//tr//th//input)[8]")
 	public static WebElement Wage_Deduction_PT_value;
 
-	@FindBy(how = How.XPATH, using = "(//table//tbody//tr//th)[16]")
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//div//kendo-grid-list//div//div[1]//table//tbody//tr//td[4]//input)")
 	public static WebElement Wage_Deduction_Other_Recoveries_value;
 
 	@FindBy(how = How.XPATH, using = "(//table//tbody//tr//th)[18]")
@@ -2012,14 +2015,14 @@ public class ObjectsReporsitory {
 //Gate Pass
 	@FindBy(how = How.XPATH, using = "(//mat-nav-list//div//a//span//i)[3]")
 	public static WebElement Menu_GatePass;
-	
-	@FindBy(how = How.XPATH, using="//span[text()='Gate Pass ']")
+
+	@FindBy(how = How.XPATH, using = "//span[text()='Gate Pass ']")
 	public static WebElement Menu_GatePass_New;
 
 	@FindBy(how = How.XPATH, using = "(//mat-nav-list//div//a//span//i)[5]")
 	public static WebElement Menu_Attendance;
 
-	@FindBy(how = How.XPATH, using = "//input[@value='Fetch']")
+	@FindBy(how = How.XPATH, using = "//button[text()='Fetch']")
 	public static WebElement GatePass_fetch;
 
 	@FindBy(how = How.XPATH, using = "//input[@value='Clear']")
@@ -2296,4 +2299,551 @@ public class ObjectsReporsitory {
 	@FindBy(how = How.XPATH, using = "(//kendo-popup//kendo-calendar/kendo-calendar-viewlist//kendo-virtualization//table//tbody//tr//td//span)")
 	public static List<WebElement> Datepicker_Expiry_select_Date;
 
+// Management 
+
+// Camp Management
+
+	@FindBy(how = How.XPATH, using = "(//i[contains(@class,'fa fa-compliance-management')])")
+	public static WebElement WMS_Management_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//*[@class='image-holder'])[1]")
+	public static WebElement WMS_Management_Camp_Mngt;
+
+	@FindBy(how = How.ID, using = "AddCamp")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp;
+
+	@FindBy(how = How.ID, using = "CampName")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_campName;
+
+	@FindBy(how = How.ID, using = "Address")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_address;
+
+	@FindBy(how = How.ID, using = "pincode")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_pincode;
+
+	@FindBy(how = How.ID, using = "permVillageCity")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_village;
+
+	@FindBy(how = How.XPATH, using = "//span[@class='mat-option-text']//span")
+	public static List<WebElement> WMS_Management_Camp_Mngt_AddCamp_village_DR;
+
+	@FindBy(how = How.XPATH, using = "((//app-add-camp//mat-form-field//input)[5])")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_District;
+
+	@FindBy(how = How.XPATH, using = "((//app-add-camp//mat-form-field//input)[6])")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_State;
+
+	@FindBy(how = How.ID, using = "submitCamp")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_Submit;
+
+	@FindBy(how = How.XPATH, using = "(//i[@title='Add Structure'])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_AddCamp_Structure_allele;
+
+	@FindBy(how = How.XPATH, using = "(//i[@title='Add Structure'])[1]")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_Structure_First;
+
+	@FindBy(how = How.ID, using = "StructureName")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_Structure_Name;
+
+	@FindBy(how = How.ID, using = "roomAvl")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_Structure_Room;
+
+	@FindBy(how = How.ID, using = "SubmitBtnStructure")
+	public static WebElement WMS_Management_Camp_Mngt_AddCamp_Structure_Room_submit;
+
+	@FindBy(how = How.XPATH, using = "(//i[@title='Add Room'])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_Addroom_allele;
+
+	@FindBy(how = How.XPATH, using = "(//i[@title='Add Room'])[1]")
+	public static WebElement WMS_Management_Camp_Mngt_Addroom_first;
+
+	@FindBy(how = How.ID, using = "RoomName")
+	public static WebElement WMS_Management_Camp_Mngt_Addroom_name;
+
+	@FindBy(how = How.ID, using = "MaximumBedsAvailable")
+	public static WebElement WMS_Management_Camp_Mngt_Addroom_MaximumBedsAvailable;
+
+	@FindBy(how = How.ID, using = "Areainsqmeters")
+	public static WebElement WMS_Management_Camp_Mngt_Addroom_Areainsqmeters;
+
+	@FindBy(how = How.ID, using = "submitRoom")
+	public static WebElement WMS_Management_Camp_Mngt_Addroom_Submit;
+
+	@FindBy(how = How.XPATH, using = "(//div[@role='tab']//div)")
+	public static List<WebElement> WMS_Management_Camp_Mngt_roomtab_allele;
+
+	@FindBy(how = How.XPATH, using = "(//div[@role='tab']//div)[1]")
+	public static WebElement WMS_Management_Camp_Mngt_roomtab_first;
+
+	@FindBy(how = How.XPATH, using = "(//div[@role='tab']//div)[last()]")
+	public static WebElement WMS_Management_Camp_Mngt_roomtab_last;
+
+	@FindBy(how = How.XPATH, using = "(//input[@data-placeholder='Enter Workmen ID'])")
+	public static WebElement WMS_Management_Camp_Mngt_room_WMID;
+
+	@FindBy(how = How.XPATH, using = "(//div[@role='tab']//div)")
+	public static List<WebElement> WMS_Management_Camp_Mngt_room_workmen_list;
+
+	@FindBy(how = How.XPATH, using = "(//mat-tab-body//button[text()='Add'])[1]")
+	public static WebElement WMS_Management_Camp_Mngt_room_workmen_Addbtn;
+
+	@FindBy(how = How.XPATH, using = "(//mat-tab-body//*[contains(@class,'userDetails')])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_workmen_count_in_room;
+
+	@FindBy(how = How.XPATH, using = "((//mat-tab-body//*[contains(@class,'userDetails')])//p[1])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_workmen_Name_in_room;
+
+	@FindBy(how = How.XPATH, using = "((//mat-tab-body//*[contains(@class,'userDetails')])//span[1])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_workmen_Skill_in_room;
+
+	@FindBy(how = How.XPATH, using = "((//mat-tab-body//*[contains(@class,'userDetails')])//span[2])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_workmen_Number_in_room;
+
+	@FindBy(how = How.XPATH, using = "((//mat-tab-body//*[contains(@class,'userDetails')])//span[3])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_workmen_PartnerID_in_room;
+
+	@FindBy(how = How.XPATH, using = "((//mat-tab-body//*[contains(@class,'userDetails')])//span[4])")
+	public static List<WebElement> WMS_Management_Camp_Mngt_workmen_Occupied_in_room;
+
+//Configuaration
+
+	@FindBy(how = How.XPATH, using = "(//i[contains(@class,'fa fa-process')])")
+	public static WebElement WMS_Configuration_sidenav;
+
+	@FindBy(how = How.ID, using = "jobCode")
+	public static WebElement WMS_Configuration_Jobcode;
+
+	@FindBy(how = How.XPATH, using = "//span[@class='mat-option-text']//span")
+	public static List<WebElement> WMS_Configuration_Jobcode_DR;
+
+	@FindBy(how = How.XPATH, using = "//span[text()='Go']")
+	public static WebElement WMS_Configuration_Jobcode_Go;
+
+	@FindBy(how = How.XPATH, using = "(//div[text()='Regulatory Compliance'])")
+	public static WebElement WMS_Configuration_tab_Regulatory_Compliance;
+
+	@FindBy(how = How.XPATH, using = "(//div[text()='PF & ESI Compliance'])")
+	public static WebElement WMS_Configuration_tab_PF_ESI_Compliance;
+
+	@FindBy(how = How.XPATH, using = "(//div[text()='Role Mapping'])")
+	public static WebElement WMS_Configuration_tab_Role_Mapping;
+
+	@FindBy(how = How.XPATH, using = "(//i[@class='fas fa-trash-o'])[last()]")
+	public static WebElement WMS_Configuration_tab_Role_Removing;
+
+	@FindBy(how = How.XPATH, using = "(//div[text()='Calendar'])")
+	public static WebElement WMS_Configuration_tab_Calendar;
+
+	@FindBy(how = How.XPATH, using = "(//div[text()='Shift'])")
+	public static WebElement WMS_Configuration_tab_Shift;
+
+	@FindBy(how = How.XPATH, using = "((((//app-regualtory-compliance//mat-card)[1]//mat-card-content//div)[2])//mat-form-field//mat-select//span)")
+	public static WebElement WMS_Configuration_RC_Authority_LCAuthority;
+
+	@FindBy(how = How.XPATH, using = "(//*[@class='mat-option-text'])")
+	public static List<WebElement> WMS_Configuration_RC_Authority_LCAuthority_DR;
+
+	@FindBy(how = How.ID, using = "strEstablishmentID")
+	public static WebElement WMS_Configuration_RC_Authority_EstablishmentID;
+
+	@FindBy(how = How.XPATH, using = "(((//app-regualtory-compliance//mat-card)[2]//mat-card-content//div//mat-form-field//mat-select))[1]")
+	public static WebElement WMS_Configuration_RC_State;
+
+	@FindBy(how = How.XPATH, using = "(//*[@class='mat-option-text'])")
+	public static List<WebElement> WMS_Configuration_RC_State_DR;
+
+	@FindBy(how = How.XPATH, using = "(((//app-regualtory-compliance//mat-card)[2]//mat-card-content//div//mat-form-field//mat-select))[2]")
+	public static WebElement WMS_Configuration_RC_Zone;
+
+	@FindBy(how = How.XPATH, using = "(//*[@class='mat-option-text'])")
+	public static List<WebElement> WMS_Configuration_RC_Zone_DR;
+
+	@FindBy(how = How.XPATH, using = "(//p[text()='Minimum Wage Applicable for: '])")
+	public static WebElement WMS_Configuration_RC_minwage;
+
+	@FindBy(how = How.XPATH, using = "//button[text()='Add']")
+	public static WebElement WMS_Configuration_RC_Add_location;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='mat-checkbox-label'])")
+	public static List<WebElement> WMS_Configuration_RC_StatutoryAct_List;
+
+	@FindBy(how = How.XPATH, using = "(//input[@type='file'])[1]")
+	public static WebElement WMS_Configuration_PM_Sign;
+
+	@FindBy(how = How.XPATH, using = "(//input[@type='file'])[2]")
+	public static WebElement WMS_Configuration_PD_Sign;
+
+	@FindBy(how = How.XPATH, using = "(//button[@id='saveAuthorityBtn']//span[1])")
+	public static WebElement WMS_Configuration_RC_saveAuthorityBtn;
+
+//Role Mapping 
+
+	@FindBy(how = How.XPATH, using = "(//p[text()=' Time Office'])")
+	public static WebElement WMS_Configuration_RM_Timeoffice_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//p[text()=' IR Manager'])")
+	public static WebElement WMS_Configuration_RM_IRManager_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//p[text()=' Accounts'])")
+	public static WebElement WMS_Configuration_RM_Accounts_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//p[text()=' Skill Approver'])")
+	public static WebElement WMS_Configuration_RM_SkillApprover_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//p[text()=' Paramedics'])")
+	public static WebElement WMS_Configuration_RM_Paramedics_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//p[text()=' Medical Officer'])")
+	public static WebElement WMS_Configuration_RM_MedicalOfficer_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//p[text()=' Safety Officer'])")
+	public static WebElement WMS_Configuration_RM_Safety_Officer_sidenav;
+
+	@FindBy(how = How.XPATH, using = "(//i[contains(@class,'fa fa-plus-circle')])")
+	public static WebElement WMS_Configuration_btn_addRole;
+
+	@FindBy(how = How.ID, using = "userId")
+	public static WebElement WMS_Configuration_addRole_userID;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='mat-option-text']//span)[1]")
+	public static WebElement WMS_Configuration_addRole_userID_first;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='mat-option-text']//span)")
+	public static List<WebElement> WMS_Configuration_addRole_userID_DR;
+
+	@FindBy(how = How.XPATH, using = "((//app-addrole//div[2]/div[1]/p)[1])")
+	public static WebElement WMS_Configuration_addRole_Name;
+
+	@FindBy(how = How.XPATH, using = "((//app-addrole//div[2]/div[1]/p)[2])")
+	public static WebElement WMS_Configuration_addRole_PSNumber;
+
+	@FindBy(how = How.XPATH, using = "((//app-addrole//div[2]/div[1]/p)[3])")
+	public static WebElement WMS_Configuration_addRole_Role;
+
+	@FindBy(how = How.XPATH, using = "((//app-addrole//div[2]/div[1]/p)[4])")
+	public static WebElement WMS_Configuration_addRole_JOBCODE;
+
+	@FindBy(how = How.XPATH, using = "((//app-addrole//div[3]/div[1]/p)[1])")
+	public static WebElement WMS_Configuration_addRole_MobileNumber;
+
+	@FindBy(how = How.XPATH, using = "((//app-addrole//div[3]/div[1]/p)[2])")
+	public static WebElement WMS_Configuration_addRole_Email;
+
+	@FindBy(how = How.ID, using = "assignRole")
+	public static WebElement WMS_Configuration_addRole_btn_assignRole;
+
+//Calender
+
+	@FindBy(how = How.XPATH, using = "(//button[text()='save'])[1]")
+	public static WebElement WMS_Configuration_calender_FN_Holidays_Save;
+
+	@FindBy(how = How.XPATH, using = "(//button[text()='save'])[2]")
+	public static WebElement WMS_Configuration_calender_Regular_Holidays_Save;
+
+	@FindBy(how = How.XPATH, using = "(//app-calendar-master//mat-select)[1]")
+	public static WebElement WMS_Configuration_calender_Year_master;
+
+	@FindBy(how = How.XPATH, using = "//span[@class='mat-option-text']")
+	public static List<WebElement> WMS_Configuration_calender_Year_master_DR;
+
+	@FindBy(how = How.XPATH, using = "//span[@title='Toggle calendar']//span[1]")
+	public static WebElement WMS_Configuration_calender_FN_Holidays_Calender;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-calendar-header[@class='k-calendar-header']//span)[1]")
+	public static WebElement WMS_Configuration_calender_header;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[1]/tbody/tr/td)[1])")
+	public static WebElement WMS_calender_FesORNat_Holidays_Record;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[2]/tbody/tr/td)[1])")
+	public static WebElement WMS_calender_Regular_Holidays_Record;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[1]/tbody/tr/td[1]))")
+	public static List<WebElement> WMS_calender_FesORNat_Holidays_Date;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[1]/tbody/tr/td[2]))")
+	public static List<WebElement> WMS_calender_FesORNat_Holidays_Day;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[1]/tbody/tr/td[3]))")
+	public static List<WebElement> WMS_calender_FesORNat_Holidays_Type;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[1]/tbody/tr/td[4]))")
+	public static List<WebElement> WMS_calender_FesORNat_Holidays_Desc;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[2]/tbody/tr/td[1]))")
+	public static List<WebElement> WMS_calender_Regular_Holidays_Date;
+
+	@FindBy(how = How.XPATH, using = "(((//kendo-grid-list/div/div[1]/table)[2]/tbody/tr/td[2]))")
+	public static List<WebElement> WMS_calender_Regular_Holidays_Day;
+
+	@FindBy(how = How.XPATH, using = "(//*[@id='footer']//p//b)[1]")
+	public static WebElement WMS_calender_Total_Regular_Holidays;
+
+	@FindBy(how = How.XPATH, using = "(//*[@id='footer']//p//b)[2]")
+	public static WebElement WMS_calender_Total_FesORNat_Holidays;
+
+	@FindBy(how = How.XPATH, using = "(//*[@id='footer']//p//b)[3]")
+	public static WebElement WMS_calender_Total_Holidays;
+
+	@FindBy(how = How.XPATH, using = "//span[@title='Toggle calendar']//span[1]")
+	public static WebElement WMS_calender_FesORNat_Holidays_calender;
+
+	@FindBy(how = How.XPATH, using = "(//*[@class='k-dateinput-wrap'])")
+	public static WebElement WMS_calender_FesORNat_Holidays_calender_date_Input;
+
+	@FindBy(how = How.XPATH, using = "(//*[@role='combobox']//span)[3]")
+	public static WebElement WMS_calender_FesORNat_Holidays_Type_Input;
+
+	@FindBy(how = How.XPATH, using = "(//mat-option//span)")
+	public static List<WebElement> WMS_calender_FesORNat_Holidays_Type_Input_DR;
+
+	@FindBy(how = How.XPATH, using = "(//mat-form-field//input)[2]")
+	public static WebElement WMS_calender_FesORNat_Holidays_desc;
+
+	@FindBy(how = How.XPATH, using = "(//*[@id='footer']//button)")
+	public static WebElement WMS_calender_submit;
+
+	@FindBy(how = How.XPATH, using = "(//*[@role='combobox']//span)[4]")
+	public static WebElement WMS_calender_Regular_Holidays_Type_Input;
+
+	@FindBy(how = How.XPATH, using = "(//mat-option//span)")
+	public static List<WebElement> WMS_calender_Regular_Holidays_Type_Input_DR;
+
+	@FindBy(how = How.XPATH, using = "(//*[@role='combobox']//span)[last()]")
+	public static WebElement WMS_calender_Regular_Holidays_Day_Input;
+
+	@FindBy(how = How.XPATH, using = "(//mat-option//span)")
+	public static List<WebElement> WMS_calender_Regular_Holidays_Day_Input_DR;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid)[1]//i[@title='delete']")
+	public static List<WebElement> WMS_calender_FesORNat_Holidays_delete;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid)[2]//i[@title='delete']")
+	public static List<WebElement> WMS_calender_Regular_Holidays_delete;
+
+//Shift
+
+	@FindBy(how = How.XPATH, using = "//span[@title='Open Shift Master']")
+	public static WebElement WMS_config_shift_openMaster;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//kendo-grid-list//table//tbody/tr/td)[1]")
+	public static WebElement WMS_config_shift_allelement;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//kendo-grid-list//table//tbody/tr/td[1])")
+	public static List<WebElement> WMS_config_shift_shift_code;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//kendo-grid-list//table//tbody/tr/td[2])")
+	public static List<WebElement> WMS_config_shift_shift_Desc;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//kendo-grid-list//table//tbody/tr/td[3])")
+	public static List<WebElement> WMS_config_shift_shift_Hour_from;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//kendo-grid-list//table//tbody/tr/td[4])")
+	public static List<WebElement> WMS_config_shift_shift_Hour_To;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//kendo-grid-list//table//tbody/tr/td[5])")
+	public static List<WebElement> WMS_config_shift_Break_Hour_from;
+
+	@FindBy(how = How.XPATH, using = "(//kendo-grid//kendo-grid-list//table//tbody/tr/td[6])")
+	public static List<WebElement> WMS_config_shift_Break_Hour_To;
+
+	@FindBy(how = How.XPATH, using = "//button[@title='Add Shift']")
+	public static WebElement WMS_config_shift_master_saveShift;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[1])")
+	public static WebElement WMS_config_shift_master_allelement;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[2])")
+	public static List<WebElement> WMS_config_shift_Master_shift_code;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[3])")
+	public static List<WebElement> WMS_config_shift_Master_shift_Desc;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[4])")
+	public static List<WebElement> WMS_config_shift_Master_shift_Hour_from;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[5])")
+	public static List<WebElement> WMS_config_shift_Master_shift_Hour_To;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[6])")
+	public static List<WebElement> WMS_config_shift_Master_Break_Hour_from;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[7])")
+	public static List<WebElement> WMS_config_shift_Master_Break_Hour_To;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid//kendo-grid-list//table//tbody//tr//td[8])")
+	public static List<WebElement> WMS_config_shift_Master_Status;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//i[@title='Close'])")
+	public static WebElement WMS_config_shift_Master_closeShiftMaster;
+
+	@FindBy(how = How.XPATH, using = "//i[@title='addNewShift']")
+	public static WebElement WMS_config_shift_Master_addNewShift;
+
+	@FindBy(how = How.XPATH, using = "(//tr[1]//td[@role='gridcell']//input)[1]")
+	public static WebElement WMS_config_shift_Master_shiftcode_input;
+
+	@FindBy(how = How.XPATH, using = "(//tr[1]//td[@role='gridcell']//input)[2]")
+	public static WebElement WMS_config_shift_Master_shiftDesc_input;
+
+	@FindBy(how = How.XPATH, using = "(//tr[1]//td[@role='gridcell']//input)[3]")
+	public static WebElement WMS_config_shift_Master_shift_Hour_Fr_input;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='k-icon k-i-clock'])[1]")
+	public static WebElement WMS_config_shift_Master_shift_Hour_Fr_timer;
+
+	@FindBy(how = How.XPATH, using = "(//tr[1]//td[@role='gridcell']//input)[4]")
+	public static WebElement WMS_config_shift_Master_shift_Hour_To_input;
+
+	@FindBy(how = How.XPATH, using = "(//tr[1]//i[@title='Save'])")
+	public static WebElement WMS_config_shift_Master_shift_Details_Save;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='k-icon k-i-clock'])[2]")
+	public static WebElement WMS_config_shift_Master_shift_Hour_To_timer;
+
+	@FindBy(how = How.XPATH, using = "(//tr[1]//td[@role='gridcell']//input)[5]")
+	public static WebElement WMS_config_shift_Master_Break_hr_Fr_input;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='k-icon k-i-clock'])[3]")
+	public static WebElement WMS_config_shift_Master_Break_Hour_Fr_timer;
+
+	@FindBy(how = How.XPATH, using = "(//tr[1]//td[@role='gridcell']//input)[6]")
+	public static WebElement WMS_config_shift_Master_Break_hr_To_input;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='k-icon k-i-clock'])[4]")
+	public static WebElement WMS_config_shift_Master_Break_Hour_To_timer;
+
+	@FindBy(how = How.XPATH, using = "((//kendo-timelist)[1]//li[@class='k-item ng-star-inserted']//span)")
+	public static List<WebElement> WMS_config_shift_Master_timer_Hour;
+
+	@FindBy(how = How.XPATH, using = "((//kendo-timelist)[2]//li[@class='k-item ng-star-inserted']//span)")
+	public static List<WebElement> WMS_config_shift_Master_timer_minute;
+
+	@FindBy(how = How.XPATH, using = "//button[@title='Set time']")
+	public static WebElement WMS_config_shift_Master_timer_setTime;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//span[@title='Show Filter'])")
+	public static WebElement WMS_config_shift_Master_Filter;
+
+	@FindBy(how = How.XPATH, using = "//span[@title='Hide Filter']")
+	public static WebElement WMS_config_shift_Master_HideFilter;
+
+	@FindBy(how = How.XPATH, using = "((//app-shift//*[@role='listbox'])[7]//span)[2]")
+	public static WebElement WMS_config_shift_Master_Filter_Status;
+
+	@FindBy(how = How.XPATH, using = "((//app-shift//*[@role='listbox'])[7]//span)[1]")
+	public static WebElement WMS_config_shift_Master_Filter_Current_Status;
+
+	@FindBy(how = How.XPATH, using = "(//ul[@role='listbox']//li)")
+	public static List<WebElement> WMS_config_shift_Master_Filter_Status_DR;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//*[@aria-label='Select All Rows'])")
+	public static WebElement WMS_config_shift_Master_select_all_Shift;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[1]//*[@type='checkbox'])")
+	public static List<WebElement> WMS_config_shift_Master_Shift_List;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[1]//*[@type='checkbox'])[1]")
+	public static WebElement WMS_config_shift_Master_Shift_First;
+
+	@FindBy(how = How.XPATH, using = "//button[text()='Save Shift']")
+	public static WebElement WMS_config_shift_Master_saveShift;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[2]")
+	public static WebElement WMS_config_shift_Master_First_Value_Shift_Code;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[3]")
+	public static WebElement WMS_config_shift_Master_First_Value_Shift_Desc;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[4]")
+	public static WebElement WMS_config_shift_Master_First_Value_Shift_Hr_Fr;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[5]")
+	public static WebElement WMS_config_shift_Master_First_Value_Shift_Hr_To;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[6]")
+	public static WebElement WMS_config_shift_Master_First_Value_Break_Hr_Fr;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[7]")
+	public static WebElement WMS_config_shift_Master_First_Value_Break_Hr_To;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid-filter-wrapper-cell//input)[1]")
+	public static WebElement WMS_config_shift_Master_Filter_input_Shift_Code;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//kendo-grid-filter-wrapper-cell//input)[2]")
+	public static WebElement WMS_config_shift_Master_Filter_input_Shift_Desc;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[4]")
+	public static WebElement WMS_config_shift_Master_Filter_input_Shift_Hr_Fr;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[5]")
+	public static WebElement WMS_config_shift_Master_Filter_input_Shift_Hr_To;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[6]")
+	public static WebElement WMS_config_shift_Master_Filter_input_Break_Hr_Fr;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//td[@role='gridcell'])[7]")
+	public static WebElement WMS_config_shift_Master_Filter_input_Break_Hr_To;
+
+	@FindBy(how = How.XPATH, using = "(//button[@title='Clear']//span)[1]")
+	public static WebElement WMS_config_shift_Master_Clear_Filter_Shift_Code;
+
+	@FindBy(how = How.XPATH, using = "(//button[@title='Clear']//span)[2]")
+	public static WebElement WMS_config_shift_Master_Clear_Filter_Shift_Desc;
+
+	@FindBy(how = How.XPATH, using = "(//button[@title='Clear']//span)[3]")
+	public static WebElement WMS_config_shift_Master_Clear_Filter_Shift_Hr_Fr;
+
+	@FindBy(how = How.XPATH, using = "(//button[@title='Clear']//span)[4]")
+	public static WebElement WMS_config_shift_Master_Clear_Filter_Shift_Hr_To;
+
+	@FindBy(how = How.XPATH, using = "(//button[@title='Clear']//span)[5]")
+	public static WebElement WMS_config_shift_Master_Clear_Filter_Break_Hr_Fr;
+
+	@FindBy(how = How.XPATH, using = "(//button[@title='Clear']//span)[6]")
+	public static WebElement WMS_config_shift_Master_Clear_Filter_Break_Hr_To;
+
+	@FindBy(how = How.XPATH, using = "(//button[@title='Clear']//span)[6]")
+	public static WebElement WMS_config_shift_Master_Clear_Filter_Status;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//i[@title='Delete'])")
+	public static List<WebElement> WMS_config_shift_Master_delete_shift_allEle;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//i[@title='Delete'])[last()]")
+	public static WebElement WMS_config_shift_Master_delete_shift_last;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//i[@title='Edit'])[1]")
+	public static WebElement WMS_config_shift_Master_Edit_shift_First;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//*[contains(@class, 'mat-slide-toggle-bar')])")
+	public static List<WebElement> WMS_config_shift_Master_Status_all_ele;
+
+	@FindBy(how = How.XPATH, using = "(//app-shift//*[contains(@class, 'mat-slide-toggle-bar')])[last()]")
+	public static WebElement WMS_config_shift_Master_Status_last;
+
+	@FindBy(how = How.XPATH, using = "(//app-jobconfiguration//span[@title='Delete Shift'])")
+	public static List<WebElement> WMS_config_Job_shift_delete_allele;
+
+	@FindBy(how = How.XPATH, using = "(//app-jobconfiguration//span[@title='Delete Shift'])[1]")
+	public static WebElement WMS_config_Job_shift_delete_first;
+
+// Wage
+
+	@FindBy(how = How.XPATH, using = "//i[contains(@class,'fa fa-disbursement')]")
+	public static WebElement WMS_MainWage_sidenav;
+
+	@FindBy(how = How.XPATH, using="//button[text()=' Get Data']")
+	public static WebElement WMS_MainWage_getdata;
+	
+	@FindBy(how = How.XPATH, using="(//app-wage-master//mat-select)[1]")
+	public static WebElement WMS_MainWage_Select_State;
+	
+	@FindBy(how = How.XPATH, using = "(//span[@class='mat-option-text'])")
+	public static List<WebElement> WMS_MainWage_Select_State_Dr;
+	
+	@FindBy(how = How.XPATH, using="(//app-wage-master//mat-select)[2]")
+	public static WebElement WMS_MainWage_Select_SheduleofEmployement;
+	
+	@FindBy(how = How.XPATH, using = "(//span[@class='mat-option-text'])")
+	public static List<WebElement> WMS_MainWage_Select_SheduleofEmployement_dr;
 }

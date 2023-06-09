@@ -769,11 +769,10 @@ public class EHS_Create {
 	@Then("^Verify user can be able to view Trainig Program$")
 	public static void Verify_user_can_be_able_to_view_Trainig_Program() throws Throwable {
 
-		if (EHS_Card_Count == 0) {
+		EHS_Card_Count = Skill_Analysis_Objects.Dashboard_EHS_Card.size();
+		System.out.println("Workmen Count in EHS : " + EHS_Card_Count);
 
-			System.out.println("No Workmen Available for EHS Training ");
-
-		} else {
+		if (EHS_Card_Count > 0) {
 
 			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.EHS_training_history));
 			ObjectsReporsitory.EHS_training_history.click();
@@ -803,6 +802,10 @@ public class EHS_Create {
 			Screenshot.Screenshotforscenario();
 			Skill_Analysis_Objects.EHS_TrainingHistory_Close.click();
 			Thread.sleep(5000);
+
+		} else {
+			System.out.println("No Workmen Available for EHS Training ");
+
 		}
 
 	}
@@ -811,21 +814,33 @@ public class EHS_Create {
 	public static void Verify_user_can_be_able_to_select_workmen_profile_for_EHS_training_Validation()
 			throws Throwable {
 
-		System.out.println("Selecting 1 Workmen Profile for EHS Training");
-		Actions actions110 = new Actions(DriverFactory.driver);
-		actions110.moveToElement(ObjectsReporsitory.EHS_First_card);
-		actions110.perform();
-		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
-				ObjectsReporsitory.EHS_First_card);
+		EHS_Card_Count = Skill_Analysis_Objects.Dashboard_EHS_Card.size();
+		System.out.println("Workmen Count in EHS : " + EHS_Card_Count);
 
-		EHS_SelectedProfileforTraining = ObjectsReporsitory.EHS_SelectedWorkmenProfile.size();
-		System.out.println(EHS_SelectedProfileforTraining + " Workmen is Slected for Trainig Program");
+		if (EHS_Card_Count > 0) {
 
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.EHS_SelectTrainingProgram));
-		((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
-				ObjectsReporsitory.EHS_SelectTrainingProgram);
+			System.out.println("Selecting 1 Workmen Profile for EHS Training");
+			Actions actions110 = new Actions(DriverFactory.driver);
+			actions110.moveToElement(ObjectsReporsitory.EHS_First_card);
+			actions110.perform();
+			((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
+					ObjectsReporsitory.EHS_First_card);
 
-		System.out.println("Selected Workmen Count : " + ObjectsReporsitory.EHS_Selected_Workmen_Count_tab.getText());
-		wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.EHS_Submit_taining));
+			EHS_SelectedProfileforTraining = ObjectsReporsitory.EHS_SelectedWorkmenProfile.size();
+			System.out.println(EHS_SelectedProfileforTraining + " Workmen is Slected for Trainig Program");
+
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.EHS_SelectTrainingProgram));
+			((JavascriptExecutor) DriverFactory.driver).executeScript("arguments[0].click();",
+					ObjectsReporsitory.EHS_SelectTrainingProgram);
+
+			System.out
+					.println("Selected Workmen Count : " + ObjectsReporsitory.EHS_Selected_Workmen_Count_tab.getText());
+			wait.until(ExpectedConditions.elementToBeClickable(ObjectsReporsitory.EHS_Submit_taining));
+		}
+
+		else {
+			System.out.println("No Workmen Available for EHS Training ");
+
+		}
 	}
 }
